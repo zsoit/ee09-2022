@@ -1,0 +1,30 @@
+doctype html
+html(lang="pl")
+  head
+    meta(charset="utf-8")
+    title ee09
+    style
+        include index.css
+
+  body
+  -var item_classes = ['item', 'hidden']
+  main
+    nav
+        <p id="css" class="nav_item">CSS</p>
+        <p id="html" class="nav_item">HTML</p>
+        <p id="js" class="nav_item">JS</p>
+        <p id="php" class="nav_item">PHP</p>
+        <p id="sql" class="nav_item">mySQL</p>
+
+    div(class=item_classes class="html")
+        include:markdown-it notatki/html.md
+    div(class=item_classes class="css")
+        include:markdown-it notatki/css.md
+    div(class=item_classes class="php")
+        include:markdown-it notatki/php.md
+    div(class=item_classes class="js")
+        include:markdown-it notatki/java.md
+    div(class=item_classes class="sql")
+        include:markdown-it notatki/sql.md
+    script
+        include index.js

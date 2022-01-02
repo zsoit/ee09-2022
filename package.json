@@ -1,0 +1,14 @@
+{
+    "dependencies": {
+        "jstransformer-coffee-script": "^1.1.1",
+        "jstransformer-markdown-it": "^2.1.0",
+        "pug": "^3.0.2"
+    },
+    "scripts": {
+        "start:dev:": "parcel index.pug"
+    },
+    "devDependencies": {
+        "@parcel/transformer-pug": "^2.0.1",
+        "parcel": "^2.0.1"
+    }
+}

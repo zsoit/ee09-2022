@@ -56,7 +56,7 @@ p:first-letter {
 
 ## INNE
 ```css
-/*odsepy między literami */;
+/*odstępy między literami */;
 letter-spacing: 5px;
 
 /*
@@ -75,6 +75,7 @@ overflow: scroll;
 
 /* lista punktowana kwadratem */
 list-style-type: square;
+|circle|decimal|;
 
 /* styl czcionki: prosty, kursywa, pochylony */
 font-style: normal|italic|oblique;
