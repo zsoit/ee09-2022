@@ -33,8 +33,10 @@
 
 ```
 
+## TEORIA
 
-```js
+ZDARZENIA
+```JS
 onclick
 //klikniecie
 
@@ -44,19 +46,26 @@ onmouseover
 onmouseout
 //odjechanie myszką od obiektu
 
-//WŁAŚCIWOŚCI HTML
+```
+
+WŁAŚCIWOŚCI HTML
+```JS
 .checked
 .value
 .innerHTML
 .src
 .style
+```
 
-//FUNKCJE TEKSTOWE
+FUNKCJE TEKSTOWE
+```js
 .length() //ile znakow ma tekst
 .toUpperCase() //duze_litery
 .toLowerCase() //male_litery
+```
 
-//FUNKJE LICZBOWE
+FUNKJE LICZBOWE
+```js
 parseInt() //liczba całkowita
 parseFloat() //zmiennoprzecinkowa
 Number() //typ numeryczny

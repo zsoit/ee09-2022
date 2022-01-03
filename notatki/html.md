@@ -1,5 +1,6 @@
 # HTML
 
+## META
 ```html
 
 <!DOCTYPE html>
@@ -11,7 +12,8 @@
 </head>
 <body>
 
- <img src="obrazek.jpg" alt="Opis jakiegoś obrazka">
+    <img src="obrazek.jpg" alt="Opis jakiegoś obrazka">
+    <a href="mailto:ja@portal.pl">Napisz do mnie</a>
 
 
 </body>
@@ -19,16 +21,41 @@
 
 ```
 
-```html
-<h1> - <h6> //nagłówki danego stopnia
-<ol> //ordered list(lista numerowana)
-<ul> //unordered list(lista nienumerowana)
-<i> lub <em> //czcionka pochylona
-<b> lub <strong> //czcionka pogrubiona
-<sup> //indeks górny
-<sub> //indeks dolny
+## ZNACZNIKI
 
-//znaczniki html5
+nagłówki danego stopnia
+```<h1> - <h6>```
+
+akapit (paragraf)
+```<p>```
+
+linia pozioma
+```<hr>```
+
+odnośnik do strony
+```<a href="strona.html">Strona</a>```
+
+ordered list(lista numerowana)
+```<ol>```
+
+unordered list(lista nienumerowana), lista punktowa (nieuporządkowana)
+```<ul> ```
+
+czcionka pochylona
+```<i> lub <em>```
+
+czcionka pogrubiona
+```<b> lub <strong>```
+
+indeks dolny
+```<sup>```
+
+indeks górny
+```<sub>```
+
+
+## HTML5
+```html
 <header>
 <nav>
     <main>
@@ -41,7 +68,10 @@
     <summary>
 
 <figure>
-    <figcaption
+    <figcaption>
+
+<fieldset>
+    <legend>
 
 ```
 

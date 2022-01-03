@@ -1,88 +1,71 @@
 # CSS
 
 ## PODSTAWOWE
-```css
-/*marginesy wewnętrzne 10px */
-padding: 10px;
 
-/* marginesy zewnętrzne 10 px */
-margin: 10px;
+marginesy wewnętrzne 10px\
+```padding: 10px;```
 
-/* wyrównanie tekstu */
-text-align: center;
+marginesy zewnętrzne 10 px\
+```margin: 10px;```
 
-/* zaokrąglenie rogów obramowania 10 px */
-border-radius: 10px;
+wyrównanie tekstu\
+```text-align: center;```
 
-/* obramowanie */
-border: 2px solid red;
-            -dotted /*kropkowana*/
-            -double /*podowjna*/
+zaokrąglenie rogów obramowania 10 px\
+```border-radius: 10px;```
 
-/* pozycjonoanie */
-float: left/right;
+obramowanie [-dotted /*kropkowana*/, -double /*podowjna*/ ]\
+```border: 2px solid red;```
 
-/*reset float np. dla stopki i banera*/
-clear: both;
+pozycjonoanie\
+```float: left/right;```
 
-width: 200px;
-height: 1000px;
-
-background-color:  red;
-color: red;
-font-family: Arial;
-font-size: 12px;
-
+reset float np. dla stopki i banera\
+```clear: both;```
+```
+width: 200px; //szerokość
+height: 1000px; //wysokość
+background-color: red; //kolor tła
+color: red; //kolor czcionki
+font-family: Arial; //krój czcionki
+font-size: 12px; //rozmiar czcionki
 ```
 ## PSEOUDOKLASY
-```css
-/* po najechaniu myszką */
-p:hover{
-    color: red;
-}
 
-/* pierwsza linia paragrafu */
-p:first-line {
-    color: red;
-}
+po najechaniu myszką\
+```p:hover{color: red;}```
 
-/* pierwsza litera paragrafu */
-p:first-letter {
-    color: blue;
-}
+pierwsza linia paragrafu\
+```p:first-line {color: red;}```
 
-
-```
+pierwsza litera paragrafu\
+```p:first-letter {color: blue;}```
 
 ## INNE
-```css
-/*odstępy między literami */;
-letter-spacing: 5px;
+odstępy między literami\
+``` letter-spacing: 5px; ```
 
-/*
-- pierwsza litera zawsze wielka reszta normlanie
-- tekst napisany kapitalikami (capitalize)
-*/
-text-transform: capitalize|uppercase|lowercase;
+rozmiar wysokości wierszy\
+``` line-height: 1.5; ```
 
+pierwsza litera zawsze wielka reszta normlanie
+tekst napisany kapitalikami (capitalize)\
+``` text-transform: capitalize|uppercase|lowercase; ```
 
-/* obramowanie tabeli i komórki jest połączone */
-border-collapse: collapse;
-|separate|initial|inherit
+obramowanie tabeli i komórki jest połączone\
+``` border-collapse: collapse|separate|initial|inherit ```
 
-/* paski przesuwania (scroll) */
-overflow: scroll;
+paski przesuwania (scroll)\
+``` overflow: scroll; ```
 
-/* lista punktowana kwadratem */
-list-style-type: square;
-|circle|decimal|;
+lista punktowana kwadratem\
+``` list-style-type: square|circle|decimal; ```
 
-/* styl czcionki: prosty, kursywa, pochylony */
-font-style: normal|italic|oblique;
+styl czcionki: prosty, kursywa, pochylony\
+``` font-style: normal|italic|oblique; ```
 
-/* rodzaj pogrubienia czcionki */
-font-weight: bold;
+rodzaj pogrubienia czcionki\
+``` font-weight: bold; ```
 
 
-```
 
