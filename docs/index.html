@@ -196,6 +196,63 @@ Math.pow() //potega
         }
     &lt;/script&gt;
 
+</code></pre> <h2>Sprawdź cene</h2> <h3>Oblicza łączną cenę zabiegów wybranych z pola checkbox</h3> <pre><code class="language-html">&lt;input type=&quot;checkbox&quot; id=&quot;piling&quot;&gt;Pilling&lt;br&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;maska&quot;&gt;Maska&lt;br&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;masaz&quot;&gt;Masaż twarzy&lt;br&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;regulacja&quot;&gt; Regulacja brwi&lt;br&gt;
+&lt;button onclick=&quot;oblicz_cene()&quot;&gt;Sprawdź cenę&lt;/button&gt;&lt;br&gt;
+&lt;p id=&quot;wynik&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+    var wynik = document.getElementById('wynik');
+    var piling = document.getElementById('piling')
+    var maska = document.getElementById('maska')
+    var masaz = document.getElementById('masaz')
+    var regulacja = document.getElementById('regulacja');
+
+    function oblicz_cene() {
+        var cena = 0;
+        if (piling.checked) {
+            cena += 45;
+        }
+        if (maska.checked) {
+            cena += 30;
+        }
+        if (masaz.checked) {
+            cena += 20;
+        }
+        if (regulacja.checked) {
+            cena += 5;
+        }
+        wynik.innerHTML = 'Cena zabiegów: ' + cena;
+    }
+&lt;/script&gt;
+
+</code></pre> <h2>Ciąg arytmetyczny</h2> <h4>W pętli kazdy kolejny wyraz ciągu to wartosc poprzeniedniego ciągu + r</h4> <pre><code class="language-html">&lt;div id=&quot;prawy&quot;&gt;
+    &lt;h2&gt;Generowanie ciągu arytmetycznego&lt;/h2&gt;
+    Pierwszy wyraz A1: &lt;input type=&quot;number&quot; id=&quot;a1&quot;&gt;&lt;br&gt;
+    Różnica ciągu R: &lt;input type=&quot;number&quot; id=&quot;r&quot;&gt;&lt;br&gt;
+    Liczba wyrazów ciągu: &lt;input type=&quot;number&quot; id=&quot;n&quot;&gt;&lt;br&gt;
+    &lt;button onclick=&quot;ciag()&quot;&gt;Generuj Ciąg&lt;/button&gt;&lt;br&gt;
+    &lt;span id=&quot;wynik&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    function ciag() {
+
+        var a1 = parseInt(document.getElementById('a1').value);
+        var r = parseInt(document.getElementById('r').value);
+        var n = parseInt(document.getElementById('n').value);
+        var wynik = &quot;Ciąg artmetyczny zawiera wyrazy: &quot;;
+
+        wynik += a1;
+        for (var i = 1; i &lt; n; i++) {
+            a1 = a1 + r;
+            wynik += &quot;, &quot; + a1;
+        }
+        document.getElementById('wynik').innerHTML = wynik;
+    }
+&lt;/script&gt;
 </code></pre> </div><div class="hidden item sql"><h1>mySQL</h1> <h2>ZAPYTANIE</h2> <pre><code class="language-sql">//zapytania mysql
 
 ---Proszę wyświetlić wszystkie nazwy powiatów i nazwę województwa, należące do województwa śląskiego.

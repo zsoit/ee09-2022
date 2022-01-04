@@ -18,7 +18,6 @@ nameArray.forEach((e) => {
 })
 
 
-
 function clicked(url) {
     nameArray.forEach((e) => {
         if (url == e) document.querySelector(`#${e}`).click();
