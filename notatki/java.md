@@ -72,9 +72,9 @@ Math.pow() //potega
 ```
 
 ## Sprawdź hasło
-#### 7 lub więcej znaków i jedna cyfra - dobre
-#### od 4 do 6 znaków i jedna cyfra - średnie
-#### inne przypadki - słabe
+#### - 7 lub więcej znaków i jedna cyfra - dobre
+#### - od 4 do 6 znaków i jedna cyfra - średnie
+#### - inne przypadki - słabe
 
 ```html
     <input type="password" id="haslo"> <br>
