@@ -5,7 +5,8 @@
         "pug": "^3.0.2"
     },
     "scripts": {
-        "start:dev:": "npx parcel index.pug"
+        "dev": "npx parcel index.pug",
+        "github": "cp -rf dist/* docs/ && git add . && git commit -m 'update && git push'"
     },
     "devDependencies": {
         "@parcel/transformer-pug": "^2.0.1",

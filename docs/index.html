@@ -1,0 +1,568 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><title>ee09</title><style>body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #010409;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    border: 2px solid gray;
+    padding: 20px;
+    border-radius: 20px;
+    padding: 50px;
+    min-width: 600px;
+    max-width: 800px;
+    background-color: #0d1117;
+}
+
+h1 {
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    border-radius: 20px;
+    /* width: 50px; */
+    padding: 20px;
+    color: lightgreen;
+}
+
+h2 {
+    border-bottom: 0.5px solid lightgray;
+    padding-bottom: 2px;
+}
+
+h2::before {
+    content: '\27A4 ';
+    margin-right: 10px;
+    color: lightgreen;
+}
+
+pre {
+    background-color: #0d1117;
+    color: white;
+    min-width: 600px;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 20px;
+    word-wrap: break-word;
+}
+
+.hidden {
+    display: none;
+}
+
+nav {
+    display: flex;
+    padding: 20px;
+}
+
+.nav_item {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.nav_item:hover {
+    color: lightseagreen;
+}
+
+.active_nav {
+    color: lightseagreen;
+}
+
+.item p {
+    color: #6a9955;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+code {
+    color: lightskyblue;
+    line-height: 1.5;
+    background-color: #0d1117;
+    border-radius: 20px;
+    font-size: 16px;
+    font-style: normal;
+}
+
+.item p::before {
+    content: '// ';
+}
+
+h4 {
+    font-weight: normal;
+}
+</style></head><body></body><main><nav><p id="css" class="nav_item">CSS</p>
+<p id="html" class="nav_item">HTML</p>
+<p id="js" class="nav_item">JS</p>
+<p id="php" class="nav_item">PHP</p>
+<p id="sql" class="nav_item">mySQL</p></nav><div class="item hidden html"><h1>HTML</h1>
+<h2>META</h2>
+<pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pl&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Tytuł strony&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styl3.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;img src=&quot;obrazek.jpg&quot; alt=&quot;Opis jakiegoś obrazka&quot;&gt;
+    &lt;a href=&quot;mailto:ja@portal.pl&quot;&gt;Napisz do mnie&lt;/a&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+<h2>ZNACZNIKI</h2>
+<p>nagłówki danego stopnia
+<code>&lt;h1&gt; - &lt;h6&gt;</code></p>
+<p>akapit (paragraf)
+<code>&lt;p&gt;</code></p>
+<p>linia pozioma
+<code>&lt;hr&gt;</code></p>
+<p>odnośnik do strony
+<code>&lt;a href=&quot;strona.html&quot;&gt;Strona&lt;/a&gt;</code></p>
+<p>ordered list(lista numerowana)
+<code>&lt;ol&gt;</code></p>
+<p>unordered list(lista nienumerowana), lista punktowa (nieuporządkowana)
+<code>&lt;ul&gt;</code></p>
+<p>czcionka pochylona
+<code>&lt;i&gt; lub &lt;em&gt;</code></p>
+<p>czcionka pogrubiona
+<code>&lt;b&gt; lub &lt;strong&gt;</code></p>
+<p>indeks dolny
+<code>&lt;sup&gt;</code></p>
+<p>indeks górny
+<code>&lt;sub&gt;</code></p>
+<h2>HTML5</h2>
+<pre><code class="language-html">&lt;header&gt;
+&lt;nav&gt;
+    &lt;main&gt;
+    &lt;section&gt;
+    &lt;article&gt;
+    &lt;aside&gt;
+&lt;footer&gt;
+
+&lt;details&gt;
+    &lt;summary&gt;
+
+&lt;figure&gt;
+    &lt;figcaption&gt;
+
+&lt;fieldset&gt;
+    &lt;legend&gt;
+
+</code></pre>
+<h2>FORMULARZE</h2>
+<pre><code class="language-html">
+&lt;input type=&quot;text&quot; name=&quot;pole-tekstowe&quot;&gt;
+&lt;input type=&quot;numer&quot; name=&quot;pole-tekstowe&quot;&gt;
+
+
+&lt;!-- lista rozwijana--&gt;
+&lt;select name=&quot;lista&quot;&gt;
+    &lt;option selected&gt;Mężczyzna&lt;/option&gt;
+    &lt;option&gt;Kobieta&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- większa ilość tekstu, np. komentarz na stornie internetowej --&gt;
+&lt;textarea name=&quot;komentarz&quot; rows=&quot;4&quot; cols=&quot;20&quot;&gt;Popisz sobie&lt;/textarea&gt;
+
+
+
+</code></pre>
+<h2>TABELKI</h2>
+<h4>colspan - rozszerza w poziomie</h4>
+<h4>rowspan - rozszerza w pionie</h4>
+<pre><code class="language-html">
+    &lt;table border=&quot;1&quot;&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Imie&lt;/th&gt;
+            &lt;th&gt;Nazwisko&lt;/th&gt;
+            &lt;th&gt;Wiek&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Masny&lt;/td&gt;
+            &lt;td&gt;Ben&lt;/td&gt;
+            &lt;td&gt;22&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan=&quot;2&quot;&gt;Jan&lt;/td&gt;
+            &lt;td&gt;Kowalski&lt;/td&gt;
+            &lt;td&gt;48 lat&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan=&quot;2&quot;&gt;Nowak&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+</code></pre>
+</div><div class="item hidden css"><h1>CSS</h1>
+<h2>PODSTAWOWE</h2>
+<p>marginesy wewnętrzne 10px<br>
+<code>padding: 10px;</code></p>
+<p>marginesy zewnętrzne 10 px<br>
+<code>margin: 10px;</code></p>
+<p>wyrównanie tekstu<br>
+<code>text-align: center;</code></p>
+<p>zaokrąglenie rogów obramowania 10 px<br>
+<code>border-radius: 10px;</code></p>
+<p>obramowanie [-dotted /<em>kropkowana</em>/, -double /<em>podowjna</em>/ ]<br>
+<code>border: 2px solid red;</code></p>
+<p>pozycjonoanie<br>
+<code>float: left/right;</code></p>
+<p>reset float np. dla stopki i banera<br>
+<code>clear: both;</code></p>
+<pre><code>width: 200px; //szerokość
+height: 1000px; //wysokość
+background-color: red; //kolor tła
+color: red; //kolor czcionki
+font-family: Arial; //krój czcionki
+font-size: 12px; //rozmiar czcionki
+</code></pre>
+<h2>PSEOUDOKLASY</h2>
+<p>po najechaniu myszką<br>
+<code>p:hover{color: red;}</code></p>
+<p>pierwsza linia paragrafu<br>
+<code>p:first-line {color: red;}</code></p>
+<p>pierwsza litera paragrafu<br>
+<code>p:first-letter {color: blue;}</code></p>
+<h2>INNE</h2>
+<p>odstępy między literami<br>
+<code>letter-spacing: 5px;</code></p>
+<p>rozmiar wysokości wierszy<br>
+<code>line-height: 1.5;</code></p>
+<p>pierwsza litera zawsze wielka reszta normlanie
+tekst napisany kapitalikami (capitalize)<br>
+<code>text-transform: capitalize|uppercase|lowercase;</code></p>
+<p>obramowanie tabeli i komórki jest połączone<br>
+<code>border-collapse: collapse|separate|initial|inherit</code></p>
+<p>paski przesuwania (scroll)<br>
+<code>overflow: scroll;</code></p>
+<p>lista punktowana kwadratem<br>
+<code>list-style-type: square|circle|decimal;</code></p>
+<p>styl czcionki: prosty, kursywa, pochylony<br>
+<code>font-style: normal|italic|oblique;</code></p>
+<p>rodzaj pogrubienia czcionki<br>
+<code>font-weight: bold;</code></p>
+</div><div class="item hidden php"><h1>PHP</h1>
+<h2>POŁACZENIE Z BAZĄ DANYCH</h2>
+<h4>Nawiązanie połączenia i  wyświetlenie danych z tabeli</h4>
+<pre><code class="language-php">&lt;?php
+$pol = mysqli_connect('localhost','root','','baza');
+if(!$pol) exit('Nie połączono z bazą!');
+$sql = &quot;SELECT Imie,Nazwisko FROM baza&quot;;
+$zapytanie = mysqli_query($pol,$sql);
+while($wynik = mysqli_fetch_assoc($zapytanie) )
+{
+    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
+    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
+}
+mysqli_close($pol);
+?&gt;
+</code></pre>
+<h2>TWORZENIE CIASTECZEK</h2>
+<pre><code class="language-php">&lt;?php
+$nazwa = &quot;komunikat&quot;;
+$wartosc = &quot;informacja o ciasteczkach&quot;;
+
+if(isset($_COOKIE[$nazwa]))
+{
+    echo &quot;&lt;p&gt;&lt;b&gt;Miło nam że nas znowu odwiedziłeś!&lt;/b&gt;&lt;/p&gt;&quot;;
+}
+else{
+    setcookie($nazwa,$wartosc,time()+3600);
+    echo &quot;&lt;p&gt;&lt;i&gt;Dzień dobry! Sprawdź regulamin naszej strony!&lt;/i&gt;&lt;/p&gt;&quot;;
+}
+?&gt;
+</code></pre>
+<h2>SKRYPT 1 - FORMULARZ</h2>
+<h4>odbiera dane przesłane z formularza</h4>
+<p>-Jeśli pole edycyjne jest puste nie jest wykonywana żadna akcja
+-Jeżeli wpisano dane skrypt wysyła do bazy danych zmodyfikowane zapytanie 2 tak, że w warunku
+id pozycji jest równe wartości z pola edycyjnego
+-Wyświetla zwrócone zapytaniem dane: imiona i nazwiska w paragrafach, jako elementy listy
+punktowanej</p>
+<pre><code class="language-php">&lt;?php
+$pol = mysqli_connect('localhost','root','','baza');
+if(!$pol) exit('Nie połączono z bazą!');
+$sql = &quot;SELECT Imie,Nazwisko FROM baza&quot;;
+$zapytanie = mysqli_query($pol,$sql);
+while($wynik = mysqli_fetch_assoc($zapytanie) )
+{
+    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
+    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
+}
+mysqli_close($pol);
+?&gt;
+</code></pre>
+<h2>USUWANIE REKORDU</h2>
+<pre><code class="language-php">&lt;?php
+$pol = mysqli_connect('localhost','root','','baza');
+if(!$pol) exit('Nie połączono z bazą!');
+$sql = &quot;SELECT Imie,Nazwisko FROM baza&quot;;
+$zapytanie = mysqli_query($pol,$sql);
+while($wynik = mysqli_fetch_assoc($zapytanie) )
+{
+    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
+    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
+}
+mysqli_close($pol);
+?&gt;
+</code></pre>
+</div><div class="item hidden js"><h1>JavaScript</h1>
+<h2>TEORIA</h2>
+<p>ZDARZENIA</p>
+<pre><code class="language-JS">onclick //klikniecie
+
+onmouseover //najechanie myszką na obiekt
+
+onmouseout //odjechanie myszką od obiektu
+
+</code></pre>
+<p>WŁAŚCIWOŚCI HTML</p>
+<pre><code class="language-JS">.checked
+.value
+.innerHTML
+.src
+.style
+.length //dlugosc_znakow
+</code></pre>
+<p>FUNKCJE</p>
+<pre><code class="language-js">.split(&quot;&quot;) //zmienia, tekst na tablice znaków
+
+.toUpperCase() //duze_litery
+.toLowerCase() //male_litery
+
+isNan() //sprawdza_czy_nie_jest_liczba
+parseInt() //liczba całkowita
+parseFloat() //zmiennoprzecinkowa
+Number() //typ numeryczny
+Math.sqr() //pierwiastek
+Math.pow() //potega
+</code></pre>
+<h2>Zmiana obrazka po najechaniu</h2>
+<pre><code class="language-html">&lt;img src=&quot;obrazek1.jpg&quot; id=&quot;obraz&quot; onmouseover=&quot;zmien()&quot; onmouseout=&quot;wroc()&quot;&gt;
+
+&lt;script&gt;
+    var obraz = document.getElementById('obraz');
+
+    function zmien()
+    {
+        obraz.src = &quot;obrazek2.jpg&quot;;
+    }
+
+    function wroc()
+    {
+        obraz.src = &quot;obrazek1.jpg&quot;;
+    }
+&lt;/script&gt;
+
+</code></pre>
+<h2>Zmiana stylu</h2>
+<pre><code class="language-html">
+&lt;script&gt;
+    var element = document.getElementById('#element');
+    element.style.color=&quot;red&quot;;
+    element.style.backgroundColor = &quot;black&quot;;
+    element.style.fontSize = &quot;48px&quot;;
+    element.style.fontStyle = 'italic';
+&lt;/script&gt;
+
+</code></pre>
+<h2>Sprawdź hasło</h2>
+<h4>7 lub więcej znaków i jedna cyfra - dobre</h4>
+<h4>od 4 do 6 znaków i jedna cyfra - średnie</h4>
+<h4>inne przypadki - słabe</h4>
+<pre><code class="language-html">    &lt;input type=&quot;password&quot; id=&quot;haslo&quot;&gt; &lt;br&gt;
+    &lt;button onclick=&quot;sprawdzHaslo()&quot;&gt;SPRAWDZ HASLO&lt;/button&gt;
+    &lt;p id=&quot;wynik&quot;&gt;&lt;/p&gt;
+    &lt;script&gt;
+        function sprawdzHaslo() {
+            var haslo = document.getElementById('haslo');
+            var wynik = document.getElementById('wynik');
+            var dlugosc_hasla = haslo.value.length;
+            // sprawdza_czy_haslo_ma_cyfre
+            var czy_cyfra = false;
+            var tablica = haslo.value.split(&quot;&quot;)
+            for (var i = 0; i &lt; dlugosc_hasla; i++) {
+                console.log(tablica[i]);
+                if (!isNaN(tablica[i])) czy_cyfra = true;
+            }
+
+            if (dlugosc_hasla &gt;= 7 &amp;&amp; czy_cyfra == true) {
+                wynik.innerHTML = &quot;DOBRE&quot;;
+            } else if (dlugosc_hasla &gt;= 4 &amp;&amp; dlugosc_hasla &lt;= 6 &amp;&amp; czy_cyfra == true) {
+                wynik.innerHTML = &quot;ŚREDNIE&quot;;
+            } else {
+                wynik.innerHTML = &quot;SŁABE&quot;;
+            }
+        }
+    &lt;/script&gt;
+
+</code></pre>
+</div><div class="item hidden sql"><h1>mySQL</h1>
+<h2>ZAPYTANIE</h2>
+<pre><code class="language-sql">//zapytania mysql
+
+---Proszę wyświetlić wszystkie nazwy powiatów i nazwę województwa, należące do województwa śląskiego.
+select
+	powiaty.nazwa
+from
+	powiaty
+join
+	wojewodztwa
+on
+	wojewodztwa.idwojewodztwa=powiaty.idwojewodztwa
+where
+	wojewodztwa.nazwa='slaskie'
+;
+---Proszę wyświetlić wszystkie województwa, których nazwa zaczyna się na literę P.
+select
+	nazwa
+from
+	wojewodztwa
+where
+	wojewodztwa.nazwa like 'p%'
+;
+--Proszę policzyć ile jest powiatów w każdym województwie
+select
+	w.nazwa,
+	count(p.idpowiatu)
+from
+	powiaty as p
+join
+	wojewodztwa as w
+on
+	w.idwojewodztwa=p.idwojewodztwa
+group by w.nazwa
+;
+--Proszę policzyć ile jest gmin w każdym powiecie województwa pomorskiego lub lubuskiego
+select
+p.nazwa, p.idwojewodztwa, count(*)
+from
+gminy as g
+join
+powiaty as p
+on
+g.idpowiatu=p.idpowiatu
+where p.idwojewodztwa = 11 or p.idwojewodztwa = 5
+group by p.nazwa
+order by p.idwojewodztwa
+;
+---Proszę wyświetlić wszystkich obserawotrów (imię, nazwisko, płeć oraz rok urodzenia) z tabeli obserwatorzy, którzy:
+---urodzili się w latach 1980-1985 i są mężczyznami
+---albo
+---urodzili się w latach 1990-1993 i są kobietami
+
+select
+	imie,
+	nazwisko,
+	czykobieta,
+	dataurodzenia
+from
+	obserwatorzy
+where
+	(year(dataurodzenia)between 1980 and 1985 and czykobieta = false)
+	or
+	(dataurodzenia between '1990-01-01' and '1993-12-31' and czykobieta = 1)
+order by year
+	(dataurodzenia)
+;
+
+
+//złączenia tabel
+select
+	g.NazwaPL, g.idstatusu
+from
+	Rzedy as rz
+join
+	Rodziny as r
+on
+	r.idrzedu = rz.IdRzedu
+join
+	Gatunki as g
+on
+	g.IdRodziny = r.Idrodziny
+join
+	StatusyOchrony as s
+on
+	g.IdStatusu = s.IdStatusu
+join
+	TypyPobytu as t
+on
+	g.IdTypu = t.IdTypu
+where	(
+		g.nazwaPL like 'j%'
+		or
+		g.nazwaPL like 'r%'
+		)
+
+	and
+	s.nazwa = &quot;pod ścisłą ochroną&quot;
+
+	and
+	t.nazwa= &quot;zalatuje&quot;
+;
+
+
+//tworzenie bazy danych i tabeli
+create table auto_domyslna
+(
+id int PRIMARY key auto_INCREMENT,
+imie varchar(15) not null,
+nazwisko VARCHAR(40) not null,
+pesel char(11) UNIQUE,
+telefon char(9) DEFAULT 'brak'
+)
+---------------------------------------
+create database szkola2021;
+
+use szkola2021;
+
+create table informatyk
+(
+idInformatyk int PRIMARY key,
+Imie varchar(20),
+Nazwisko varchar(30),
+Klasa varchar(30)
+)
+//dodwanie informacji do bazy
+INSERT INTO informatyk values (1,'Jan','Kowalski','4TI');
+
+INSERT INTO informatyk -nazwa tabeli values (1,'Jan','Kowalski','4TI')-wartości ;
+
+//tworzenie użytkowników i dodawanie uprawnien
+
+create user kasia@localhost IDENTIFIED by 'qwerty'; //tworzy uzytkownika z hasłem qwerty
+rename user kasia to katarzyna ; zmienia nazwe z kasia na katarzyna
+create user katarzyna@localhost by 'qwerty2';
+set password for katarzyna = 'qwerty2';
+create user piotr@localhost IDENTIFIED by 'qwerty' GRANT all PRIVILEGES on *.* to piotr@localhost;
+//
+</code></pre>
+</div><script>const nameArray = [
+    'css',
+    'html',
+    'php',
+    'js',
+    'sql'
+];
+function resetActiveNow() {
+    nameArray.forEach((e)=>{
+        document.querySelector(`.${e}`).classList.add('hidden');
+        document.querySelector(`#${e}`).classList.remove('active_nav');
+    });
+}
+function ToggleClass(e) {
+    resetActiveNow();
+    document.querySelector(`.${e}`).classList.toggle('hidden');
+    document.querySelector(`#${e}`).classList.toggle('active_nav');
+    document.title = `ee09.${e}`;
+}
+nameArray.forEach((e)=>{
+    document.querySelector(`#${e}`).addEventListener('click', ()=>ToggleClass(e)
+    );
+});
+
+</script></main></html>
