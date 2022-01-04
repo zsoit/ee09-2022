@@ -16,3 +16,19 @@ function ToggleClass(e) {
 nameArray.forEach((e) => {
     document.querySelector(`#${e}`).addEventListener('click', () => ToggleClass(e));
 })
+
+
+
+function clicked(url) {
+    nameArray.forEach((e) => {
+        if (url == e) document.querySelector(`#${e}`).click();
+    })
+}
+
+function get_url() {
+    let url = document.URL;
+    let params = (new URL(url)).searchParams;
+    params.getAll('a').forEach(e => clicked(e))
+}
+
+get_url();

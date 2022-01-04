@@ -6,9 +6,7 @@
 ZDARZENIA
 ```JS
 onclick //klikniecie
-
 onmouseover //najechanie myszką na obiekt
-
 onmouseout //odjechanie myszką od obiektu
 
 ```

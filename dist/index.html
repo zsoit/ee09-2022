@@ -58,6 +58,7 @@ nav {
 .nav_item {
     padding: 20px;
     cursor: pointer;
+    margin: 16px;
 }
 
 .nav_item:hover {
@@ -89,6 +90,12 @@ code {
 
 h4 {
     font-weight: normal;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: white;
 }
 </style></head><body></body><main><nav><p id="css" class="nav_item">CSS</p>
 <p id="html" class="nav_item">HTML</p>
@@ -314,9 +321,7 @@ mysqli_close($pol);
 <h2>TEORIA</h2>
 <p>ZDARZENIA</p>
 <pre><code class="language-JS">onclick //klikniecie
-
 onmouseover //najechanie myszką na obiekt
-
 onmouseout //odjechanie myszką od obiektu
 
 </code></pre>
@@ -564,5 +569,17 @@ nameArray.forEach((e)=>{
     document.querySelector(`#${e}`).addEventListener('click', ()=>ToggleClass(e)
     );
 });
+function clicked(url) {
+    nameArray.forEach((e)=>{
+        if (url == e) document.querySelector(`#${e}`).click();
+    });
+}
+function get_url() {
+    let url = document.URL;
+    let params = new URL(url).searchParams;
+    params.getAll('a').forEach((e)=>clicked(e)
+    );
+}
+get_url();
 
 </script></main></html>

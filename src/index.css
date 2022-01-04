@@ -58,6 +58,7 @@ nav {
 .nav_item {
     padding: 20px;
     cursor: pointer;
+    margin: 16px;
 }
 
 .nav_item:hover {
@@ -89,4 +90,10 @@ code {
 
 h4 {
     font-weight: normal;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: white;
 }
