@@ -95,3 +95,30 @@ indeks górny
 
 
 ```
+
+## TABELKI
+#### colspan - rozszerza w poziomie
+#### rowspan - rozszerza w pionie
+```html
+
+    <table border="1">
+        <tr>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Wiek</th>
+        </tr>
+        <tr>
+            <td>Masny</td>
+            <td>Ben</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Jan</td>
+            <td>Kowalski</td>
+            <td>48 lat</td>
+        </tr>
+        <tr>
+            <td colspan="2">Nowak</td>
+        </tr>
+    </table>
+```

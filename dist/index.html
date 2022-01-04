@@ -172,6 +172,31 @@ h4 {
 
 
 </code></pre>
+<h2>TABELKI</h2>
+<h4>colspan - rozszerza w poziomie</h4>
+<h4>rowspan - rozszerza w pionie</h4>
+<pre><code class="language-html">
+    &lt;table border=&quot;1&quot;&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Imie&lt;/th&gt;
+            &lt;th&gt;Nazwisko&lt;/th&gt;
+            &lt;th&gt;Wiek&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Masny&lt;/td&gt;
+            &lt;td&gt;Ben&lt;/td&gt;
+            &lt;td&gt;22&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan=&quot;2&quot;&gt;Jan&lt;/td&gt;
+            &lt;td&gt;Kowalski&lt;/td&gt;
+            &lt;td&gt;48 lat&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan=&quot;2&quot;&gt;Nowak&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+</code></pre>
 </div><div class="item hidden css"><h1>CSS</h1>
 <h2>PODSTAWOWE</h2>
 <p>marginesy wewnętrzne 10px<br>
@@ -286,6 +311,36 @@ mysqli_close($pol);
 ?&gt;
 </code></pre>
 </div><div class="item hidden js"><h1>JavaScript</h1>
+<h2>TEORIA</h2>
+<p>ZDARZENIA</p>
+<pre><code class="language-JS">onclick //klikniecie
+
+onmouseover //najechanie myszką na obiekt
+
+onmouseout //odjechanie myszką od obiektu
+
+</code></pre>
+<p>WŁAŚCIWOŚCI HTML</p>
+<pre><code class="language-JS">.checked
+.value
+.innerHTML
+.src
+.style
+.length //dlugosc_znakow
+</code></pre>
+<p>FUNKCJE</p>
+<pre><code class="language-js">.split(&quot;&quot;) //zmienia, tekst na tablice znaków
+
+.toUpperCase() //duze_litery
+.toLowerCase() //male_litery
+
+isNan() //sprawdza_czy_nie_jest_liczba
+parseInt() //liczba całkowita
+parseFloat() //zmiennoprzecinkowa
+Number() //typ numeryczny
+Math.sqr() //pierwiastek
+Math.pow() //potega
+</code></pre>
 <h2>Zmiana obrazka po najechaniu</h2>
 <pre><code class="language-html">&lt;img src=&quot;obrazek1.jpg&quot; id=&quot;obraz&quot; onmouseover=&quot;zmien()&quot; onmouseout=&quot;wroc()&quot;&gt;
 
@@ -315,36 +370,36 @@ mysqli_close($pol);
 &lt;/script&gt;
 
 </code></pre>
-<h2>TEORIA</h2>
-<p>ZDARZENIA</p>
-<pre><code class="language-JS">onclick
-//klikniecie
+<h2>Sprawdź hasło</h2>
+<h4>7 lub więcej znaków i jedna cyfra - dobre</h4>
+<h4>od 4 do 6 znaków i jedna cyfra - średnie</h4>
+<h4>inne przypadki - słabe</h4>
+<pre><code class="language-html">    &lt;input type=&quot;password&quot; id=&quot;haslo&quot;&gt; &lt;br&gt;
+    &lt;button onclick=&quot;sprawdzHaslo()&quot;&gt;SPRAWDZ HASLO&lt;/button&gt;
+    &lt;p id=&quot;wynik&quot;&gt;&lt;/p&gt;
+    &lt;script&gt;
+        function sprawdzHaslo() {
+            var haslo = document.getElementById('haslo');
+            var wynik = document.getElementById('wynik');
+            var dlugosc_hasla = haslo.value.length;
+            // sprawdza_czy_haslo_ma_cyfre
+            var czy_cyfra = false;
+            var tablica = haslo.value.split(&quot;&quot;)
+            for (var i = 0; i &lt; dlugosc_hasla; i++) {
+                console.log(tablica[i]);
+                if (!isNaN(tablica[i])) czy_cyfra = true;
+            }
 
-onmouseover
-//najechanie myszką na obiekt
+            if (dlugosc_hasla &gt;= 7 &amp;&amp; czy_cyfra == true) {
+                wynik.innerHTML = &quot;DOBRE&quot;;
+            } else if (dlugosc_hasla &gt;= 4 &amp;&amp; dlugosc_hasla &lt;= 6 &amp;&amp; czy_cyfra == true) {
+                wynik.innerHTML = &quot;ŚREDNIE&quot;;
+            } else {
+                wynik.innerHTML = &quot;SŁABE&quot;;
+            }
+        }
+    &lt;/script&gt;
 
-onmouseout
-//odjechanie myszką od obiektu
-
-</code></pre>
-<p>WŁAŚCIWOŚCI HTML</p>
-<pre><code class="language-JS">.checked
-.value
-.innerHTML
-.src
-.style
-</code></pre>
-<p>FUNKCJE TEKSTOWE</p>
-<pre><code class="language-js">.length() //ile znakow ma tekst
-.toUpperCase() //duze_litery
-.toLowerCase() //male_litery
-</code></pre>
-<p>FUNKJE LICZBOWE</p>
-<pre><code class="language-js">parseInt() //liczba całkowita
-parseFloat() //zmiennoprzecinkowa
-Number() //typ numeryczny
-Math.sqr() //pierwiastek
-Math.pow() //potega
 </code></pre>
 </div><div class="item hidden sql"><h1>mySQL</h1>
 <h2>ZAPYTANIE</h2>
