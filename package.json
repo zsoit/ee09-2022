@@ -6,10 +6,12 @@
     },
     "scripts": {
         "dev": "npx parcel index.pug",
-        "github": "rm -rf docs/*  && cp -rf dist/* docs/ && git add . && git commit -m 'update' && git push"
+        "github": "rm -rf docs/*  && cp -rf dist/* docs/ && git add . && git commit -m 'update' && git push",
+        "b": "parcel build index.pug --dist-dir docs && git add . && git commit -m 'update' && git push"
     },
     "devDependencies": {
         "@parcel/transformer-pug": "^2.0.1",
+        "babel-plugin-react-transform": "^2.0.0-beta1",
         "parcel": "^2.0.1"
     }
 }
