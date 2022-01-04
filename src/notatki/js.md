@@ -104,7 +104,7 @@ Math.pow() //potega
 ```
 
 ## Sprawdź cene
-### Oblicza łączną cenę zabiegów wybranych z pola checkbox
+#### Oblicza łączną cenę zabiegów wybranych z pola checkbox
 
 ```html
 <input type="checkbox" id="piling">Pilling<br>
