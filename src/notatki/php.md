@@ -19,6 +19,8 @@ mysqli_close($pol);
 ```
 
 ## TWORZENIE CIASTECZEK
+#### setcookie($nazwa,$wartosc,$czas)
+Przykład 1
 ```php
 <?php
 $nazwa = "komunikat";
@@ -33,6 +35,27 @@ else{
     echo "<p><i>Dzień dobry! Sprawdź regulamin naszej strony!</i></p>";
 }
 ?>
+```
+
+Przykład 2
+```php
+
+<?php
+if(isset($_COOKIE["ciasteczko"]))
+{
+    echo "<i>Witamj ponowien na stronie lotniska</i>";
+}
+else
+{
+    $nazwa="ciasteczko";
+    $wartosc="1";
+    $czas=time()+7200;
+    setcookie($nazwa,$wartosc,$czas);
+    echo "<b>Dzień dobry strona używa ciasteczek</b>";
+}
+?>
+
+
 ```
 
 

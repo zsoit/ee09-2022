@@ -4,6 +4,7 @@ body {
     color: white;
     display: flex;
     justify-content: center;
+    zoom: 89%;
 }
 
 main {
@@ -25,6 +26,11 @@ h1 {
     color: lightgreen;
 }
 
+h6 {
+    color: transparent;
+    font-size: 0.00001px;
+}
+
 h2 {
     border-bottom: 0.5px solid lightgray;
     padding-bottom: 2px;
@@ -39,8 +45,9 @@ h2::before {
 pre {
     background-color: #0d1117;
     color: white;
-    min-width: 600px;
-    max-width: 800px;
+    width: 800px;
+    /* min-width: 600px; */
+    /* max-width: 800px; */
     padding: 20px;
     border-radius: 20px;
     word-wrap: break-word;
@@ -80,8 +87,16 @@ code {
     line-height: 1.5;
     background-color: #0d1117;
     border-radius: 20px;
-    font-size: 16px;
-    font-style: normal;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
 }
 
 .item p::before {
@@ -95,5 +110,34 @@ h4 {
 a,
 a:visited {
     text-decoration: none;
+    /* color: white; */
+}
+
+a:visited {
     color: white;
+}
+
+a:hover {
+    color: lightgreen;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30%;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: darkred;
+    color: white;
+    cursor: pointer;
+    padding: 40px;
+    border-radius: 140%;
+    font-style: bold;
+}
+
+#myBtn:hover {
+    background-color: #555;
 }

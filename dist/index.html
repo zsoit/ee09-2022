@@ -4,6 +4,7 @@
     color: white;
     display: flex;
     justify-content: center;
+    zoom: 89%;
 }
 
 main {
@@ -25,6 +26,11 @@ h1 {
     color: lightgreen;
 }
 
+h6 {
+    color: transparent;
+    font-size: 0.00001px;
+}
+
 h2 {
     border-bottom: 0.5px solid lightgray;
     padding-bottom: 2px;
@@ -39,8 +45,9 @@ h2::before {
 pre {
     background-color: #0d1117;
     color: white;
-    min-width: 600px;
-    max-width: 800px;
+    width: 800px;
+    /* min-width: 600px; */
+    /* max-width: 800px; */
     padding: 20px;
     border-radius: 20px;
     word-wrap: break-word;
@@ -80,8 +87,16 @@ code {
     line-height: 1.5;
     background-color: #0d1117;
     border-radius: 20px;
-    font-size: 16px;
-    font-style: normal;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
 }
 
 .item p::before {
@@ -95,9 +110,38 @@ h4 {
 a,
 a:visited {
     text-decoration: none;
+    /* color: white; */
+}
+
+a:visited {
     color: white;
 }
-</style></head><body></body><main><nav><p id="css" class="nav_item">CSS</p>
+
+a:hover {
+    color: lightgreen;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30%;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: darkred;
+    color: white;
+    cursor: pointer;
+    padding: 40px;
+    border-radius: 140%;
+    font-style: bold;
+}
+
+#myBtn:hover {
+    background-color: #555;
+}
+</style></head><body><button id="myBtn">&#8682; góra</button></body><main><nav><p id="css" class="nav_item">CSS</p>
 <p id="html" class="nav_item">HTML</p>
 <p id="js" class="nav_item">JS</p>
 <p id="php" class="nav_item">PHP</p>
@@ -269,6 +313,8 @@ mysqli_close($pol);
 ?&gt;
 </code></pre>
 <h2>TWORZENIE CIASTECZEK</h2>
+<h4>setcookie($nazwa,$wartosc,$czas)</h4>
+<p>Przykład 1</p>
 <pre><code class="language-php">&lt;?php
 $nazwa = &quot;komunikat&quot;;
 $wartosc = &quot;informacja o ciasteczkach&quot;;
@@ -282,6 +328,25 @@ else{
     echo &quot;&lt;p&gt;&lt;i&gt;Dzień dobry! Sprawdź regulamin naszej strony!&lt;/i&gt;&lt;/p&gt;&quot;;
 }
 ?&gt;
+</code></pre>
+<p>Przykład 2</p>
+<pre><code class="language-php">
+&lt;?php
+if(isset($_COOKIE[&quot;ciasteczko&quot;]))
+{
+    echo &quot;&lt;i&gt;Witamj ponowien na stronie lotniska&lt;/i&gt;&quot;;
+}
+else
+{
+    $nazwa=&quot;ciasteczko&quot;;
+    $wartosc=&quot;1&quot;;
+    $czas=time()+7200;
+    setcookie($nazwa,$wartosc,$czas);
+    echo &quot;&lt;b&gt;Dzień dobry strona używa ciasteczek&lt;/b&gt;&quot;;
+}
+?&gt;
+
+
 </code></pre>
 <h2>SKRYPT 1 - FORMULARZ</h2>
 <h4>odbiera dane przesłane z formularza</h4>
@@ -318,6 +383,17 @@ mysqli_close($pol);
 ?&gt;
 </code></pre>
 </div><div class="item hidden js"><h1>JavaScript</h1>
+<ul>
+<li><a href="#0">Zmiana obrazka</a></li>
+<li><a href="#1">Zmiana stylu</a></li>
+<li><a href="#2">Sprawdz haslo</a></li>
+<li><a href="#3">Sprawdz cene</a></li>
+<li><a href="#4">Ciag arytmetyczny</a></li>
+<li><a href="#5">Koszt dostawy</a></li>
+<li><a href="#6">Zgoda na regulamin</a></li>
+<li><a href="#7">Koszt dostawy</a></li>
+<li><a href="#8">Wesele</a></li>
+</ul>
 <h2>TEORIA</h2>
 <p>ZDARZENIA</p>
 <pre><code class="language-JS">onclick //klikniecie
@@ -346,6 +422,7 @@ Number() //typ numeryczny
 Math.sqr() //pierwiastek
 Math.pow() //potega
 </code></pre>
+<h6>0</h6>
 <h2>Zmiana obrazka po najechaniu</h2>
 <pre><code class="language-html">&lt;img src=&quot;obrazek1.jpg&quot; id=&quot;obraz&quot; onmouseover=&quot;zmien()&quot; onmouseout=&quot;wroc()&quot;&gt;
 
@@ -364,6 +441,7 @@ Math.pow() //potega
 &lt;/script&gt;
 
 </code></pre>
+<h6>1</h6>
 <h2>Zmiana stylu</h2>
 <pre><code class="language-html">
 &lt;script&gt;
@@ -375,6 +453,7 @@ Math.pow() //potega
 &lt;/script&gt;
 
 </code></pre>
+<h6>2</h6>
 <h2>Sprawdź hasło</h2>
 <h4>- 7 lub więcej znaków i jedna cyfra - dobre</h4>
 <h4>- od 4 do 6 znaków i jedna cyfra - średnie</h4>
@@ -383,31 +462,32 @@ Math.pow() //potega
     &lt;button onclick=&quot;sprawdzHaslo()&quot;&gt;SPRAWDZ HASLO&lt;/button&gt;
     &lt;p id=&quot;wynik&quot;&gt;&lt;/p&gt;
     &lt;script&gt;
-        function sprawdzHaslo() {
-            var haslo = document.getElementById('haslo');
-            var wynik = document.getElementById('wynik');
-            var dlugosc_hasla = haslo.value.length;
-            // sprawdza_czy_haslo_ma_cyfre
-            var czy_cyfra = false;
-            var tablica = haslo.value.split(&quot;&quot;)
-            for (var i = 0; i &lt; dlugosc_hasla; i++) {
-                console.log(tablica[i]);
-                if (!isNaN(tablica[i])) czy_cyfra = true;
-            }
-
-            if (dlugosc_hasla &gt;= 7 &amp;&amp; czy_cyfra == true) {
-                wynik.innerHTML = &quot;DOBRE&quot;;
-            } else if (dlugosc_hasla &gt;= 4 &amp;&amp; dlugosc_hasla &lt;= 6 &amp;&amp; czy_cyfra == true) {
-                wynik.innerHTML = &quot;ŚREDNIE&quot;;
-            } else {
-                wynik.innerHTML = &quot;SŁABE&quot;;
-            }
+    function sprawdzHaslo() {
+        var haslo = document.getElementById('haslo');
+        var wynik = document.getElementById('wynik');
+        var dlugosc_hasla = haslo.value.length;
+        // sprawdza_czy_haslo_ma_cyfre
+        var czy_cyfra = false;
+        var tablica = haslo.value.split(&quot;&quot;)
+        for (var i = 0; i &lt; dlugosc_hasla; i++) {
+            console.log(tablica[i]);
+            if (!isNaN(tablica[i])) czy_cyfra = true;
         }
+
+        if (dlugosc_hasla &gt;= 7 &amp;&amp; czy_cyfra == true) {
+            wynik.innerHTML = &quot;DOBRE&quot;;
+        } else if (dlugosc_hasla &gt;= 4 &amp;&amp; dlugosc_hasla &lt;= 6 &amp;&amp; czy_cyfra == true) {
+            wynik.innerHTML = &quot;ŚREDNIE&quot;;
+        } else {
+            wynik.innerHTML = &quot;SŁABE&quot;;
+        }
+    }
     &lt;/script&gt;
 
 </code></pre>
+<h6>3</h6>
 <h2>Sprawdź cene</h2>
-<h3>Oblicza łączną cenę zabiegów wybranych z pola checkbox</h3>
+<h4>Oblicza łączną cenę zabiegów wybranych z pola checkbox</h4>
 <pre><code class="language-html">&lt;input type=&quot;checkbox&quot; id=&quot;piling&quot;&gt;Pilling&lt;br&gt;
 &lt;input type=&quot;checkbox&quot; id=&quot;maska&quot;&gt;Maska&lt;br&gt;
 &lt;input type=&quot;checkbox&quot; id=&quot;masaz&quot;&gt;Masaż twarzy&lt;br&gt;
@@ -441,6 +521,7 @@ Math.pow() //potega
 &lt;/script&gt;
 
 </code></pre>
+<h6>4</h6>
 <h2>Ciąg arytmetyczny</h2>
 <h4>W pętli kazdy kolejny wyraz ciągu to wartosc poprzeniedniego ciągu + r</h4>
 <pre><code class="language-html">&lt;div id=&quot;prawy&quot;&gt;
@@ -467,6 +548,145 @@ Math.pow() //potega
         }
         document.getElementById('wynik').innerHTML = wynik;
     }
+&lt;/script&gt;
+</code></pre>
+<h6>5</h6>
+<h2>Własny kolor, wybrany żelek</h2>
+<h4>Po naciśnięcu przycisku &quot;zamów&quot; kolor drugiego przycisku zmienia się na wybrany kolor RGB z formularza</h4>
+<pre><code class="language-html">&lt;div id=&quot;prawy&quot;&gt;
+    Podaj numer kształtu:
+    &lt;form&gt;
+        &lt;input type=&quot;number&quot; id=&quot;ksztalt&quot;&gt;&lt;br&gt; Skomponuj swój kolor, podaj RGB:&lt;br&gt;
+        R: &lt;input type=&quot;number&quot; id=&quot;r&quot;&gt;
+        G: &lt;input type=&quot;number&quot; id=&quot;g&quot;&gt;
+        B: &lt;input type=&quot;number&quot; id=&quot;b&quot;&gt;&lt;br&gt;
+        &lt;input type=&quot;button&quot; onclick=&quot;oblicz()&quot; value=&quot;Zamów&quot;&gt;
+    &lt;/form&gt;
+
+    &lt;p id=&quot;tekst&quot;&gt;Wybrany kształt&lt;/p&gt;
+    &lt;button id=&quot;kolor&quot;&gt;Wybrany kolor&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    function oblicz() {
+        var ksztalt = document.getElementById(&quot;ksztalt&quot;).value;
+        var przycisk = document.getElementById(&quot;tekst&quot;);
+
+        if (ksztalt == 1) {
+            przycisk.innerHTML = &quot;Zamówiłeś żelka: miś&quot;;
+        } else if (ksztalt == 2) {
+            przycisk.innerHTML = &quot;Zamówiłeś żelka: żabka&quot;;
+        } else if (ksztalt == 3) {
+            przycisk.innerHTML = &quot;Zamówiłeś żelka: serce&quot;;
+        } else {
+            przycisk.innerHTML = &quot;Zamówiłeś żelka: inny kształt&quot;;
+        }
+
+        var PrzyciskKolor = document.getElementById(&quot;kolor&quot;);
+
+        var r = document.getElementById(&quot;r&quot;).value;
+        var g = document.getElementById(&quot;g&quot;).value;
+        var b = document.getElementById(&quot;b&quot;).value;
+
+        PrzyciskKolor.style.backgroundColor = &quot;rgb(&quot; + r + &quot;,&quot; + g + &quot;,&quot; + b + &quot;)&quot;;
+    }
+</code></pre>
+<h6>6</h6>
+<h2>Zgoda na regulamin</h2>
+<pre><code class="language-html">Imię:&lt;input type='text' id='imie'&gt; &lt;br&gt;
+Nazwisko:&lt;input type='text' id='nazwisko'&gt; &lt;br&gt;
+E-mail:&lt;input type='text' id='email'&gt; &lt;br&gt;
+Usługa:&lt;/td&gt; &lt;&gt;&lt;textarea id='usluga'&gt;&lt;/textarea&gt; &lt;br&gt;
+&lt;input type='checkbox' id='zgoda'&gt;
+Zapoznałam/em się z regulaminem &lt;br&gt;
+&lt;input type='reset' value='Resetuj'&gt;
+&lt;input type='button' value='Prześlij' onclick='Przeslij()'&gt;
+
+&lt;p id='wynik'&gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;script&gt;
+function Przeslij(){
+    var imie = document.getElementById('imie').value;
+    var nazwisko = document.getElementById('nazwisko').value;
+    var usluga = document.getElementById('usluga').value;
+    var zgoda = document.getElementById('zgoda');
+    var wynik = document.getElementById('wynik');
+
+    var tresc1 = imie.toUpperCase()
+    +' '
+    +nazwisko.toUpperCase() +'&lt;/br&gt; Treść Twojej sprawy: '
+    +usluga+'&lt;/br&gt; Na podany e-mail zostanie wysłana oferta'}
+    ;
+
+    var tresc2 = '&lt;span style=&quot;color:red&quot;&gt;Musisz się zapozanć z regulaminem&lt;/span&gt;' ;
+
+    if (zgoda.checked)
+    {
+        wynik.innerHTML=tresc1;
+
+
+    else {
+        wynik.getElementById('wynik').innerHTML=tresc2;
+    }
+}
+&lt;/script&gt;
+</code></pre>
+<h6>7</h6>
+<h2>Koszt dostawy</h2>
+<pre><code class="language-html">&lt;h3&gt;Oblicz koszt dostawy&lt;/h3&gt;
+    &lt;form&gt;
+    &lt;input type='checkbox' id='zg'&gt; Jestem z Zielonej Góry
+    &lt;p&gt;albo&lt;/p&gt;
+    Podaj liczbę kilometrów od Zielonej Góry &lt;input type='number' id='km'&gt;&lt;/br&gt;
+    &lt;input type='button' value='Oblicz' onclick='Oblicz()'&gt;
+    &lt;/form&gt;
+    &lt;p id='wynik'&gt;&lt;/p&gt;
+    &lt;script&gt;
+        function Oblicz(){
+            var liczba=document.getElementById('km');
+            var stan=document.getElementById('zg');
+            var wynik = document.getElementById('wynik');
+
+            if (stan.checked){
+                wynik.innerHTML='Dowieziemy Twoją pizzę za darmo';}
+            else {
+                var koszt = (liczba.value * 2);
+                wynik.innerHTML='Dowóz będzie Cię kosztował ' + koszt + ' złotych';}
+        }
+    &lt;/script&gt;
+
+</code></pre>
+<h6>8</h6>
+<h2>Wesele</h2>
+<pre><code class="language-html">&lt;h2&gt;Ile będzie kosztowało moje wesele?&lt;/h2&gt;
+Podaj liczbe gości: &lt;input type='number' id='goscie'/&gt;&lt;/br&gt;
+&lt;input type='checkbox' id='poprawiny'/&gt;Wesele z poprawinami?&lt;/br&gt;
+&lt;button onClick='Oblicz()'&gt;Oblicz koszt&lt;/button&gt;&lt;/br&gt;
+&lt;p id='koszt'&gt;&lt;/p&gt;
+&lt;script&gt;
+function Oblicz()
+{
+    var goscie=parseInt(document.getElementById('goscie').value);
+    var poprawiny=document.getElementById('poprawiny');
+    var koszt = document.getElementById('koszt');
+    var cena=0;
+
+    if (!poprawiny.checked){
+        cena = goscie*100;
+    }
+    else {
+        cena=(goscie*100)*1.30;
+    }
+
+
+    if (isNaN(goscie)) {
+        koszt.innerHTML = 'Nie podano liczby gości';
+    }
+    else {
+        koszt.innerHTML = 'Koszt Twojego wesela to '+cena +' złotych';
+    }
+}
 &lt;/script&gt;
 </code></pre>
 </div><div class="item hidden sql"><h1>mySQL</h1>
@@ -644,5 +864,32 @@ function get_url() {
     );
 }
 get_url();
+function href() {
+    const a = document.querySelectorAll('ul li a');
+    const h6 = document.querySelectorAll('h6');
+    a.forEach((e)=>{
+        const dupa = e.getAttribute("href");
+        e.addEventListener('click', ()=>{
+            for(let i = 0; i < h6.length; i++)if (dupa == `#${h6[i].textContent}`) {
+                h6[i].scrollIntoView();
+                console.log(dupa);
+            }
+        });
+    });
+}
+href();
+const mybutton = document.getElementById("myBtn");
+window.onscroll = function() {
+    scrollFunction();
+};
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) mybutton.style.display = "block";
+    else mybutton.style.display = "none";
+}
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+mybutton.addEventListener('click', topFunction);
 
 </script></main></html>
