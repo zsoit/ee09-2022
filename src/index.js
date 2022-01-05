@@ -1,4 +1,4 @@
-const nameArray = ['css', 'html', 'php', 'js', 'sql']
+const nameArray = ['css', 'html', 'php', 'js', 'sql', 'grafika']
 
 function resetActiveNow() {
     nameArray.forEach((e) => {

@@ -150,7 +150,8 @@ a:hover {
 <p id="html" class="nav_item">HTML</p>
 <p id="js" class="nav_item">JS</p>
 <p id="php" class="nav_item">PHP</p>
-<p id="sql" class="nav_item">SQL</p></nav><div class="item hidden html"><h1>HTML</h1>
+<p id="sql" class="nav_item">SQL</p>
+<p id="grafika" class="nav_item">grafika</p></nav><div class="item hidden html"><h1>HTML</h1>
 <h2>META</h2>
 <pre><code class="language-html">
 &lt;!DOCTYPE html&gt;
@@ -923,12 +924,60 @@ set password for katarzyna = 'qwerty2';
 create user piotr@localhost IDENTIFIED by 'qwerty' GRANT all PRIVILEGES on *.* to piotr@localhost;
 //
 </code></pre>
+</div><div class="item hidden grafika"><h1>GRAFIKA</h1>
+<h2>SKALOWANIE OBRAZU</h2>
+<h4>program: PHOTOSHOP/GIMP</h4>
+<pre><code>
+PHOTOSHOP:
+1 - Obraz-&gt;Rozmiar obrazu
+2 - Plik-&gt;Zapisz jako
+
+GIMP:
+1 - Obraz-&gt;Skalowanie obrazu
+
+</code></pre>
+<h2>CZARNO-BIAŁE ZDJĘCIE</h2>
+<h4>program: PHOTOSHOP/GIMP</h4>
+<pre><code>
+PHOTOSHOP:
+1 - Obraz-&gt;Dopasowania-&gt;Czarno Biały
+
+GIMP:
+1 - Obraz-&gt;Tryb-&gt;Odcienie szarości
+</code></pre>
+<h2>OBIEKTY I KSZTAŁTOWANIE:</h2>
+<h4>program: COREL</h4>
+<pre><code>
+1 - Zaznacz dwa obiekty typu tekst (Ctrl+A)
+2 - Obraz-&gt;Przekształć tekst na krzywe (Ctrl+Q)
+3 - Obraz-&gt;Kształtowanie-&gt;Część wspólna
+4 - Ustawienie koloru białego
+5 - Menadżer obiektów:
+        Kolejność-&gt; Przesuń na wierzch na wierzch strony
+6 - Zaznacz wszystko -&gt; Grupuj obiekty (Ctrl+G)
+</code></pre>
+<h2>ANIMACJA GIF</h2>
+<h4>program: GIMP</h4>
+<pre><code>
+- 1 Plik-&gt;Otwórz jako warstwy ...
+[np. baner1.jpg, baner2.jpg]
+
+- 2  Plik-&gt;Wyeksportuj jako:
+GIF (animacja.gif)
+
+- 3 Opcje animacji GIF
+Opóźnienie między klatakami: 400ms
+
+***WYESKPORTUJ***
+
+</code></pre>
 </div><script>const nameArray = [
     'css',
     'html',
     'php',
     'js',
-    'sql'
+    'sql',
+    'grafika'
 ];
 function resetActiveNow() {
     nameArray.forEach((e)=>{

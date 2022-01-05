@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><title>ee-09</title><style>body{zoom:80%;background-color:#010409;color:#fff;display:flex;font-family:Arial,Helvetica,sans-serif;justify-content:center}main{background-color:#0d1117;border:2px solid gray;max-width:800px;min-width:600px;padding:50px}h1,main{border-radius:20px}h1{border-bottom:2px solid red;border-top:2px solid red;color:#90ee90;padding:20px}h6{color:transparent;font-size:.00001px}h2{border-bottom:.5px solid #d3d3d3;padding-bottom:2px}h2:before{color:#90ee90;content:"\27A4 ";margin-right:10px}pre{word-wrap:break-word;background-color:#0d1117;border-radius:20px;color:#fff;padding:20px;width:800px}.hidden{display:none}nav{display:flex;padding:20px}.nav_item{cursor:pointer;margin:16px;padding:20px}.active_nav,.nav_item:hover{color:#20b2aa}.item p{color:#6a9955;font-style:italic}.item p,code{line-height:1.5}code{word-wrap:break-word;background-color:#0d1117;border-radius:20px;color:#87cefa;display:block;font-family:monospace;font-size:15px;line-height:1.6;max-width:100%;overflow:auto;padding:5px;page-break-inside:avoid}.item p:before{content:"// "}h4{font-weight:400}a,a:visited{text-decoration:none}a,a:visited{color:#fff}a:hover{color:#90ee90}#myBtn{background-color:darkred;border:none;border-radius:140%;bottom:40px;color:#fff;cursor:pointer;display:none;font-size:25px;font-style:bold;outline:none;padding:30px;position:fixed;right:30%;z-index:99}#myBtn:hover{background-color:#555}</style></head><body><button id="myBtn">&#8682; góra</button></body><main><nav><p id="css" class="nav_item">CSS</p> <p id="html" class="nav_item">HTML</p> <p id="js" class="nav_item">JS</p> <p id="php" class="nav_item">PHP</p> <p id="sql" class="nav_item">SQL</p></nav><div class="hidden html item"><h1>HTML</h1> <h2>META</h2> <pre><code class="language-html">
+<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><title>ee-09</title><style>body{zoom:80%;background-color:#010409;color:#fff;display:flex;font-family:Arial,Helvetica,sans-serif;justify-content:center}main{background-color:#0d1117;border:2px solid gray;max-width:800px;min-width:600px;padding:50px}h1,main{border-radius:20px}h1{border-bottom:2px solid red;border-top:2px solid red;color:#90ee90;padding:20px}h6{color:transparent;font-size:.00001px}h2{border-bottom:.5px solid #d3d3d3;padding-bottom:2px}h2:before{color:#90ee90;content:"\27A4 ";margin-right:10px}pre{word-wrap:break-word;background-color:#0d1117;border-radius:20px;color:#fff;padding:20px;width:800px}.hidden{display:none}nav{display:flex;padding:20px}.nav_item{cursor:pointer;margin:16px;padding:20px}.active_nav,.nav_item:hover{color:#20b2aa}.item p{color:#6a9955;font-style:italic}.item p,code{line-height:1.5}code{word-wrap:break-word;background-color:#0d1117;border-radius:20px;color:#87cefa;display:block;font-family:monospace;font-size:15px;line-height:1.6;max-width:100%;overflow:auto;padding:5px;page-break-inside:avoid}.item p:before{content:"// "}h4{font-weight:400}a,a:visited{text-decoration:none}a,a:visited{color:#fff}a:hover{color:#90ee90}#myBtn{background-color:darkred;border:none;border-radius:140%;bottom:40px;color:#fff;cursor:pointer;display:none;font-size:25px;font-style:bold;outline:none;padding:30px;position:fixed;right:30%;z-index:99}#myBtn:hover{background-color:#555}</style></head><body><button id="myBtn">&#8682; góra</button></body><main><nav><p id="css" class="nav_item">CSS</p> <p id="html" class="nav_item">HTML</p> <p id="js" class="nav_item">JS</p> <p id="php" class="nav_item">PHP</p> <p id="sql" class="nav_item">SQL</p> <p id="grafika" class="nav_item">grafika</p></nav><div class="hidden html item"><h1>HTML</h1> <h2>META</h2> <pre><code class="language-html">
 &lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;pl&quot;&gt;
 &lt;head&gt;
@@ -601,4 +601,38 @@ create user katarzyna@localhost by 'qwerty2';
 set password for katarzyna = 'qwerty2';
 create user piotr@localhost IDENTIFIED by 'qwerty' GRANT all PRIVILEGES on *.* to piotr@localhost;
 //
-</code></pre> </div><script>const nameArray=["css","html","php","js","sql"];function resetActiveNow(){nameArray.forEach((e=>{document.querySelector(`.${e}`).classList.add("hidden"),document.querySelector(`#${e}`).classList.remove("active_nav")}))}function ToggleClass(e){resetActiveNow(),document.querySelector(`.${e}`).classList.toggle("hidden"),document.querySelector(`#${e}`).classList.toggle("active_nav"),document.title=`ee09.${e}`}function clicked(e){nameArray.forEach((t=>{e==t&&document.querySelector(`#${t}`).click()}))}function get_url(){let e=document.URL;new URL(e).searchParams.getAll("a").forEach((e=>clicked(e)))}function href(){const e=document.querySelectorAll("ul li a"),t=document.querySelectorAll("h6");e.forEach((e=>{const o=e.getAttribute("href");e.addEventListener("click",(()=>{for(let e=0;e<t.length;e++)o==`#${t[e].textContent}`&&(t[e].scrollIntoView(),console.log(o))}))}))}nameArray.forEach((e=>{document.querySelector(`#${e}`).addEventListener("click",(()=>ToggleClass(e)))})),get_url(),href();const mybutton=document.getElementById("myBtn");function scrollFunction(){document.body.scrollTop>20||document.documentElement.scrollTop>20?mybutton.style.display="block":mybutton.style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()},mybutton.addEventListener("click",topFunction);</script></main></html>
+</code></pre> </div><div class="grafika hidden item"><h1>GRAFIKA</h1> <h2>SKALOWANIE OBRAZU</h2> <h4>program: PHOTOSHOP/GIMP</h4> <pre><code>
+PHOTOSHOP:
+1 - Obraz-&gt;Rozmiar obrazu
+2 - Plik-&gt;Zapisz jako
+
+GIMP:
+1 - Obraz-&gt;Skalowanie obrazu
+
+</code></pre> <h2>CZARNO-BIAŁE ZDJĘCIE</h2> <h4>program: PHOTOSHOP/GIMP</h4> <pre><code>
+PHOTOSHOP:
+1 - Obraz-&gt;Dopasowania-&gt;Czarno Biały
+
+GIMP:
+1 - Obraz-&gt;Tryb-&gt;Odcienie szarości
+</code></pre> <h2>OBIEKTY I KSZTAŁTOWANIE:</h2> <h4>program: COREL</h4> <pre><code>
+1 - Zaznacz dwa obiekty typu tekst (Ctrl+A)
+2 - Obraz-&gt;Przekształć tekst na krzywe (Ctrl+Q)
+3 - Obraz-&gt;Kształtowanie-&gt;Część wspólna
+4 - Ustawienie koloru białego
+5 - Menadżer obiektów:
+        Kolejność-&gt; Przesuń na wierzch na wierzch strony
+6 - Zaznacz wszystko -&gt; Grupuj obiekty (Ctrl+G)
+</code></pre> <h2>ANIMACJA GIF</h2> <h4>program: GIMP</h4> <pre><code>
+- 1 Plik-&gt;Otwórz jako warstwy ...
+[np. baner1.jpg, baner2.jpg]
+
+- 2  Plik-&gt;Wyeksportuj jako:
+GIF (animacja.gif)
+
+- 3 Opcje animacji GIF
+Opóźnienie między klatakami: 400ms
+
+***WYESKPORTUJ***
+
+</code></pre> </div><script>const nameArray=["css","html","php","js","sql","grafika"];function resetActiveNow(){nameArray.forEach((e=>{document.querySelector(`.${e}`).classList.add("hidden"),document.querySelector(`#${e}`).classList.remove("active_nav")}))}function ToggleClass(e){resetActiveNow(),document.querySelector(`.${e}`).classList.toggle("hidden"),document.querySelector(`#${e}`).classList.toggle("active_nav"),document.title=`ee09.${e}`}function clicked(e){nameArray.forEach((t=>{e==t&&document.querySelector(`#${t}`).click()}))}function get_url(){let e=document.URL;new URL(e).searchParams.getAll("a").forEach((e=>clicked(e)))}function href(){const e=document.querySelectorAll("ul li a"),t=document.querySelectorAll("h6");e.forEach((e=>{const o=e.getAttribute("href");e.addEventListener("click",(()=>{for(let e=0;e<t.length;e++)o==`#${t[e].textContent}`&&(t[e].scrollIntoView(),console.log(o))}))}))}nameArray.forEach((e=>{document.querySelector(`#${e}`).addEventListener("click",(()=>ToggleClass(e)))})),get_url(),href();const mybutton=document.getElementById("myBtn");function scrollFunction(){document.body.scrollTop>20||document.documentElement.scrollTop>20?mybutton.style.display="block":mybutton.style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()},mybutton.addEventListener("click",topFunction);</script></main></html>
