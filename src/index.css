@@ -4,7 +4,7 @@ body {
     color: white;
     display: flex;
     justify-content: center;
-    zoom: 89%;
+    zoom: 80%;
 }
 
 main {
@@ -114,6 +114,10 @@ a:visited {
 }
 
 a:visited {
+    color: white;
+}
+
+a {
     color: white;
 }
 
