@@ -52,7 +52,7 @@ zmieniamy prawym klikiem na wiaderko z farbą
 5 - ZAZNACZAMY DOKŁADNIE RESZTKI ŚLADÓW PO BIAŁYM TLE I USUWAMY KLAWISZEM DEL
 ```
 
-## DOPASOWANIE DO ŚCIEŻKI
+## DOPASOWANIE DO ŚCIEŻKI (TEKST PO OKRĘGU)
 #### program: PHOTOSHOP/GIMP/COREL
 ```
 
@@ -60,6 +60,13 @@ PHOTOSHOP:
 1 - narysuj elipse (skrót: U)
 2 - naciśnij ikonkę T (skrót: T) i najedź na kontur i kliknij
 3 - napisz odpowiedni napis
+
+
+COREL:
+1 - NAPISZ TEKST, ZANACZ GO
+2 - Tekst->Dopasuj do ścieżki
+3 - Kursor się zmieni, najedź na ścieżkę(elipsę, linię itp.) i nacisnij
+
 ```
 
 
@@ -79,6 +86,65 @@ Opóźnienie między klatakami: 400ms
 ***WYESKPORTUJ***
 
 ```
+
+## TEORIA
+```
+
+CMYK = turkus, purpura, żółty, czarny.
+CMY = turkus, purpura, żółty.
+HSV = stozek przestrzeni barw
+
+grafika rastrowa(bitmapowa) - jest to prezentacja obrazu za pomocą
+pionowo-poziomej siatki odpowiednio kolorowanych pikseli.
+BMP, JPG, PNG, GIF, TIFF
+
+grafika wektorowa(obiektowa) - obraz jest opisany za pośrednictwem
+figur geometrycznych umieszczonych w układzie współrzędnych
+SVG, CDR, SFW
+
+
+//POJĘCIA
+
+Desaturacja =  pozbycie się kolorów z rysunku tak,
+aby obraz był w odcieniach szarości.
+
+Histogram = rozkład ilościowy poszczególnych kolorów obrazu
+
+Rozdzielczość = rozmiar pliku graficznego
+
+Antyaliasing = filtr umożliwiający pozbyć się
+nienaturalnego odwzorowania ukośnych krawędzi linii
+w grafice rastrowej
+
+//KOLORY
+
+0-9 normalnie
+10-15 A-G
+
+Zamiana hex na dec: [xy] = x*16^1+y*16^0 = x*16+y
+Zamina dec na hex:
+x:16=y
+x-y*16=z
+yz
+
+Czerwony: rgb(255,0,0) | #ff0000
+Zielony: rgb (0,128,0) | #008000
+Niebieski: rgb(0,0,255) | #0000ff
+
+Żółty: rgb(255,255,0) | #ffff00
+Fioletowy: rgb(128,0,128) | #ff00ff
+Limonkowy: rgb(0,255,0) | #00ff00
+
+Czarny: rgb(0,0,0) | #000000
+Biały: rgb(255,255,255) | #ffffff
+Szary: rgb(128,128,128) | #808080
+
+```
+
+
+
+
+
 
 
 

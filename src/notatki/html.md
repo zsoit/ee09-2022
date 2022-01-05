@@ -77,6 +77,17 @@ indeks górny
 
 ## FORMULARZE
 
+#### input type:
+- text - pole tekstowe
+- checkbox - pole zaznaczenia opcji (można zaznaczyć lub odznaczyć opcję)
+- radio - pole wyboru (z grupy wybieramy tylko jedną)
+- password - pole wprowadzania hasła (wprowadzane znaki nie są widoczne)
+- file - możliwość dołączenia do formularza pliku, który zostanie przesłany na serwer
+- submit - przycisk, uruchamiający wykonanie akcji zdefiniowanej w atrybucie "action"
+- reset - przycisk, który usuwa wszystkie dane z formularza
+- button - przycisk dowolnego przeznaczenia
+
+
 ```html
 
 <input type="text" name="pole-tekstowe">
