@@ -33,7 +33,7 @@ COREL:
 3 - Obraz->Kształtowanie->Część wspólna
 4 - Ustawienie koloru białego
 5 - Menadżer obiektów:
-        Kolejność-> Przesuń na wierzch na wierzch strony
+        Kolejność-> Przesuń na wierzch strony
 6 - Zaznacz wszystko -> Grupuj obiekty (Ctrl+G)
 ```
 
@@ -53,7 +53,7 @@ zmieniamy prawym klikiem na wiaderko z farbą
 ```
 
 ## DOPASOWANIE DO ŚCIEŻKI
-#### program: COREL/PHOTOSHOP/GIMP
+#### program: PHOTOSHOP/GIMP/COREL
 ```
 
 PHOTOSHOP:
