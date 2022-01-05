@@ -91,10 +91,11 @@ code {
     font-family: monospace;
     font-size: 15px;
     line-height: 1.6;
-    margin-bottom: 1.6em;
+    /* margin-bottom: 1.6em; */
     max-width: 100%;
     overflow: auto;
-    padding: 1em 1.5em;
+    /* padding: 1em 1.5em; */
+    padding: 5px;
     display: block;
     word-wrap: break-word;
 }
@@ -131,13 +132,13 @@ a:hover {
     bottom: 40px;
     right: 30%;
     z-index: 99;
-    font-size: 30px;
+    font-size: 25px;
     border: none;
     outline: none;
     background-color: darkred;
     color: white;
     cursor: pointer;
-    padding: 40px;
+    padding: 30px;
     border-radius: 140%;
     font-style: bold;
 }
@@ -149,7 +150,7 @@ a:hover {
 <p id="html" class="nav_item">HTML</p>
 <p id="js" class="nav_item">JS</p>
 <p id="php" class="nav_item">PHP</p>
-<p id="sql" class="nav_item">mySQL</p></nav><div class="item hidden html"><h1>HTML</h1>
+<p id="sql" class="nav_item">SQL</p></nav><div class="item hidden html"><h1>HTML</h1>
 <h2>META</h2>
 <pre><code class="language-html">
 &lt;!DOCTYPE html&gt;
@@ -399,21 +400,38 @@ mysqli_close($pol);
 <li><a href="#8">Wesele</a></li>
 </ul>
 <h2>TEORIA</h2>
-<p>ZDARZENIA</p>
+<h6>xd</h6>
+<h4>ZMIENNE</h4>
+<pre><code class="language-JS">var liczba = document.getElementById('liczba') //id
+var liczba = document.querySelector('#liczba') //id
+
+var liczba = document.getElementByClassName('liczba') //klasa
+var liczba = document.querySelector('.liczba') //klasa
+
+// wszystkie elementy z tablicy, pętla
+var tablica = ['Tomek','Jakub','Kamil'];
+var wynik = 'Imiona: ';
+for(var i=0; i &lt; tablica.length; i++){
+    wynik += tablica[i] + ', '
+}
+document.write(wynik);
+</code></pre>
+<h4>ZDARZENIA</h4>
 <pre><code class="language-JS">onclick //klikniecie
 onmouseover //najechanie myszką na obiekt
 onmouseout //odjechanie myszką od obiektu
 
 </code></pre>
-<p>WŁAŚCIWOŚCI HTML</p>
+<h4>WŁAŚCIWOŚCI HTML</h4>
 <pre><code class="language-JS">.checked
 .value
 .innerHTML
+.contentText
 .src
 .style
 .length //dlugosc_znakow
 </code></pre>
-<p>FUNKCJE</p>
+<h4>FUNKCJE</h4>
 <pre><code class="language-js">.split(&quot;&quot;) //zmienia, tekst na tablice znaków
 
 .toUpperCase() //duze_litery
@@ -425,6 +443,10 @@ parseFloat() //zmiennoprzecinkowa
 Number() //typ numeryczny
 Math.sqr() //pierwiastek
 Math.pow() //potega
+
+prompt() //okienko z polem do wpisania
+alert() //okienko z informacją
+
 </code></pre>
 <h6>0</h6>
 <h2>Zmiana obrazka po najechaniu</h2>
@@ -594,6 +616,7 @@ Math.pow() //potega
 
         PrzyciskKolor.style.backgroundColor = &quot;rgb(&quot; + r + &quot;,&quot; + g + &quot;,&quot; + b + &quot;)&quot;;
     }
+&lt;/script&gt;
 </code></pre>
 <h6>6</h6>
 <h2>Zgoda na regulamin</h2>
@@ -693,7 +716,74 @@ function Oblicz()
 }
 &lt;/script&gt;
 </code></pre>
-</div><div class="item hidden sql"><h1>mySQL</h1>
+</div><div class="item hidden sql"><h1>SQL</h1>
+<h2>ZAPYTANIA</h2>
+<h6>XD</h6>
+<h4>SELEKCJA</h4>
+<pre><code class="language-SQL">• ORDER BY
+  -&gt; ASC (ascending) rosnąco.
+  -&gt; DESC (descending) malejąco
+
+• LIMIT [-- limit 10 ; na samym koncu]
+• LIKE = (nazwisko like '%a' or nazwisko like 'a%' );
+• IN(30,20);
+
+• COUNT() - liczy wystapienia;
+• SUM() - sumuje;
+• MIN() - zwraca najsmiejsza wartosc;
+• MAX() - zwraca najwieksza wartosc;
+• AVG() - wylicza srednia;
+• timestampdiff(year, DataUrodzenia, Now());
+
+
+</code></pre>
+<h4>DODANIE REKORDU</h4>
+<pre><code class="language-sql">//przyklad1
+INSERT INTO informatyk values (1,'Jan','Kowalski','4TI');
+
+//przyklad2
+INSERT INTO przyloty
+	(`id`, `kierunek`, `czas`, `dzien`, 'id_samolotu')
+VALUES
+	(NULL,`Warszawa`, `21:46:28`, `2022-01-15`, `3`)
+;
+</code></pre>
+<h4>USUWANIE REKORDU</h4>
+<pre><code class="language-sql">DELETE FROM pracownicy WHERE IdPracownika = 110;
+</code></pre>
+<h4>EDYCJA REKORDU</h4>
+<pre><code class="language-SQL">UPDATE pracownicy SET nazwisko = 'KOWALSKI' WHERE IdPracownika = 100;
+</code></pre>
+<h4>USUWANIE TABELI</h4>
+<pre><code class="language-sql">DROP TABLE KLASA;
+</code></pre>
+<h4>CZYSZCZENMIE TABELI</h4>
+<pre><code class="language-sql">TRUNCATE TABLE rozgrywka;
+</code></pre>
+<h4>TWORZENIE TABELI</h4>
+<pre><code class="language-sql">CREATE TABLE informatyk
+(
+	id int primary key AUTO_INCREMENT,
+	Imie varchar(20) NOT NULL,
+	Nazwisko varchar(30) NOT NULL,
+	Klasa varchar(30) NOT NULL DEFAULT '4TI',
+	Pseudonim varchar(20) NOT NULL UNIQUE
+)
+;
+
+</code></pre>
+<h4>TWORZENIE UŻYTKOWNIKA</h4>
+<pre><code class="language-SQL">
+CREATE user kasia@localhost IDENTIFIED by 'qwerty';
+
+//ZMIANA
+SET password for katarzyna = 'qwerty2';
+
+//UPRAWNIENIA
+GRANT ALL PRIVILEGES on tabela.* to piotr@localhost;
+GRANT CREATE, ALTER, SELECT ON egzamin.liga TO ' fryzjer'@'localhost'
+
+</code></pre>
 <h2>ZAPYTANIE</h2>
 <pre><code class="language-sql">//zapytania mysql
 

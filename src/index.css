@@ -91,10 +91,11 @@ code {
     font-family: monospace;
     font-size: 15px;
     line-height: 1.6;
-    margin-bottom: 1.6em;
+    /* margin-bottom: 1.6em; */
     max-width: 100%;
     overflow: auto;
-    padding: 1em 1.5em;
+    /* padding: 1em 1.5em; */
+    padding: 5px;
     display: block;
     word-wrap: break-word;
 }
@@ -131,13 +132,13 @@ a:hover {
     bottom: 40px;
     right: 30%;
     z-index: 99;
-    font-size: 30px;
+    font-size: 25px;
     border: none;
     outline: none;
     background-color: darkred;
     color: white;
     cursor: pointer;
-    padding: 40px;
+    padding: 30px;
     border-radius: 140%;
     font-style: bold;
 }

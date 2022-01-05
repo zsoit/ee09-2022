@@ -10,8 +10,25 @@
 - [Wesele](#8)
 
 ## TEORIA
+###### xd
+#### ZMIENNE
+```JS
+var liczba = document.getElementById('liczba') //id
+var liczba = document.querySelector('#liczba') //id
 
-ZDARZENIA
+var liczba = document.getElementByClassName('liczba') //klasa
+var liczba = document.querySelector('.liczba') //klasa
+
+// wszystkie elementy z tablicy, pętla
+var tablica = ['Tomek','Jakub','Kamil'];
+var wynik = 'Imiona: ';
+for(var i=0; i < tablica.length; i++){
+    wynik += tablica[i] + ', '
+}
+document.write(wynik);
+```
+
+#### ZDARZENIA
 ```JS
 onclick //klikniecie
 onmouseover //najechanie myszką na obiekt
@@ -19,17 +36,18 @@ onmouseout //odjechanie myszką od obiektu
 
 ```
 
-WŁAŚCIWOŚCI HTML
+#### WŁAŚCIWOŚCI HTML
 ```JS
 .checked
 .value
 .innerHTML
+.contentText
 .src
 .style
 .length //dlugosc_znakow
 ```
 
-FUNKCJE
+#### FUNKCJE
 ```js
 .split("") //zmienia, tekst na tablice znaków
 
@@ -42,6 +60,10 @@ parseFloat() //zmiennoprzecinkowa
 Number() //typ numeryczny
 Math.sqr() //pierwiastek
 Math.pow() //potega
+
+prompt() //okienko z polem do wpisania
+alert() //okienko z informacją
+
 ```
 ###### 0
 ## Zmiana obrazka po najechaniu
@@ -189,8 +211,6 @@ Math.pow() //potega
 ```
 ###### 5
 ## Własny kolor, wybrany żelek
-
-
 #### Po naciśnięcu przycisku "zamów" kolor drugiego przycisku zmienia się na wybrany kolor RGB z formularza
 
 ```html
@@ -231,6 +251,7 @@ Math.pow() //potega
 
         PrzyciskKolor.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
     }
+</script>
 ```
 ###### 6
 ## Zgoda na regulamin
