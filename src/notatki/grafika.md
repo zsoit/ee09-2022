@@ -37,6 +37,21 @@ COREL:
 6 - Zaznacz wszystko -> Grupuj obiekty (Ctrl+G)
 ```
 
+## FUNKCJE, RYSOWANIE np. dom, zębatka, kształty :
+#### program: COREL
+```
+//CZĘŚĆ WSPÓLNA(RYSOWANIE NP. DOMU)
+1 - WSKAŹNIKIEM (skrót: Ctrl+SPACJA) zaznaczamy kilka obiektów (Ctrl+SHIFT)
+2 - Pod paskiem menu, między Okno a Pomoc są ikonki dwóch nachodzącyhc na siebie kwadratów
+3 - Najeżdzamy na nie i szukamy trzeciej ikony: "Część wspólna"
+4 - Obiekty się połączą, przydatne przy rysowaniu domu, lub innych rzeczy, mające obrys
+
+//RYSOWANIE TRÓJKĄTA
+1 - wybierz narzędzie wielokąt (SKRÓT Y) z przybornika
+2 - Pod paskiem menu, między Okno a Pomoc jest ikona pięciokąta, zmieniamy domyślną liczbę 5 na 3
+3 - rysujemy trójkąt
+```
+
 
 
 ## USUNIĘCIE BIAŁEGO TŁA:

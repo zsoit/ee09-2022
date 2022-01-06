@@ -115,32 +115,59 @@ else
     echo &quot;&lt;b&gt;Dzień dobry strona używa ciasteczek&lt;/b&gt;&quot;;
 }
 ?&gt;
-
-
-</code></pre> <h2>SKRYPT 1 - FORMULARZ</h2> <h4>odbiera dane przesłane z formularza</h4> <p>-Jeśli pole edycyjne jest puste nie jest wykonywana żadna akcja -Jeżeli wpisano dane skrypt wysyła do bazy danych zmodyfikowane zapytanie 2 tak, że w warunku id pozycji jest równe wartości z pola edycyjnego -Wyświetla zwrócone zapytaniem dane: imiona i nazwiska w paragrafach, jako elementy listy punktowanej</p> <pre><code class="language-php">&lt;?php
-$pol = mysqli_connect('localhost','root','','baza');
-if(!$pol) exit('Nie połączono z bazą!');
-$sql = &quot;SELECT Imie,Nazwisko FROM baza&quot;;
+</code></pre> <h2>USUWANIE REKORDU</h2> <pre><code class="language-php">//odnośnik do usunięcia
+//a href=&quot;?co=usun&amp;id={wynik['id']}&quot;
+&lt;?php
+$sql = &quot;SELECT id,Imie FROM baza&quot;;
 $zapytanie = mysqli_query($pol,$sql);
 while($wynik = mysqli_fetch_assoc($zapytanie) )
 {
-    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
-    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
+    echo &quot;&lt;p&gt;{$wynik['Imie']} {}&lt;/p&gt;&quot;;
+    echo &quot;&lt;a href='?co=usun&amp;id={$wynik['id']}'&gt;Usuń rekord&lt;/a&gt;&quot;;
 }
-mysqli_close($pol);
 ?&gt;
-</code></pre> <h2>USUWANIE REKORDU</h2> <pre><code class="language-php">&lt;?php
-$pol = mysqli_connect('localhost','root','','baza');
-if(!$pol) exit('Nie połączono z bazą!');
-$sql = &quot;SELECT Imie,Nazwisko FROM baza&quot;;
-$zapytanie = mysqli_query($pol,$sql);
-while($wynik = mysqli_fetch_assoc($zapytanie) )
+
+//usunięcie rekordu
+&lt;?php
+if(isset($_GET['co']))
 {
-    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
-    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
+    if($_GET['co']==&quot;usun&quot;)
+    {
+        $zap=&quot;DELETE FROM zawody_wedkarskie WHERE id = {$_GET['id']}&quot;;
+        mysqli_query($pol,$zap) or die(&quot;BŁĄd w usuwaniu&quot;);
+        echo&quot;usunięto rekord&quot;;
+    }
 }
-mysqli_close($pol);
 ?&gt;
+</code></pre> <h2>DODANIE REKORDU</h2> <pre><code class="language-PHP">
+&lt;form method=&quot;POST&quot; action=&quot;zawody.php&quot;&gt;
+    Łowisko: &lt;input type=&quot;text&quot; name=&quot;lowisko&quot;&gt; &lt;br&gt;
+    Data: &lt;input type=&quot;text&quot; name=&quot;data&quot; &gt; &lt;br&gt;
+    Sędzia: &lt;input type=&quot;text&quot; name=&quot;sedzia&quot;&gt; &lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;dodaj&quot;&gt; &lt;br&gt;
+&lt;/form&gt;
+
+&lt;?php
+if(
+    isset($_POST['lowisko']) AND
+    isset($_POST['data']) and
+    isset($_POST['sedzia'])
+)
+{
+
+    $lowisko=$_POST['lowisko'];
+    $data=$_POST['data'];
+    $sedzia = $_POST['sedzia'];
+
+    $zap=&quot;INSERT INTO `zawody_wedkarskie`
+    (`id`,`Karty_wedkarskie_id`, `Lowisko_id`, `data_zawodow`, `sedzia`)
+    VALUES(NULL,0,'$lowisko','$data','$sedzia')
+    ;&quot;;
+    mysqli_query($pol,$zap) or die(mysqli_error($pol));
+    echo&quot;Dodano $lowisko, $data, $sedzia&quot;;
+?&gt;
+
+}
 </code></pre> </div><div class="hidden item js"><h1>JavaScript</h1> <ul> <li><a href="#0">Zmiana obrazka</a></li> <li><a href="#1">Zmiana stylu</a></li> <li><a href="#2">Sprawdz haslo</a></li> <li><a href="#3">Sprawdz cene</a></li> <li><a href="#4">Ciag arytmetyczny</a></li> <li><a href="#5">Koszt dostawy</a></li> <li><a href="#6">Zgoda na regulamin</a></li> <li><a href="#7">Koszt dostawy</a></li> <li><a href="#8">Wesele</a></li> </ul> <h2>TEORIA</h2> <h6>xd</h6> <h4>ZMIENNE</h4> <pre><code class="language-JS">var liczba = document.getElementById('liczba') //id
 var liczba = document.querySelector('#liczba') //id
 
@@ -513,6 +540,16 @@ GIMP:
 5 - Menadżer obiektów:
         Kolejność-&gt; Przesuń na wierzch strony
 6 - Zaznacz wszystko -&gt; Grupuj obiekty (Ctrl+G)
+</code></pre> <h2>FUNKCJE, RYSOWANIE np. dom, zębatka, kształty :</h2> <h4>program: COREL</h4> <pre><code>//CZĘŚĆ WSPÓLNA(RYSOWANIE NP. DOMU)
+1 - WSKAŹNIKIEM (skrót: Ctrl+SPACJA) zaznaczamy kilka obiektów (Ctrl+SHIFT)
+2 - Pod paskiem menu, między Okno a Pomoc są ikonki dwóch nachodzącyhc na siebie kwadratów
+3 - Najeżdzamy na nie i szukamy trzeciej ikony: &quot;Część wspólna&quot;
+4 - Obiekty się połączą, przydatne przy rysowaniu domu, lub innych rzeczy, mające obrys
+
+//RYSOWANIE TRÓJKĄTA
+1 - wybierz narzędzie wielokąt (SKRÓT Y) z przybornika
+2 - Pod paskiem menu, między Okno a Pomoc jest ikona pięciokąta, zmieniamy domyślną liczbę 5 na 3
+3 - rysujemy trójkąt
 </code></pre> <h2>USUNIĘCIE BIAŁEGO TŁA:</h2> <h4>program: PHOTOSHOP/GIMP</h4> <pre><code>
 PHOTOSHOP:
 1 - MAGICZNA RÓŻCZKA(skrót: W)
