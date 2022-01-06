@@ -73,6 +73,8 @@ indeks górny
 <fieldset>
     <legend>
 
+//video-html5 = MP4, Ogg, WebM
+
 ```
 
 ## FORMULARZE

@@ -22,6 +22,10 @@ pozycjonoanie\
 
 reset float np. dla stopki i banera\
 ```clear: both;```
+
+tło z obrazka (powtarzaj nie, powtarzaj obrazka gdy tło jest większe)\
+```background-image: url('rys.png') repeat/no-repeat;```
+
 ```
 width: 200px; //szerokość
 height: 1000px; //wysokość
@@ -41,6 +45,9 @@ pierwsza linia paragrafu\
 pierwsza litera paragrafu\
 ```p:first-letter {color: blue;}```
 
+gdy zostanie wskazane kursorem bez kliknięcia\
+```input:focus {color: blue;}```
+
 ## INNE
 odstępy między literami\
 ``` letter-spacing: 5px; ```
@@ -58,7 +65,7 @@ obramowanie tabeli i komórki jest połączone\
 paski przesuwania (scroll)\
 ``` overflow: scroll; ```
 
-lista punktowana kwadratem\
+lista punktowana kwadratem[kołkiem, numerowana]\
 ``` list-style-type: square|circle|decimal; ```
 
 styl czcionki: prosty, kursywa, pochylony\

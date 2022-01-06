@@ -10,6 +10,8 @@
   -> ASC (ascending) rosnąco.
   -> DESC (descending) malejąco
 
+
+• SELECT DISTINC ... [usuwanie duplikatów]
 • LIMIT [-- limit 10 ; na samym koncu]
 • LIKE = (nazwisko like '%a' or nazwisko like 'a%' );
 • IN(30,20);
@@ -115,3 +117,47 @@ order by p.idwojewodztwa
 ;
 
 ```
+
+## TEORIA
+
+#### TYPY RELACJI
+```
+- 1:n
+- 1:1
+- n:n
+- n:m - wymaga stworzenia tabeli pośredniej łączącej klucze obu tabel
+```
+
+####  NORMALIZACJA
+```
+//Pierwsza postać normalna:
+Tabela jest w pierwszej postaci normalnej, gdy pojedyncze pole tabeli zawiera informację elementarną (nie występuje lista wartości! - czyli jedno pole -> jedna wartość).
+
+//Druga postać normalna:
+Tabela jest w drugiej postaci normalnej, gdy jest w pierwszej postaci normalnej oraz, gdy każde z pól niewchodzących w skład klucza podstawowego zależy od całego klucza, a nie od jego części.
+
+//Trzecia postać normalna:
+Tabela jest w trzeciej postaci normalnej, gdy jest w pierwszej i drugiej postaci normalnej oraz każde z pól niewchodzących w skład klucza podstawowego niesie informację bezpośrednio o kluczu i nie odnosi się do żadnego innego pola.
+
+
+```
+
+#### JĘZYKI SQL
+
+```
+//kwerendy
+
+ALTER = MODYFIKACJA STRUKTURY
+UPDATE = AKTUALIZACJA DANYCH
+
+
+DROP =
+DELETE =
+
+SELECT = WYBIERANIE
+INSERT = WSTAWIANIE
+
+
+```
+
+
