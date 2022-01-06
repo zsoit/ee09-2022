@@ -48,7 +48,8 @@ COREL:
 
 //RYSOWANIE TRÓJKĄTA
 1 - wybierz narzędzie wielokąt (SKRÓT Y) z przybornika
-2 - Pod paskiem menu, między Okno a Pomoc jest ikona pięciokąta, zmieniamy domyślną liczbę 5 na 3
+2 - Pod paskiem menu, między Okno a Pomoc jest ikona pięciokąta,
+zmieniamy domyślną liczbę 5 na 3
 3 - rysujemy trójkąt
 ```
 

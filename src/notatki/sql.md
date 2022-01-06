@@ -10,12 +10,12 @@
   -> ASC (ascending) rosnąco.
   -> DESC (descending) malejąco
 
-
 • SELECT DISTINC ... [usuwanie duplikatów]
 • LIMIT [-- limit 10 ; na samym koncu]
 • LIKE = (nazwisko like '%a' or nazwisko like 'a%' );
 • IN(30,20);
 
+//agregacja danych
 • COUNT() - liczy wystapienia;
 • SUM() - sumuje;
 • MIN() - zwraca najsmiejsza wartosc;
@@ -80,7 +80,7 @@ CREATE user kasia@localhost IDENTIFIED by 'qwerty';
 SET password for katarzyna = 'qwerty2';
 
 //UPRAWNIENIA
-GRANT ALL PRIVILEGES on tabela.* to piotr@localhost;
+GRANT ALL PRIVILEGES on baza.* to piotr@localhost;
 GRANT CREATE, ALTER, SELECT ON egzamin.liga TO ' fryzjer'@'localhost'
 
 ```
@@ -122,22 +122,94 @@ order by p.idwojewodztwa
 
 #### TYPY RELACJI
 ```
-- 1:n
-- 1:1
-- n:n
-- n:m - wymaga stworzenia tabeli pośredniej łączącej klucze obu tabel
+==> 1:1 (jeden do jeden) = A ma tylko jeden B
+SAMOCHOD1 <=> KARTA_POJAZDU1
+CZŁOWIEK1 <=> PESEL1
+
+==> 1:n (jeden do wielu) = A wiele B, ale B ma jedno A
+KLIENT1 <=> FAKTURA1, FAKTURA2
+FAKTURA1 <=> KLIENT
+FAKTURA2 <=> KLIENT
+
+PLATFORMA <=> GRA1, GRA2 ...
+GRA <=> PLATFORME1!
+PS4 <=> TheLastOfUS, GodOfWar
+TheLastOfUS <=> PS4!
+GodOfWar <=> PS4!
+
+DREDZIARZ1 <=> DRED1, DRED2, DRED3
+DRED1 <=> DREDZIARZ1
+DRED2 <=> DREDZIARZ1
+DRED3 <=> DREDZIARZ1
+
+
+==> n:m (wiele do wielu)- KONIECZNIE WYMAGA stworzenia tabeli pośredniej (TABELA KRZYŻOWA/ŁĄCZNIKOWA)
+łączącej klucze obu tabel, stosuje sie klucz obcy, relacje wymuszone lub opcjonalne
+
+przykład relacji:
+Zamowienia <=> SzczegolyZamowienia <=> Produkt
+
+SzczegolyZamowienia to tabela, która to łączy, krzyżowa, taki adapter, co łączy ID
+IdZamowienia, IdProduktu, Ilosc, Rabat
+
 ```
 
 ####  NORMALIZACJA
 ```
-//Pierwsza postać normalna:
-Tabela jest w pierwszej postaci normalnej, gdy pojedyncze pole tabeli zawiera informację elementarną (nie występuje lista wartości! - czyli jedno pole -> jedna wartość).
+https://oracledev.pl/normalizacja-baz-danych/
 
-//Druga postać normalna:
-Tabela jest w drugiej postaci normalnej, gdy jest w pierwszej postaci normalnej oraz, gdy każde z pól niewchodzących w skład klucza podstawowego zależy od całego klucza, a nie od jego części.
+tworzymy baze dla sklepu;
 
-//Trzecia postać normalna:
-Tabela jest w trzeciej postaci normalnej, gdy jest w pierwszej i drugiej postaci normalnej oraz każde z pól niewchodzących w skład klucza podstawowego niesie informację bezpośrednio o kluczu i nie odnosi się do żadnego innego pola.
+1.Wymyślamy jeden pojemnik zbiorczy, jedna tabele: np.zamowienia
+2.Wymyślamy jakie mogą być Atrybuty(NazwaKlienta, Adres, Cena itp.)
+3.NIE TWORZYMY RELACJI ANI TABEL, tylko elementarne informacje
+
+
+Przechodzimy do normalizacji:
+
+// I. postać normalna:
+
+=> gdy każda kolumna jest atomowa tzn. nie zawiera list i dane są niepodzielne.
+
+1.Dzielimy kolumne Adres na kilka kolumn: Ulica, Nr Bloku, Nr Mieszkania, Miasto
+
+> Przed 1NF:
+Adres
+ul.Henryka 5, Warszawa
+
+> Po 1NF:
+Ulica | Nr Bloku | Nr Mieszkania | Miasto
+Henryka | 5 | | Warszawa
+
+
+// II. postać normalna:
+=> spełnia warunki postaci I
+=> wszystkie kolumny w tabeli zależą tylko od klucza
+
+1.wyodrębiamy z jedenj tabeli, trzy kolejne tabele:
+Klient, Detale, Produkty - tym sposobem mamy 4 tabele
+2. dodajemy ID dla tych tabel, jednocześnie usuwamy zduplikowane dane, bo operujemy już tylko na kluczach.
+3. Zmiana nazwy ulic na przykład z Jan Paweł II na JP2 jest prosta, bo wystraczy zmiana jednego rekordu.
+4. Tabela Zamowienia stała się tabelą krzyżową, relacja n:m wiele do wielu
+
+CO ZYSKALIŚMY:
+Dzięki wydzieleniu jednej tabeli zamówienia na 3 mniejsze:
+-> unikalne ID dla każdej z tabeli
+-> usunięcie zduplikowanych tabel
+-> łatwa edycja danych, zmiana dokonana w jednym rekordzie aktualiazuje się wszędzie
+
+
+// III. postać normalna:
+=> spełnia warunki postaci I oraz II
+=> kolumna nie jest zależna od innej kolumny tylko od klucza!!!!!
+
+w przykladzie gdzie tabela pizza ma kolumne rozmiar, cena gdzie cena nie jest zalezna od id tylko od rozmiaru, aby to naprawic musimy wydzielic cena do osobnej tabeli
+
+1.można USUNAC niepotrzebne kolumny, które można na przykład
+mozna wyliczyć takie jak brutto,
+bo brutto mozna obliczyc , brutto = netto+vat,
+oraz bo nie zależy od ID a od kolumny NETTO
+
 
 
 ```
@@ -159,5 +231,43 @@ INSERT = WSTAWIANIE
 
 
 ```
+#### POJĘCIA BAZY DANYCH
+```
 
+0.RELACJA = TABELA = KLASA
+Struktura danych, przechowuje infomracje o obiektach określonego typu.
+Tabela składa sie z rekordów, kolumn, danych
+
+1.KROTKA = WIERSZ = REKORD
+OBIEKT OPISANY ATRUBYBUTAMI DANEJ RELACJI
+
+2.ATRYBUT=KOLUMNA
+Masz człowieka(ENCJA), on ma atrybuty:
+ imie, nazwisko, plec, pesel
+
+
+
+4.ENCJA
+cos co mozna opisac:
+osoba (imie, nazwisko, pesel), pojazd(wysokosc,marka,silnik)
+
+
+=============
+CROSS JOIN
+iloczyn kartezjanski to problem jak sa tabele i
+wszystkie rekordy sie polacza ze soba,
+taka orgie zrobia kazdy z kazdym,
+jak masz dwie tabele po 3 redordy to wyjdzioe 3*3
+AxB
+=============
+
+$wszystko = rekordy, które mają wszystkie dane dwoch tabel;
+
+-inner join (join) zwraca TYLKO  $wszystko;
+
+-left join, zwraca $wszystko + kolumne, które nie mają atrybutu prawej tabeli
+
+-right join, zwraca wszystko + kolumne, które nie mają atrubutu lewej tabeli
+
+```
 

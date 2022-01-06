@@ -448,12 +448,12 @@ function Oblicz()
   -&gt; ASC (ascending) rosnąco.
   -&gt; DESC (descending) malejąco
 
-
 • SELECT DISTINC ... [usuwanie duplikatów]
 • LIMIT [-- limit 10 ; na samym koncu]
 • LIKE = (nazwisko like '%a' or nazwisko like 'a%' );
 • IN(30,20);
 
+//agregacja danych
 • COUNT() - liczy wystapienia;
 • SUM() - sumuje;
 • MIN() - zwraca najsmiejsza wartosc;
@@ -492,7 +492,7 @@ CREATE user kasia@localhost IDENTIFIED by 'qwerty';
 SET password for katarzyna = 'qwerty2';
 
 //UPRAWNIENIA
-GRANT ALL PRIVILEGES on tabela.* to piotr@localhost;
+GRANT ALL PRIVILEGES on baza.* to piotr@localhost;
 GRANT CREATE, ALTER, SELECT ON egzamin.liga TO ' fryzjer'@'localhost'
 
 </code></pre> <h2>ZAPYTANIE</h2> <pre><code class="language-sql">
@@ -523,18 +523,90 @@ group by p.nazwa
 order by p.idwojewodztwa
 ;
 
-</code></pre> <h2>TEORIA</h2> <h4>TYPY RELACJI</h4> <pre><code>- 1:n
-- 1:1
-- n:n
-- n:m - wymaga stworzenia tabeli pośredniej łączącej klucze obu tabel
-</code></pre> <h4>NORMALIZACJA</h4> <pre><code>//Pierwsza postać normalna:
-Tabela jest w pierwszej postaci normalnej, gdy pojedyncze pole tabeli zawiera informację elementarną (nie występuje lista wartości! - czyli jedno pole -&gt; jedna wartość).
+</code></pre> <h2>TEORIA</h2> <h4>TYPY RELACJI</h4> <pre><code>==&gt; 1:1 (jeden do jeden) = A ma tylko jeden B
+SAMOCHOD1 &lt;=&gt; KARTA_POJAZDU1
+CZŁOWIEK1 &lt;=&gt; PESEL1
 
-//Druga postać normalna:
-Tabela jest w drugiej postaci normalnej, gdy jest w pierwszej postaci normalnej oraz, gdy każde z pól niewchodzących w skład klucza podstawowego zależy od całego klucza, a nie od jego części.
+==&gt; 1:n (jeden do wielu) = A wiele B, ale B ma jedno A
+KLIENT1 &lt;=&gt; FAKTURA1, FAKTURA2
+FAKTURA1 &lt;=&gt; KLIENT
+FAKTURA2 &lt;=&gt; KLIENT
 
-//Trzecia postać normalna:
-Tabela jest w trzeciej postaci normalnej, gdy jest w pierwszej i drugiej postaci normalnej oraz każde z pól niewchodzących w skład klucza podstawowego niesie informację bezpośrednio o kluczu i nie odnosi się do żadnego innego pola.
+PLATFORMA &lt;=&gt; GRA1, GRA2 ...
+GRA &lt;=&gt; PLATFORME1!
+PS4 &lt;=&gt; TheLastOfUS, GodOfWar
+TheLastOfUS &lt;=&gt; PS4!
+GodOfWar &lt;=&gt; PS4!
+
+DREDZIARZ1 &lt;=&gt; DRED1, DRED2, DRED3
+DRED1 &lt;=&gt; DREDZIARZ1
+DRED2 &lt;=&gt; DREDZIARZ1
+DRED3 &lt;=&gt; DREDZIARZ1
+
+
+==&gt; n:m (wiele do wielu)- KONIECZNIE WYMAGA stworzenia tabeli pośredniej (TABELA KRZYŻOWA/ŁĄCZNIKOWA)
+łączącej klucze obu tabel, stosuje sie klucz obcy, relacje wymuszone lub opcjonalne
+
+przykład relacji:
+Zamowienia &lt;=&gt; SzczegolyZamowienia &lt;=&gt; Produkt
+
+SzczegolyZamowienia to tabela, która to łączy, krzyżowa, taki adapter, co łączy ID
+IdZamowienia, IdProduktu, Ilosc, Rabat
+
+</code></pre> <h4>NORMALIZACJA</h4> <pre><code>https://oracledev.pl/normalizacja-baz-danych/
+
+tworzymy baze dla sklepu;
+
+1.Wymyślamy jeden pojemnik zbiorczy, jedna tabele: np.zamowienia
+2.Wymyślamy jakie mogą być Atrybuty(NazwaKlienta, Adres, Cena itp.)
+3.NIE TWORZYMY RELACJI ANI TABEL, tylko elementarne informacje
+
+
+Przechodzimy do normalizacji:
+
+// I. postać normalna:
+
+=&gt; gdy każda kolumna jest atomowa tzn. nie zawiera list i dane są niepodzielne.
+
+1.Dzielimy kolumne Adres na kilka kolumn: Ulica, Nr Bloku, Nr Mieszkania, Miasto
+
+&gt; Przed 1NF:
+Adres
+ul.Henryka 5, Warszawa
+
+&gt; Po 1NF:
+Ulica | Nr Bloku | Nr Mieszkania | Miasto
+Henryka | 5 | | Warszawa
+
+
+// II. postać normalna:
+=&gt; spełnia warunki postaci I
+=&gt; wszystkie kolumny w tabeli zależą tylko od klucza
+
+1.wyodrębiamy z jedenj tabeli, trzy kolejne tabele:
+Klient, Detale, Produkty - tym sposobem mamy 4 tabele
+2. dodajemy ID dla tych tabel, jednocześnie usuwamy zduplikowane dane, bo operujemy już tylko na kluczach.
+3. Zmiana nazwy ulic na przykład z Jan Paweł II na JP2 jest prosta, bo wystraczy zmiana jednego rekordu.
+4. Tabela Zamowienia stała się tabelą krzyżową, relacja n:m wiele do wielu
+
+CO ZYSKALIŚMY:
+Dzięki wydzieleniu jednej tabeli zamówienia na 3 mniejsze:
+-&gt; unikalne ID dla każdej z tabeli
+-&gt; usunięcie zduplikowanych tabel
+-&gt; łatwa edycja danych, zmiana dokonana w jednym rekordzie aktualiazuje się wszędzie
+
+
+// III. postać normalna:
+=&gt; spełnia warunki postaci I oraz II
+=&gt; kolumna nie jest zależna od innej kolumny tylko od klucza!!!!!
+
+w przykladzie gdzie tabela pizza ma kolumne rozmiar, cena gdzie cena nie jest zalezna od id tylko od rozmiaru, aby to naprawic musimy wydzielic cena do osobnej tabeli
+
+1.można USUNAC niepotrzebne kolumny, które można na przykład
+mozna wyliczyć takie jak brutto,
+bo brutto mozna obliczyc , brutto = netto+vat,
+oraz bo nie zależy od ID a od kolumny NETTO
+
 
 
 </code></pre> <h4>JĘZYKI SQL</h4> <pre><code>//kwerendy
@@ -549,6 +621,42 @@ DELETE =
 SELECT = WYBIERANIE
 INSERT = WSTAWIANIE
 
+
+</code></pre> <h4>POJĘCIA BAZY DANYCH</h4> <pre><code>
+0.RELACJA = TABELA = KLASA
+Struktura danych, przechowuje infomracje o obiektach określonego typu.
+Tabela składa sie z rekordów, kolumn, danych
+
+1.KROTKA = WIERSZ = REKORD
+OBIEKT OPISANY ATRUBYBUTAMI DANEJ RELACJI
+
+2.ATRYBUT=KOLUMNA
+Masz człowieka(ENCJA), on ma atrybuty:
+ imie, nazwisko, plec, pesel
+
+
+
+4.ENCJA
+cos co mozna opisac:
+osoba (imie, nazwisko, pesel), pojazd(wysokosc,marka,silnik)
+
+
+=============
+CROSS JOIN
+iloczyn kartezjanski to problem jak sa tabele i
+wszystkie rekordy sie polacza ze soba,
+taka orgie zrobia kazdy z kazdym,
+jak masz dwie tabele po 3 redordy to wyjdzioe 3*3
+AxB
+=============
+
+$wszystko = rekordy, które mają wszystkie dane dwoch tabel;
+
+-inner join (join) zwraca TYLKO  $wszystko;
+
+-left join, zwraca $wszystko + kolumne, które nie mają atrybutu prawej tabeli
+
+-right join, zwraca wszystko + kolumne, które nie mają atrubutu lewej tabeli
 
 </code></pre> </div><div class="grafika hidden item"><h1>GRAFIKA</h1> <h2>SKALOWANIE OBRAZU</h2> <h4>program: PHOTOSHOP/GIMP</h4> <pre><code>
 PHOTOSHOP:
@@ -579,7 +687,8 @@ GIMP:
 
 //RYSOWANIE TRÓJKĄTA
 1 - wybierz narzędzie wielokąt (SKRÓT Y) z przybornika
-2 - Pod paskiem menu, między Okno a Pomoc jest ikona pięciokąta, zmieniamy domyślną liczbę 5 na 3
+2 - Pod paskiem menu, między Okno a Pomoc jest ikona pięciokąta,
+zmieniamy domyślną liczbę 5 na 3
 3 - rysujemy trójkąt
 </code></pre> <h2>USUNIĘCIE BIAŁEGO TŁA:</h2> <h4>program: PHOTOSHOP/GIMP</h4> <pre><code>
 PHOTOSHOP:
