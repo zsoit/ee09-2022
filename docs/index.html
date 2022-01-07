@@ -77,7 +77,7 @@ background-color: red; //kolor tła
 color: red; //kolor czcionki
 font-family: Arial; //krój czcionki
 font-size: 12px; //rozmiar czcionki
-</code></pre> <h2>PSEOUDOKLASY</h2> <p>po najechaniu myszką<br> <code>p:hover{color: red;}</code></p> <p>pierwsza linia paragrafu<br> <code>p:first-line {color: red;}</code></p> <p>pierwsza litera paragrafu<br> <code>p:first-letter {color: blue;}</code></p> <p>gdy zostanie wskazane kursorem bez kliknięcia<br> <code>input:focus {color: blue;}</code></p> <h2>INNE</h2> <p>odstępy między literami<br> <code>letter-spacing: 5px;</code></p> <p>rozmiar wysokości wierszy<br> <code>line-height: 1.5;</code></p> <p>pierwsza litera zawsze wielka reszta normlanie tekst napisany kapitalikami (capitalize)<br> <code>text-transform: capitalize|uppercase|lowercase;</code></p> <p>obramowanie tabeli i komórki jest połączone<br> <code>border-collapse: collapse|separate|initial|inherit</code></p> <p>paski przesuwania (scroll)<br> <code>overflow: scroll;</code></p> <p>lista punktowana kwadratem[kołkiem, numerowana]<br> <code>list-style-type: square|circle|decimal;</code></p> <p>styl czcionki: prosty, kursywa, pochylony<br> <code>font-style: normal|italic|oblique;</code></p> <p>rodzaj pogrubienia czcionki<br> <code>font-weight: bold;</code></p> </div><div class="hidden item php"><h1>PHP</h1> <h2>POŁACZENIE Z BAZĄ DANYCH</h2> <h4>Nawiązanie połączenia i wyświetlenie danych z tabeli</h4> <pre><code class="language-php">&lt;?php
+</code></pre> <h2>PSEOUDOKLASY</h2> <p>po najechaniu myszką<br> <code>p:hover{color: red;}</code></p> <p>pierwsza linia paragrafu<br> <code>p:first-line {color: red;}</code></p> <p>pierwsza litera paragrafu<br> <code>p:first-letter {color: blue;}</code></p> <p>gdy zostanie wskazane kursorem bez kliknięcia<br> <code>input:focus {color: blue;}</code></p> <h2>INNE</h2> <p>odstępy między literami<br> <code>letter-spacing: 5px;</code></p> <p>rozmiar wysokości wierszy<br> <code>line-height: 1.5;</code></p> <p>pierwsza litera zawsze wielka reszta normlanie tekst napisany kapitalikami (capitalize)<br> <code>text-transform: capitalize|uppercase|lowercase;</code></p> <p>obramowanie tabeli i komórki jest połączone<br> <code>border-collapse: collapse|separate|initial|inherit</code></p> <p>paski przesuwania (scroll)<br> <code>overflow: scroll;</code></p> <p>lista punktowana kwadratem[kołkiem, numerowana]<br> <code>list-style-type: square|circle|decimal;</code></p> <p>styl czcionki: prosty, kursywa, pochylony<br> <code>font-style: normal|italic|oblique;</code></p> <p>rodzaj pogrubienia czcionki<br> <code>font-weight: bold;</code></p> <p>przekreślony tekst <br> <code>text-decoration: line-through</code></p> <p>usuwanie podkreślenia z odnośnika a<br> <code>text-decoration: none;</code></p> </div><div class="hidden item php"><h1>PHP</h1> <h2>POŁACZENIE Z BAZĄ DANYCH</h2> <h4>Nawiązanie połączenia i wyświetlenie danych z tabeli</h4> <pre><code class="language-php">&lt;?php
 $pol = mysqli_connect('localhost','root','','baza');
 if(!$pol) exit('Nie połączono z bazą!');
 $sql = &quot;SELECT Imie,Nazwisko FROM baza&quot;;
@@ -523,141 +523,6 @@ group by p.nazwa
 order by p.idwojewodztwa
 ;
 
-</code></pre> <h2>TEORIA</h2> <h4>TYPY RELACJI</h4> <pre><code>==&gt; 1:1 (jeden do jeden) = A ma tylko jeden B
-SAMOCHOD1 &lt;=&gt; KARTA_POJAZDU1
-CZŁOWIEK1 &lt;=&gt; PESEL1
-
-==&gt; 1:n (jeden do wielu) = A wiele B, ale B ma jedno A
-KLIENT1 &lt;=&gt; FAKTURA1, FAKTURA2
-FAKTURA1 &lt;=&gt; KLIENT
-FAKTURA2 &lt;=&gt; KLIENT
-
-PLATFORMA &lt;=&gt; GRA1, GRA2 ...
-GRA &lt;=&gt; PLATFORME1!
-PS4 &lt;=&gt; TheLastOfUS, GodOfWar
-TheLastOfUS &lt;=&gt; PS4!
-GodOfWar &lt;=&gt; PS4!
-
-DREDZIARZ1 &lt;=&gt; DRED1, DRED2, DRED3
-DRED1 &lt;=&gt; DREDZIARZ1
-DRED2 &lt;=&gt; DREDZIARZ1
-DRED3 &lt;=&gt; DREDZIARZ1
-
-
-==&gt; n:m (wiele do wielu)- KONIECZNIE WYMAGA stworzenia tabeli pośredniej (TABELA KRZYŻOWA/ŁĄCZNIKOWA)
-łączącej klucze obu tabel, stosuje sie klucz obcy, relacje wymuszone lub opcjonalne
-
-przykład relacji:
-Zamowienia &lt;=&gt; SzczegolyZamowienia &lt;=&gt; Produkt
-
-SzczegolyZamowienia to tabela, która to łączy, krzyżowa, taki adapter, co łączy ID
-IdZamowienia, IdProduktu, Ilosc, Rabat
-
-</code></pre> <h4>NORMALIZACJA</h4> <pre><code>https://oracledev.pl/normalizacja-baz-danych/
-
-tworzymy baze dla sklepu;
-
-1.Wymyślamy jeden pojemnik zbiorczy, jedna tabele: np.zamowienia
-2.Wymyślamy jakie mogą być Atrybuty(NazwaKlienta, Adres, Cena itp.)
-3.NIE TWORZYMY RELACJI ANI TABEL, tylko elementarne informacje
-
-
-Przechodzimy do normalizacji:
-
-// I. postać normalna:
-
-=&gt; gdy każda kolumna jest atomowa tzn. nie zawiera list i dane są niepodzielne.
-
-1.Dzielimy kolumne Adres na kilka kolumn: Ulica, Nr Bloku, Nr Mieszkania, Miasto
-
-&gt; Przed 1NF:
-Adres
-ul.Henryka 5, Warszawa
-
-&gt; Po 1NF:
-Ulica | Nr Bloku | Nr Mieszkania | Miasto
-Henryka | 5 | | Warszawa
-
-
-// II. postać normalna:
-=&gt; spełnia warunki postaci I
-=&gt; wszystkie kolumny w tabeli zależą tylko od klucza
-
-1.wyodrębiamy z jedenj tabeli, trzy kolejne tabele:
-Klient, Detale, Produkty - tym sposobem mamy 4 tabele
-2. dodajemy ID dla tych tabel, jednocześnie usuwamy zduplikowane dane, bo operujemy już tylko na kluczach.
-3. Zmiana nazwy ulic na przykład z Jan Paweł II na JP2 jest prosta, bo wystraczy zmiana jednego rekordu.
-4. Tabela Zamowienia stała się tabelą krzyżową, relacja n:m wiele do wielu
-
-CO ZYSKALIŚMY:
-Dzięki wydzieleniu jednej tabeli zamówienia na 3 mniejsze:
--&gt; unikalne ID dla każdej z tabeli
--&gt; usunięcie zduplikowanych tabel
--&gt; łatwa edycja danych, zmiana dokonana w jednym rekordzie aktualiazuje się wszędzie
-
-
-// III. postać normalna:
-=&gt; spełnia warunki postaci I oraz II
-=&gt; kolumna nie jest zależna od innej kolumny tylko od klucza!!!!!
-
-w przykladzie gdzie tabela pizza ma kolumne rozmiar, cena gdzie cena nie jest zalezna od id tylko od rozmiaru, aby to naprawic musimy wydzielic cena do osobnej tabeli
-
-1.można USUNAC niepotrzebne kolumny, które można na przykład
-mozna wyliczyć takie jak brutto,
-bo brutto mozna obliczyc , brutto = netto+vat,
-oraz bo nie zależy od ID a od kolumny NETTO
-
-
-
-</code></pre> <h4>JĘZYKI SQL</h4> <pre><code>//kwerendy
-
-ALTER = MODYFIKACJA STRUKTURY
-UPDATE = AKTUALIZACJA DANYCH
-
-
-DROP =
-DELETE =
-
-SELECT = WYBIERANIE
-INSERT = WSTAWIANIE
-
-
-</code></pre> <h4>POJĘCIA BAZY DANYCH</h4> <pre><code>
-0.RELACJA = TABELA = KLASA
-Struktura danych, przechowuje infomracje o obiektach określonego typu.
-Tabela składa sie z rekordów, kolumn, danych
-
-1.KROTKA = WIERSZ = REKORD
-OBIEKT OPISANY ATRUBYBUTAMI DANEJ RELACJI
-
-2.ATRYBUT=KOLUMNA
-Masz człowieka(ENCJA), on ma atrybuty:
- imie, nazwisko, plec, pesel
-
-
-
-4.ENCJA
-cos co mozna opisac:
-osoba (imie, nazwisko, pesel), pojazd(wysokosc,marka,silnik)
-
-
-=============
-CROSS JOIN
-iloczyn kartezjanski to problem jak sa tabele i
-wszystkie rekordy sie polacza ze soba,
-taka orgie zrobia kazdy z kazdym,
-jak masz dwie tabele po 3 redordy to wyjdzioe 3*3
-AxB
-=============
-
-$wszystko = rekordy, które mają wszystkie dane dwoch tabel;
-
--inner join (join) zwraca TYLKO  $wszystko;
-
--left join, zwraca $wszystko + kolumne, które nie mają atrybutu prawej tabeli
-
--right join, zwraca wszystko + kolumne, które nie mają atrubutu lewej tabeli
-
 </code></pre> </div><div class="grafika hidden item"><h1>GRAFIKA</h1> <h2>SKALOWANIE OBRAZU</h2> <h4>program: PHOTOSHOP/GIMP</h4> <pre><code>
 PHOTOSHOP:
 1 - Obraz-&gt;Rozmiar obrazu
@@ -721,55 +586,5 @@ GIF (animacja.gif)
 Opóźnienie między klatakami: 400ms
 
 ***WYESKPORTUJ***
-
-</code></pre> <h2>TEORIA</h2> <pre><code>
-CMYK = turkus, purpura, żółty, czarny.
-CMY = turkus, purpura, żółty.
-HSV = stozek przestrzeni barw
-
-grafika rastrowa(bitmapowa) - jest to prezentacja obrazu za pomocą
-pionowo-poziomej siatki odpowiednio kolorowanych pikseli.
-BMP, JPG, PNG, GIF, TIFF
-
-grafika wektorowa(obiektowa) - obraz jest opisany za pośrednictwem
-figur geometrycznych umieszczonych w układzie współrzędnych
-SVG, CDR, SFW
-
-
-//POJĘCIA
-
-Desaturacja =  pozbycie się kolorów z rysunku tak,
-aby obraz był w odcieniach szarości.
-
-Histogram = rozkład ilościowy poszczególnych kolorów obrazu
-
-Rozdzielczość = rozmiar pliku graficznego
-
-Antyaliasing = filtr umożliwiający pozbyć się
-nienaturalnego odwzorowania ukośnych krawędzi linii
-w grafice rastrowej
-
-//KOLORY
-
-0-9 normalnie
-10-15 A-G
-
-Zamiana hex na dec: [xy] = x*16^1+y*16^0 = x*16+y
-Zamina dec na hex:
-x:16=y
-x-y*16=z
-yz
-
-Czerwony: rgb(255,0,0) | #ff0000
-Zielony: rgb (0,128,0) | #008000
-Niebieski: rgb(0,0,255) | #0000ff
-
-Żółty: rgb(255,255,0) | #ffff00
-Fioletowy: rgb(128,0,128) | #ff00ff
-Limonkowy: rgb(0,255,0) | #00ff00
-
-Czarny: rgb(0,0,0) | #000000
-Biały: rgb(255,255,255) | #ffffff
-Szary: rgb(128,128,128) | #808080
 
 </code></pre> </div><script>const nameArray=["css","html","php","js","sql","grafika"];function resetActiveNow(){nameArray.forEach((e=>{document.querySelector(`.${e}`).classList.add("hidden"),document.querySelector(`#${e}`).classList.remove("active_nav")}))}function ToggleClass(e){resetActiveNow(),document.querySelector(`.${e}`).classList.toggle("hidden"),document.querySelector(`#${e}`).classList.toggle("active_nav"),document.title=`${e}`}function clicked(e){nameArray.forEach((t=>{e==t&&document.querySelector(`#${t}`).click()}))}function get_url(){let e=document.URL;new URL(e).searchParams.getAll("a").forEach((e=>clicked(e)))}function href(){const e=document.querySelectorAll("ul li a"),t=document.querySelectorAll("h6");e.forEach((e=>{const o=e.getAttribute("href");e.addEventListener("click",(()=>{for(let e=0;e<t.length;e++)o==`#${t[e].textContent}`&&(t[e].scrollIntoView(),console.log(o))}))}))}nameArray.forEach((e=>{document.querySelector(`#${e}`).addEventListener("click",(()=>ToggleClass(e)))})),get_url(),href();const mybutton=document.getElementById("myBtn");function scrollFunction(){document.body.scrollTop>20||document.documentElement.scrollTop>20?mybutton.style.display="block":mybutton.style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()},mybutton.addEventListener("click",topFunction);</script></main></html>

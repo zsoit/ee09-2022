@@ -74,5 +74,10 @@ styl czcionki: prosty, kursywa, pochylony\
 rodzaj pogrubienia czcionki\
 ``` font-weight: bold; ```
 
+przekreślony tekst \
+```text-decoration: line-through```
+
+usuwanie podkreślenia z odnośnika a\
+```text-decoration: none;```
 
 
