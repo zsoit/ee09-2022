@@ -118,6 +118,39 @@ if(
 
 }
 ```
+#### Przykład 2 BMI
+```php
+<h2>Podaj wagę i wzrost</h2>
+<form action="bmi.php" method="POST">
+    <label for="waga">Waga: </label>
+    <input type="number" name="waga" min="1"> <br>
+    <label for="wzrost">Wzrost w cm: </label>
+    <input type="number" name="wzrost" min="1"> <br>
+    <input type="submit" value="Oblicz i zapamiętaj wynik">
+</form>
+<?php
+if( isset($_POST['waga']) && isset($_POST['wzrost']) ){
+    $waga = $_POST['waga'];
+    $wzrost = $_POST['wzrost'];
+    $bmi = $waga/($wzrost*$wzrost);
+    $bmi = $bmi*10000;
+    echo "Twoja waga: " . $waga . ", Twój wzrost: " . $wzrost . "<br> BMI wynosi: " . $bmi;
+
+    if($bmi>=0 && $bmi<=18)  $bmi_id=1;
+    if($bmi>=19 && $bmi<=25)  $bmi_id=2;
+    if($bmi>=26 && $bmi<=30)  $bmi_id=3;
+    if($bmi>=31 && $bmi<=100)  $bmi_id=4;
+
+    $data_pomiaru = date('Y-m-d');
+    $wynik = $bmi;
+
+    $sql2 = "INSERT INTO wynik VALUES('','$bmi_id','$data_pomiaru','$bmi')";
+
+    mysqli_query($polaczenie, $sql2);
+}
+
+
+```
 
 
 

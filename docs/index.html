@@ -170,6 +170,36 @@ if(
 ?&gt;
 
 }
+</code></pre> <h4>Przykład 2 BMI</h4> <pre><code class="language-php">&lt;h2&gt;Podaj wagę i wzrost&lt;/h2&gt;
+&lt;form action=&quot;bmi.php&quot; method=&quot;POST&quot;&gt;
+    &lt;label for=&quot;waga&quot;&gt;Waga: &lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;waga&quot; min=&quot;1&quot;&gt; &lt;br&gt;
+    &lt;label for=&quot;wzrost&quot;&gt;Wzrost w cm: &lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;wzrost&quot; min=&quot;1&quot;&gt; &lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Oblicz i zapamiętaj wynik&quot;&gt;
+&lt;/form&gt;
+&lt;?php
+if( isset($_POST['waga']) &amp;&amp; isset($_POST['wzrost']) ){
+    $waga = $_POST['waga'];
+    $wzrost = $_POST['wzrost'];
+    $bmi = $waga/($wzrost*$wzrost);
+    $bmi = $bmi*10000;
+    echo &quot;Twoja waga: &quot; . $waga . &quot;, Twój wzrost: &quot; . $wzrost . &quot;&lt;br&gt; BMI wynosi: &quot; . $bmi;
+
+    if($bmi&gt;=0 &amp;&amp; $bmi&lt;=18)  $bmi_id=1;
+    if($bmi&gt;=19 &amp;&amp; $bmi&lt;=25)  $bmi_id=2;
+    if($bmi&gt;=26 &amp;&amp; $bmi&lt;=30)  $bmi_id=3;
+    if($bmi&gt;=31 &amp;&amp; $bmi&lt;=100)  $bmi_id=4;
+
+    $data_pomiaru = date('Y-m-d');
+    $wynik = $bmi;
+
+    $sql2 = &quot;INSERT INTO wynik VALUES('','$bmi_id','$data_pomiaru','$bmi')&quot;;
+
+    mysqli_query($polaczenie, $sql2);
+}
+
+
 </code></pre> </div><div class="hidden item js"><h1>JavaScript</h1> <ul> <li><a href="#0">Zmiana obrazka</a></li> <li><a href="#1">Zmiana stylu</a></li> <li><a href="#2">Sprawdz haslo</a></li> <li><a href="#3">Sprawdz cene</a></li> <li><a href="#4">Ciag arytmetyczny</a></li> <li><a href="#5">Koszt dostawy</a></li> <li><a href="#6">Zgoda na regulamin</a></li> <li><a href="#7">Koszt dostawy</a></li> <li><a href="#8">Wesele</a></li> </ul> <h2>TEORIA</h2> <h6>xd</h6> <h4>ZMIENNE</h4> <pre><code class="language-JS">var liczba = document.getElementById('liczba') //id
 var liczba = document.querySelector('#liczba') //id
 
