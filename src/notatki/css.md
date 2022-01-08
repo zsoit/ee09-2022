@@ -45,11 +45,11 @@ pierwsza linia paragrafu\
 pierwsza litera paragrafu\
 ```p:first-letter {color: blue;}```
 
-gdy zostanie wskazane kursorem bez kliknięcia\
+po kliknięciu myszą w celu zapisania w nim tekstu\
 ```input:focus {color: blue;}```
 
 ## INNE
-odstępy między literami\
+odstępy między literami,  efekt rozstrzelenia liter\
 ``` letter-spacing: 5px; ```
 
 rozmiar wysokości wierszy\
@@ -79,5 +79,8 @@ przekreślony tekst \
 
 usuwanie podkreślenia z odnośnika a\
 ```text-decoration: none;```
+
+niestandardowe odstępy między wyrazami\
+```  word-spacing: 12px ```
 
 
