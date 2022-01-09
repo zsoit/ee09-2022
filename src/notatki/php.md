@@ -18,6 +18,61 @@ mysqli_close($pol);
 ?>
 ```
 
+## WYŚWIETLANIE
+```php
+// TABLICA ASOCJACYJNA, PO NAZWIE
+while($wynik = mysqli_fetch_assoc($zap)){
+    echo "
+    <p>{$wynik['Imie']}</p>
+    <p>{$wynik['Nazwisko']}</p>
+    <p>{$wynik['Ksiazka']}</p>
+    ";
+}
+
+//TABLICA NUMERYCZNA, PO INDEXIE
+while($wynik = mysqli_fetch_row($zap)){
+    echo "
+    <p>{$wynik[0]}</p>
+    <p>{$wynik[1]}</p>
+    <p>{$wynik[2]}</p>
+    ";
+}
+
+echo " <h1>Liczba zwróconych wierszy: "
+. mysqli_num_rows($zap) . "</h1>";
+
+echo " <h1>Liczba zwróconych kolumn: "
+. mysqli_num_fileds($zap) . "</h1>";
+
+```
+
+## FUNKCJE PHP
+```php
+// FORMULARZE
+$_POST[] //niewidoczne
+$_GET[] //widoczne w paskku adresu ?strona=kontakt
+$_COOKIE[] //tablica ciasteczek
+isset() //sprawdza czy zmienna ma ustawiona wartosc
+empty() //sprawdza czy zmienna jest pusta
+
+array_key_exists($_POST['uzytkownik'],$hasla)
+//sprawdza czy podany klucz istnijej w tablicy
+
+str_replace(',','.',$zmienna) //zmienia znak
+settype($zmienna, 'double') //ustawia typ zmiennej
+round($zmienna, 3) //zaakrogla zmienna
+
+substr('Masny ben',6) //ucina znaki z przodu
+trim() - //Usuwa białe,puste znaki z początku oraz końca
+
+rand(1, 49) //zwraca losowa liczbe z przedzialu dwoch liczb
+sort($nazwa_tablicy) //sortowanie rosnące
+rsort($nazwa_tablicy //sortowanie malejące
+
+date('Y-m-d') //zwraca dane w podanym formacie
+
+```
+
 ## TWORZENIE CIASTECZEK
 #### setcookie($nazwa,$wartosc,$czas)
 Przykład 1
@@ -135,7 +190,8 @@ if( isset($_POST['waga']) && isset($_POST['wzrost']) ){
     $wzrost = $_POST['wzrost'];
     $bmi = $waga/($wzrost*$wzrost);
     $bmi = $bmi*10000;
-    echo "Twoja waga: " . $waga . ", Twój wzrost: " . $wzrost . "<br> BMI wynosi: " . $bmi;
+    echo "Twoja waga: " . $waga . ", Twój wzrost: "
+    . $wzrost . "<br> BMI wynosi: " . $bmi;
 
     if($bmi>=0 && $bmi<=18)  $bmi_id=1;
     if($bmi>=19 && $bmi<=25)  $bmi_id=2;
@@ -149,6 +205,41 @@ if( isset($_POST['waga']) && isset($_POST['wzrost']) ){
 
     mysqli_query($polaczenie, $sql2);
 }
+
+```
+
+
+## Wyświetlanie po ID
+
+```php
+<p>Podaj pozycje zawodników (1-bramkarze, 2-obrońcy, 3-pomocnicy, 4-napastnicy):</p>
+<form action="futbol.php" method="POST">
+    <input type="number" name="id">
+    <input type="submit" value="Sprawdz">
+</form>
+<ul>
+    <!-- skrypt -->
+    <?php
+    if(isset($_POST['id']))
+    {
+        $sql = "
+        select imie, nazwisko
+        from zawodnik
+        where
+        pozycja_id={$_POST['id']}"
+        ;
+        $res = mysqli_query($db,$sql);
+        while($row = mysqli_fetch_array($res)){
+            echo "
+            <li>
+                <p>{$row['imie']} {$row['nazwisko']}</p>
+            </li>
+            ";
+        }
+
+    }
+    ?>
+</ul>
 
 
 ```

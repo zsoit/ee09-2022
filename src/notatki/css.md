@@ -83,4 +83,36 @@ usuwanie podkreślenia z odnośnika a\
 niestandardowe odstępy między wyrazami\
 ```  word-spacing: 12px ```
 
+## ODWOŁANIE SIĘ Z HTML
 
+- ***#baner*** (hasztag) odwołanie do identyfikatora ID
+- ***.baner*** (kropka) odwołanie do klasy
+- ***p*** (bez niczego) - odwołanie się do selektora
+
+
+
+```html
+///Przykład, odwołanie się do elementu na trzy sposoby
+
+<footer class="stopka" id="stopka">
+    <p>STOPKA</p>
+</footer>
+
+<style>
+#stopka {
+    color: red;
+}
+
+.stopka {
+    color: red;
+}
+
+footer{
+    color: red;
+}
+<style>
+
+```
+
+podpięcie css
+```<link rel="stylesheet" href="style.css">```

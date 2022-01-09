@@ -42,9 +42,11 @@ COREL:
 ```
 //CZĘŚĆ WSPÓLNA(RYSOWANIE NP. DOMU)
 1 - WSKAŹNIKIEM (skrót: Ctrl+SPACJA) zaznaczamy kilka obiektów (Ctrl+SHIFT)
-2 - Pod paskiem menu, między Okno a Pomoc są ikonki dwóch nachodzącyhc na siebie kwadratów
+2 - Pod paskiem menu, między Okno a Pomoc są ikonki dwóch
+nachodzących na siebie kwadratów
 3 - Najeżdzamy na nie i szukamy trzeciej ikony: "Część wspólna"
-4 - Obiekty się połączą, przydatne przy rysowaniu domu, lub innych rzeczy, mające obrys
+4 - Obiekty się połączą, przydatne przy rysowaniu domu,
+lub innych rzeczy, mające obrys
 
 //RYSOWANIE TRÓJKĄTA
 1 - wybierz narzędzie wielokąt (SKRÓT Y) z przybornika

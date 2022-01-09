@@ -14,6 +14,8 @@
 
     <img src="obrazek.jpg" alt="Opis jakiegoś obrazka">
     <a href="mailto:ja@portal.pl">Napisz do mnie</a>
+    <a href="tel:+48123456789">Zadzwon do mnie</a>
+    <a href="http://masno.pl" target="_blank">Otwiera się w nowej karcie!</a>
 
 
 </body>
@@ -28,6 +30,9 @@ nagłówki danego stopnia
 
 akapit (paragraf)
 ```<p>```
+
+przełamanie lini
+```<b>```
 
 linia pozioma
 ```<hr>```
@@ -53,29 +58,14 @@ indeks dolny
 indeks górny
 ```<sub>```
 
+Cytat blokowy
+```<blockquote> ```
 
-## HTML5
-```html
-<header>
-<nav>
-    <main>
-    <section>
-    <article>
-    <aside>
-<footer>
+akronim(pod kursorem po najechaniu)
+```<abbr> ```
 
-<details>
-    <summary>
-
-<figure>
-    <figcaption>
-
-<fieldset>
-    <legend>
-
-//video-html5 = MP4, Ogg, WebM
-
-```
+tesk, który został usunięty |  wstawiony
+``` <del> | <ins>```
 
 ## FORMULARZE
 
@@ -88,12 +78,20 @@ indeks górny
 - submit - przycisk, uruchamiający wykonanie akcji zdefiniowanej w atrybucie "action"
 - reset - przycisk, który usuwa wszystkie dane z formularza
 - button - przycisk dowolnego przeznaczenia
+- email, tel
+- date - data w formacie dd-mm-rrrr
+- color - wybieranie koloru
+- range [min, max] - wskaznik, suwak wartosci
 
 
 ```html
 
-<input type="text" name="pole-tekstowe">
-<input type="numer" name="pole-tekstowe">
+//LABEL - ETYKIETA DLA POLA
+<label for="imie">Imię:</label>
+<input type="text" name="imie" id="imie">
+
+<label for="wiek">Wiek: </label>
+<input type="numer" name="wiek">
 
 
 <!-- lista rozwijana-->
@@ -112,6 +110,11 @@ indeks górny
 ## TABELKI
 #### colspan - rozszerza w poziomie
 #### rowspan - rozszerza w pionie
+#### th- nagłówek
+#### tr- wiersz
+#### td- komórka
+
+
 ```html
 
     <table border="1">
@@ -134,4 +137,64 @@ indeks górny
             <td colspan="2">Nowak</td>
         </tr>
     </table>
+```
+## HTML5
+#### SEMANTYCZNY HTML
+
+naglowek
+```<header> ```
+
+nawigacja
+```<nav> ```
+
+glowna_czesc_storny
+```<main>```
+
+sekcja
+```<section>```
+
+boczna_sekcja
+```<aside>```
+
+artykul
+```<article>```
+
+stopka
+```<footer>```
+
+kontakt_info
+```<address>```
+
+
+```
+<fieldset> //obramowanie
+    <legend> //tekst_na_obrmowaniu
+
+//lista_definicji
+<dl>
+    <dt> //definicja
+    <dd> //opis
+```
+#### AUDIO/VIDEO
+
+- poster (miniaturka filmu)
+- autoplay (automatyczne odtwarzanie)
+- controls (wyświetlenie panelu sterowania wideo)
+- loop (zapętlenie się odtwarzania wideo)
+- autobuffer (automatyczne buforowanie wideo)
+- preload (wczytywanie wideo wraz z załadowaniem strony)
+
+```HTML
+<video width="320" height="240" autoplay>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+</video>
+
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+</audio>
+
+//video-html5 = MP4, Ogg, WebM
+
 ```

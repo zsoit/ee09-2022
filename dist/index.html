@@ -165,6 +165,8 @@ a:hover {
 
     &lt;img src=&quot;obrazek.jpg&quot; alt=&quot;Opis jakiegoś obrazka&quot;&gt;
     &lt;a href=&quot;mailto:ja@portal.pl&quot;&gt;Napisz do mnie&lt;/a&gt;
+    &lt;a href=&quot;tel:+48123456789&quot;&gt;Zadzwon do mnie&lt;/a&gt;
+    &lt;a href=&quot;http://masno.pl&quot; target=&quot;_blank&quot;&gt;Otwiera się w nowej karcie!&lt;/a&gt;
 
 
 &lt;/body&gt;
@@ -176,6 +178,8 @@ a:hover {
 <code>&lt;h1&gt; - &lt;h6&gt;</code></p>
 <p>akapit (paragraf)
 <code>&lt;p&gt;</code></p>
+<p>przełamanie lini
+<code>&lt;b&gt;</code></p>
 <p>linia pozioma
 <code>&lt;hr&gt;</code></p>
 <p>odnośnik do strony
@@ -192,27 +196,12 @@ a:hover {
 <code>&lt;sup&gt;</code></p>
 <p>indeks górny
 <code>&lt;sub&gt;</code></p>
-<h2>HTML5</h2>
-<pre><code class="language-html">&lt;header&gt;
-&lt;nav&gt;
-    &lt;main&gt;
-    &lt;section&gt;
-    &lt;article&gt;
-    &lt;aside&gt;
-&lt;footer&gt;
-
-&lt;details&gt;
-    &lt;summary&gt;
-
-&lt;figure&gt;
-    &lt;figcaption&gt;
-
-&lt;fieldset&gt;
-    &lt;legend&gt;
-
-//video-html5 = MP4, Ogg, WebM
-
-</code></pre>
+<p>Cytat blokowy
+<code>&lt;blockquote&gt;</code></p>
+<p>akronim(pod kursorem po najechaniu)
+<code>&lt;abbr&gt;</code></p>
+<p>tesk, który został usunięty |  wstawiony
+<code>&lt;del&gt; | &lt;ins&gt;</code></p>
 <h2>FORMULARZE</h2>
 <h4>input type:</h4>
 <ul>
@@ -224,10 +213,18 @@ a:hover {
 <li>submit - przycisk, uruchamiający wykonanie akcji zdefiniowanej w atrybucie &quot;action&quot;</li>
 <li>reset - przycisk, który usuwa wszystkie dane z formularza</li>
 <li>button - przycisk dowolnego przeznaczenia</li>
+<li>email, tel</li>
+<li>date - data w formacie dd-mm-rrrr</li>
+<li>color - wybieranie koloru</li>
+<li>range [min, max] - wskaznik, suwak wartosci</li>
 </ul>
 <pre><code class="language-html">
-&lt;input type=&quot;text&quot; name=&quot;pole-tekstowe&quot;&gt;
-&lt;input type=&quot;numer&quot; name=&quot;pole-tekstowe&quot;&gt;
+//LABEL - ETYKIETA DLA POLA
+&lt;label for=&quot;imie&quot;&gt;Imię:&lt;/label&gt;
+&lt;input type=&quot;text&quot; name=&quot;imie&quot; id=&quot;imie&quot;&gt;
+
+&lt;label for=&quot;wiek&quot;&gt;Wiek: &lt;/label&gt;
+&lt;input type=&quot;numer&quot; name=&quot;wiek&quot;&gt;
 
 
 &lt;!-- lista rozwijana--&gt;
@@ -245,6 +242,9 @@ a:hover {
 <h2>TABELKI</h2>
 <h4>colspan - rozszerza w poziomie</h4>
 <h4>rowspan - rozszerza w pionie</h4>
+<h4>th- nagłówek</h4>
+<h4>tr- wiersz</h4>
+<h4>td- komórka</h4>
 <pre><code class="language-html">
     &lt;table border=&quot;1&quot;&gt;
         &lt;tr&gt;
@@ -266,6 +266,54 @@ a:hover {
             &lt;td colspan=&quot;2&quot;&gt;Nowak&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
+</code></pre>
+<h2>HTML5</h2>
+<h4>SEMANTYCZNY HTML</h4>
+<p>naglowek
+<code>&lt;header&gt;</code></p>
+<p>nawigacja
+<code>&lt;nav&gt;</code></p>
+<p>glowna_czesc_storny
+<code>&lt;main&gt;</code></p>
+<p>sekcja
+<code>&lt;section&gt;</code></p>
+<p>boczna_sekcja
+<code>&lt;aside&gt;</code></p>
+<p>artykul
+<code>&lt;article&gt;</code></p>
+<p>stopka
+<code>&lt;footer&gt;</code></p>
+<p>kontakt_info
+<code>&lt;address&gt;</code></p>
+<pre><code>&lt;fieldset&gt; //obramowanie
+    &lt;legend&gt; //tekst_na_obrmowaniu
+
+//lista_definicji
+&lt;dl&gt;
+    &lt;dt&gt; //definicja
+    &lt;dd&gt; //opis
+</code></pre>
+<h4>AUDIO/VIDEO</h4>
+<ul>
+<li>poster (miniaturka filmu)</li>
+<li>autoplay (automatyczne odtwarzanie)</li>
+<li>controls (wyświetlenie panelu sterowania wideo)</li>
+<li>loop (zapętlenie się odtwarzania wideo)</li>
+<li>autobuffer (automatyczne buforowanie wideo)</li>
+<li>preload (wczytywanie wideo wraz z załadowaniem strony)</li>
+</ul>
+<pre><code class="language-HTML">&lt;video width=&quot;320&quot; height=&quot;240&quot; autoplay&gt;
+  &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;movie.ogg&quot; type=&quot;video/ogg&quot;&gt;
+&lt;/video&gt;
+
+&lt;audio controls&gt;
+  &lt;source src=&quot;horse.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+  &lt;source src=&quot;horse.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
+
+//video-html5 = MP4, Ogg, WebM
+
 </code></pre>
 </div><div class="item hidden css"><h1>CSS</h1>
 <h2>PODSTAWOWE</h2>
@@ -325,6 +373,35 @@ tekst napisany kapitalikami (capitalize)<br>
 <code>text-decoration: none;</code></p>
 <p>niestandardowe odstępy między wyrazami<br>
 <code>word-spacing: 12px</code></p>
+<h2>ODWOŁANIE SIĘ Z HTML</h2>
+<ul>
+<li><em><strong>#baner</strong></em> (hasztag) odwołanie do identyfikatora ID</li>
+<li><em><strong>.baner</strong></em> (kropka) odwołanie do klasy</li>
+<li><em><strong>p</strong></em> (bez niczego) - odwołanie się do selektora</li>
+</ul>
+<pre><code class="language-html">///Przykład, odwołanie się do elementu na trzy sposoby
+
+&lt;footer class=&quot;stopka&quot; id=&quot;stopka&quot;&gt;
+    &lt;p&gt;STOPKA&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;style&gt;
+#stopka {
+    color: red;
+}
+
+.stopka {
+    color: red;
+}
+
+footer{
+    color: red;
+}
+&lt;style&gt;
+
+</code></pre>
+<p>podpięcie css
+<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code></p>
 </div><div class="item hidden php"><h1>PHP</h1>
 <h2>POŁACZENIE Z BAZĄ DANYCH</h2>
 <h4>Nawiązanie połączenia i  wyświetlenie danych z tabeli</h4>
@@ -340,6 +417,57 @@ while($wynik = mysqli_fetch_assoc($zapytanie) )
 }
 mysqli_close($pol);
 ?&gt;
+</code></pre>
+<h2>WYŚWIETLANIE</h2>
+<pre><code class="language-php">// TABLICA ASOCJACYJNA, PO NAZWIE
+while($wynik = mysqli_fetch_assoc($zap)){
+    echo &quot;
+    &lt;p&gt;{$wynik['Imie']}&lt;/p&gt;
+    &lt;p&gt;{$wynik['Nazwisko']}&lt;/p&gt;
+    &lt;p&gt;{$wynik['Ksiazka']}&lt;/p&gt;
+    &quot;;
+}
+
+//TABLICA NUMERYCZNA, PO INDEXIE
+while($wynik = mysqli_fetch_row($zap)){
+    echo &quot;
+    &lt;p&gt;{$wynik[0]}&lt;/p&gt;
+    &lt;p&gt;{$wynik[1]}&lt;/p&gt;
+    &lt;p&gt;{$wynik[2]}&lt;/p&gt;
+    &quot;;
+}
+
+echo &quot; &lt;h1&gt;Liczba zwróconych wierszy: &quot;
+. mysqli_num_rows($zap) . &quot;&lt;/h1&gt;&quot;;
+
+echo &quot; &lt;h1&gt;Liczba zwróconych kolumn: &quot;
+. mysqli_num_fileds($zap) . &quot;&lt;/h1&gt;&quot;;
+
+</code></pre>
+<h2>FUNKCJE PHP</h2>
+<pre><code class="language-php">// FORMULARZE
+$_POST[] //niewidoczne
+$_GET[] //widoczne w paskku adresu ?strona=kontakt
+$_COOKIE[] //tablica ciasteczek
+isset() //sprawdza czy zmienna ma ustawiona wartosc
+empty() //sprawdza czy zmienna jest pusta
+
+array_key_exists($_POST['uzytkownik'],$hasla)
+//sprawdza czy podany klucz istnijej w tablicy
+
+str_replace(',','.',$zmienna) //zmienia znak
+settype($zmienna, 'double') //ustawia typ zmiennej
+round($zmienna, 3) //zaakrogla zmienna
+
+substr('Masny ben',6) //ucina znaki z przodu
+trim() - //Usuwa białe,puste znaki z początku oraz końca
+
+rand(1, 49) //zwraca losowa liczbe z przedzialu dwoch liczb
+sort($nazwa_tablicy) //sortowanie rosnące
+rsort($nazwa_tablicy //sortowanie malejące
+
+date('Y-m-d') //zwraca dane w podanym formacie
+
 </code></pre>
 <h2>TWORZENIE CIASTECZEK</h2>
 <h4>setcookie($nazwa,$wartosc,$czas)</h4>
@@ -448,7 +576,8 @@ if( isset($_POST['waga']) &amp;&amp; isset($_POST['wzrost']) ){
     $wzrost = $_POST['wzrost'];
     $bmi = $waga/($wzrost*$wzrost);
     $bmi = $bmi*10000;
-    echo &quot;Twoja waga: &quot; . $waga . &quot;, Twój wzrost: &quot; . $wzrost . &quot;&lt;br&gt; BMI wynosi: &quot; . $bmi;
+    echo &quot;Twoja waga: &quot; . $waga . &quot;, Twój wzrost: &quot;
+    . $wzrost . &quot;&lt;br&gt; BMI wynosi: &quot; . $bmi;
 
     if($bmi&gt;=0 &amp;&amp; $bmi&lt;=18)  $bmi_id=1;
     if($bmi&gt;=19 &amp;&amp; $bmi&lt;=25)  $bmi_id=2;
@@ -463,6 +592,37 @@ if( isset($_POST['waga']) &amp;&amp; isset($_POST['wzrost']) ){
     mysqli_query($polaczenie, $sql2);
 }
 
+</code></pre>
+<h2>Wyświetlanie po ID</h2>
+<pre><code class="language-php">&lt;p&gt;Podaj pozycje zawodników (1-bramkarze, 2-obrońcy, 3-pomocnicy, 4-napastnicy):&lt;/p&gt;
+&lt;form action=&quot;futbol.php&quot; method=&quot;POST&quot;&gt;
+    &lt;input type=&quot;number&quot; name=&quot;id&quot;&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Sprawdz&quot;&gt;
+&lt;/form&gt;
+&lt;ul&gt;
+    &lt;!-- skrypt --&gt;
+    &lt;?php
+    if(isset($_POST['id']))
+    {
+        $sql = &quot;
+        select imie, nazwisko
+        from zawodnik
+        where
+        pozycja_id={$_POST['id']}&quot;
+        ;
+        $res = mysqli_query($db,$sql);
+        while($row = mysqli_fetch_array($res)){
+            echo &quot;
+            &lt;li&gt;
+                &lt;p&gt;{$row['imie']} {$row['nazwisko']}&lt;/p&gt;
+            &lt;/li&gt;
+            &quot;;
+        }
+
+    }
+    ?&gt;
+&lt;/ul&gt;
+
 
 </code></pre>
 </div><div class="item hidden js"><h1>JavaScript</h1>
@@ -472,10 +632,15 @@ if( isset($_POST['waga']) &amp;&amp; isset($_POST['wzrost']) ){
 <li><a href="#2">Sprawdz haslo</a></li>
 <li><a href="#3">Sprawdz cene</a></li>
 <li><a href="#4">Ciag arytmetyczny</a></li>
-<li><a href="#5">Koszt dostawy</a></li>
+<li><a href="#5">Własny kolor RGB, wybrany żelek </a></li>
 <li><a href="#6">Zgoda na regulamin</a></li>
 <li><a href="#7">Koszt dostawy</a></li>
 <li><a href="#8">Wesele</a></li>
+<li><a href="#9">Data i czas</a></li>
+<li><a href="#10">Obiekt Math- pierwiastek,potega itp.</a></li>
+<li><a href="#11">Walidacja formularza</a></li>
+<li><a href="#13">Tworzenie obiektu</a></li>
+<li><a href="#14">Tworzenie obiektu HTML</a></li>
 </ul>
 <h2>TEORIA</h2>
 <h6>xd</h6>
@@ -524,6 +689,7 @@ Math.pow() //potega
 
 prompt() //okienko z polem do wpisania
 alert() //okienko z informacją
+console.log() //wyswietl dane w konsoli przeglądarki
 
 </code></pre>
 <h6>0</h6>
@@ -655,7 +821,7 @@ alert() //okienko z informacją
 &lt;/script&gt;
 </code></pre>
 <h6>5</h6>
-<h2>Własny kolor, wybrany żelek</h2>
+<h2>Własny kolor RGB, wybrany żelek</h2>
 <h4>Po naciśnięcu przycisku &quot;zamów&quot; kolor drugiego przycisku zmienia się na wybrany kolor RGB z formularza</h4>
 <pre><code class="language-html">&lt;div id=&quot;prawy&quot;&gt;
     Podaj numer kształtu:
@@ -794,6 +960,129 @@ function Oblicz()
 }
 &lt;/script&gt;
 </code></pre>
+<h6>9</h6>
+<h2>Data i czas</h2>
+<pre><code class="language-html">&lt;script&gt;
+
+    var czas = new Date();
+
+    document.write
+    (`
+    &lt;b&gt;Rok&lt;/b&gt;${czas.getFullYear()} &lt;br&gt;
+    &lt;b&gt;Aktualny czas &lt;/b&gt; ${czas.getHours()} : ${czas.getMinutes()} : ${czas.getSeconds()} &lt;br&gt;
+    &lt;b&gt;Aktualny data: &lt;/b&gt; ${czas.getDate()} &lt;br&gt;
+    &lt;b&gt;Miesiąc&lt;/b&gt; ${czas.getMonth()} &lt;br&gt;
+    &lt;b&gt;Rok&lt;/b&gt; ${czas.getFullYear()} &lt;br&gt;
+    `)
+
+&lt;/script&gt;
+
+</code></pre>
+<h6>10</h6>
+<h2>Obiekt Math - pierwiastek, potęga</h2>
+<pre><code class="language-html">&lt;script&gt;
+    // obiekt math
+    var a = prompt('Podaj pierwszą liczbę: ');
+    var b = prompt('Podaj drugą liczbę: ');
+    document.write(`
+    Liczba a wynosi &lt;b&gt;${a}&lt;/b&gt; &lt;br&gt;
+    Liczba b wynosi &lt;b&gt;${b}&lt;/b&gt; &lt;br&gt;
+    Pierwiastek kwadratowy z liczby a wynosi &lt;b&gt;${Math.sqrt(a)}&lt;/b&gt; &lt;br&gt;
+    Liczba a do potęgi b wynosi &lt;b&gt; ${Math.pow(a,b)} &lt;/b&gt; &lt;br&gt;
+    Liczba a oraz b jest większa &lt;b&gt; ${Math.max(a,b)} &lt;/b&gt; &lt;br&gt;
+    `)
+&lt;/script&gt;
+
+&lt;script&gt;
+    // obiekt math
+    var x = prompt('Podaj pierwszą liczbę: ');
+    var y = prompt('Podaj drugą liczbę: ');
+    document.write(`
+    Liczba x=${x} &lt;br&gt; Liczba y=${y} &lt;br&gt;
+    Najmniejsza liczba : &lt;b&gt; ${Math.min(x,y)} &lt;/b&gt; &lt;br&gt;
+    Liczba pseudolosowa : &lt;b&gt; ${Math.random(x,y)} &lt;/b&gt; &lt;br&gt;
+    Logarytm naturalny z x : &lt;b&gt;${Math.log(x)}&lt;/b&gt;
+    `)
+&lt;/script&gt;
+</code></pre>
+<h6>11</h6>
+<h2>Walidacja formularza</h2>
+<pre><code class="language-html">&lt;script&gt;
+    function przetwarzaj_dane(formularz) {
+        if (formularz.imie.value == &quot;&quot;) {
+            alert('Podaj swoje imie!');
+        } else {
+            alert(`Twoje imie to: ${formularz.imie.value}`);
+        }
+
+    }
+&lt;/script&gt;
+
+&lt;h2&gt;Podaj swoje imie: &lt;/h2&gt;
+&lt;form name=formularz&gt;
+    &lt;input type=&quot;text&quot; name=imie&gt; &lt;br&gt;&lt;br&gt;
+    &lt;input type=&quot;button&quot; value=&quot;Kliknij tutaj&quot; onclick=&quot;przetwarzaj_dane(this.form)&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h6>13</h6>
+<h2>Tworzenie obiektu</h2>
+<pre><code class="language-html">//przykład-1
+&lt;script&gt;
+    function komputer(procesor, zegar, cena) {
+        this.procesor = procesor;
+        this.zegar = zegar;
+        this.cena = cena;
+    }
+    moj_komputer = new komputer(&quot;Celeron&quot;, &quot;800&quot;, &quot;2500 zł&quot;);
+    document.write(`
+    Procesor: ${moj_komputer.procesor} &lt;br&gt;
+    Zegar: ${moj_komputer.zegar} &lt;br&gt;
+    Cena: ${moj_komputer.cena} &lt;br&gt;
+    `);
+&lt;/script&gt;
+
+//przykład-2
+&lt;script&gt;
+    function Student(imie, nazwisko, wiek, stypendium, rok) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.wiek = wiek;
+        this.stypendium = stypendium;
+        this.rok = rok;
+    }
+    var imie = prompt('Podaj imie: ');
+    var nazwisko = prompt('Podaj nazwisko: ');
+    var wiek = prompt('Podaj wiek: ');
+    var stypendium = prompt('Podaj stypednium: ');
+    var rok = prompt('Podaj rok studiów: ');
+
+    osoba = new Student(imie, nazwisko, wiek, stypendium, rok);
+    document.write(`
+    Imię: ${osoba.imie.toUpperCase().fontcolor('green')} &lt;br&gt;
+    Nazwisko: ${osoba.nazwisko.toUpperCase().fontcolor('yellow')} &lt;br&gt;
+    Wiek: ${osoba.wiek.toUpperCase().fontcolor('blue')} &lt;br&gt;
+    Stypendium: ${osoba.stypendium.toUpperCase().fontcolor('orange')} &lt;br&gt;
+    Rok: ${osoba.rok.toUpperCase().fontcolor('gray')} &lt;br&gt;
+    `);
+&lt;/script&gt;
+
+</code></pre>
+<h6>14</h6>
+<h2>Tworzenie obiektu HTML</h2>
+<p>Tworzenie obiektu html, atrybut href, klasa czerwony_odnosnik</p>
+<pre><code class="language-html">&lt;script&gt;
+    var odnosnik = document.createElement('a');
+    odnosnik.SetAttribute('href','http://masno.pl')
+    odnosnik.classList.add('czerwony_odnosnik');
+    odnosnik.body.appendChild(akapit)
+&lt;/script&gt;
+
+Delta:
+// a=1,b=2,c=-3 - deleta dodatnia Δ=16, x₁=1, x₂=-3
+// a=1,b=2,c=1 - delta zerowa Δ=0, x₁=-1
+// a=4,b=4,c=4 - delta ujemna Δ=-48
+
+</code></pre>
 </div><div class="item hidden sql"><h1>SQL</h1>
 <h2>ZAPYTANIA</h2>
 <h6>XD</h6>
@@ -802,12 +1091,12 @@ function Oblicz()
   -&gt; ASC (ascending) rosnąco.
   -&gt; DESC (descending) malejąco
 
-• SELECT DISTINC ... [usuwanie duplikatów]
-• LIMIT [-- limit 10 ; na samym koncu]
-• LIKE = (nazwisko like '%a' or nazwisko like 'a%' );
+• SELECT DISTINCT ... [usuwanie duplikatów]
+• LIMIT [... limit 10 ; na samym koncu]
+• LIKE = (nazwisko like '%a' or nazwisko like 'a%');
 • IN(30,20);
 
-//agregacja danych
+//AGREGACJA DANYCH
 • COUNT() - liczy wystapienia;
 • SUM() - sumuje;
 • MIN() - zwraca najsmiejsza wartosc;
@@ -853,7 +1142,7 @@ VALUES
 
 </code></pre>
 <h4>TWORZENIE UŻYTKOWNIKA</h4>
-<pre><code class="language-SQL">
+<pre><code class="language-SQL">//TWORZENIE UŻYTKOWNIKA
 CREATE user kasia@localhost IDENTIFIED by 'qwerty';
 
 //ZMIANA
@@ -864,10 +1153,30 @@ GRANT ALL PRIVILEGES on baza.* to piotr@localhost;
 GRANT CREATE, ALTER, SELECT ON egzamin.liga TO ' fryzjer'@'localhost'
 
 </code></pre>
+<h4>EDYCJA STRUKTURY TABELI</h4>
+<pre><code class="language-SQL">KOLUMNA=POLE=ATRYBUT
+
+• OPERACJE W ISTNIEJĄCEJ TABELI!
+
+//DODAWANIE KOLUMNY
+ALTER TABLE pracownicy ADD rozmiar_buta VARCHAR(10);
+
+
+//ZMIANA TYPU KOLUMNY
+ALTER TABLE pracownicy MODIFY rozmiar_buta INT;
+
+//USUWANIE KOLUMNY
+ALTER TABLE pracownicy DROP rozmiar_buta;
+
+//ZMIANA NAZWY KOLUMNY
+ALTER TABLE pracownicy RENAME zatrudnieni;
+
+
+</code></pre>
 <h2>ZAPYTANIE</h2>
 <pre><code class="language-sql">
 
--- poszę policzyć ile jest powiatów w każdym województwie
+//poszę policzyć ile jest powiatów w każdym województwie
 select
 	w.nazwa,
 	count(p.idpowiatu)
@@ -879,7 +1188,9 @@ on
 	w.idwojewodztwa=p.idwojewodztwa
 group by w.nazwa
 ;
---Proszę policzyć ile jest gmin w każdym powiecie województwa pomorskiego lub lubuskiego
+
+//Proszę policzyć ile jest gmin w każdym powiecie
+województwa pomorskiego lub lubuskiego
 select
 p.nazwa, p.idwojewodztwa, count(*)
 from
@@ -929,9 +1240,11 @@ GIMP:
 <h4>program: COREL</h4>
 <pre><code>//CZĘŚĆ WSPÓLNA(RYSOWANIE NP. DOMU)
 1 - WSKAŹNIKIEM (skrót: Ctrl+SPACJA) zaznaczamy kilka obiektów (Ctrl+SHIFT)
-2 - Pod paskiem menu, między Okno a Pomoc są ikonki dwóch nachodzącyhc na siebie kwadratów
+2 - Pod paskiem menu, między Okno a Pomoc są ikonki dwóch
+nachodzących na siebie kwadratów
 3 - Najeżdzamy na nie i szukamy trzeciej ikony: &quot;Część wspólna&quot;
-4 - Obiekty się połączą, przydatne przy rysowaniu domu, lub innych rzeczy, mające obrys
+4 - Obiekty się połączą, przydatne przy rysowaniu domu,
+lub innych rzeczy, mające obrys
 
 //RYSOWANIE TRÓJKĄTA
 1 - wybierz narzędzie wielokąt (SKRÓT Y) z przybornika

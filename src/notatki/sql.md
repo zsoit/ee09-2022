@@ -10,12 +10,12 @@
   -> ASC (ascending) rosnąco.
   -> DESC (descending) malejąco
 
-• SELECT DISTINC ... [usuwanie duplikatów]
-• LIMIT [-- limit 10 ; na samym koncu]
-• LIKE = (nazwisko like '%a' or nazwisko like 'a%' );
+• SELECT DISTINCT ... [usuwanie duplikatów]
+• LIMIT [... limit 10 ; na samym koncu]
+• LIKE = (nazwisko like '%a' or nazwisko like 'a%');
 • IN(30,20);
 
-//agregacja danych
+//AGREGACJA DANYCH
 • COUNT() - liczy wystapienia;
 • SUM() - sumuje;
 • MIN() - zwraca najsmiejsza wartosc;
@@ -73,7 +73,7 @@ CREATE TABLE informatyk
  ```
 #### TWORZENIE UŻYTKOWNIKA
 ```SQL
-
+//TWORZENIE UŻYTKOWNIKA
 CREATE user kasia@localhost IDENTIFIED by 'qwerty';
 
 //ZMIANA
@@ -85,12 +85,35 @@ GRANT CREATE, ALTER, SELECT ON egzamin.liga TO ' fryzjer'@'localhost'
 
 ```
 
+#### EDYCJA STRUKTURY TABELI
+```SQL
+KOLUMNA=POLE=ATRYBUT
+
+• OPERACJE W ISTNIEJĄCEJ TABELI!
+
+//DODAWANIE KOLUMNY
+ALTER TABLE pracownicy ADD rozmiar_buta VARCHAR(10);
+
+
+//ZMIANA TYPU KOLUMNY
+ALTER TABLE pracownicy MODIFY rozmiar_buta INT;
+
+//USUWANIE KOLUMNY
+ALTER TABLE pracownicy DROP rozmiar_buta;
+
+//ZMIANA NAZWY KOLUMNY
+ALTER TABLE pracownicy RENAME zatrudnieni;
+
+
+```
+
+
 ## ZAPYTANIE
 
 ```sql
 
 
--- poszę policzyć ile jest powiatów w każdym województwie
+//poszę policzyć ile jest powiatów w każdym województwie
 select
 	w.nazwa,
 	count(p.idpowiatu)
@@ -102,7 +125,9 @@ on
 	w.idwojewodztwa=p.idwojewodztwa
 group by w.nazwa
 ;
---Proszę policzyć ile jest gmin w każdym powiecie województwa pomorskiego lub lubuskiego
+
+//Proszę policzyć ile jest gmin w każdym powiecie
+województwa pomorskiego lub lubuskiego
 select
 p.nazwa, p.idwojewodztwa, count(*)
 from

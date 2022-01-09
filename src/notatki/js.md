@@ -4,10 +4,17 @@
 - [Sprawdz haslo](#2)
 - [Sprawdz cene](#3)
 - [Ciag arytmetyczny](#4)
-- [Koszt dostawy](#5)
+- [Własny kolor RGB, wybrany żelek ](#5)
 - [Zgoda na regulamin](#6)
 - [Koszt dostawy](#7)
 - [Wesele](#8)
+- [Data i czas](#9)
+- [Obiekt Math- pierwiastek,potega itp.](#10)
+- [Walidacja formularza](#11)
+- [Tworzenie obiektu](#13)
+- [Tworzenie obiektu HTML](#14)
+
+
 
 ## TEORIA
 ###### xd
@@ -63,6 +70,7 @@ Math.pow() //potega
 
 prompt() //okienko z polem do wpisania
 alert() //okienko z informacją
+console.log() //wyswietl dane w konsoli przeglądarki
 
 ```
 ###### 0
@@ -210,7 +218,7 @@ alert() //okienko z informacją
 </script>
 ```
 ###### 5
-## Własny kolor, wybrany żelek
+## Własny kolor RGB, wybrany żelek
 #### Po naciśnięcu przycisku "zamów" kolor drugiego przycisku zmienia się na wybrany kolor RGB z formularza
 
 ```html
@@ -360,4 +368,133 @@ function Oblicz()
     }
 }
 </script>
+```
+###### 9
+## Data i czas
+```html
+<script>
+
+    var czas = new Date();
+
+    document.write
+    (`
+    <b>Rok</b>${czas.getFullYear()} <br>
+    <b>Aktualny czas </b> ${czas.getHours()} : ${czas.getMinutes()} : ${czas.getSeconds()} <br>
+    <b>Aktualny data: </b> ${czas.getDate()} <br>
+    <b>Miesiąc</b> ${czas.getMonth()} <br>
+    <b>Rok</b> ${czas.getFullYear()} <br>
+    `)
+
+</script>
+
+```
+###### 10
+## Obiekt Math - pierwiastek, potęga
+```html
+<script>
+    // obiekt math
+    var a = prompt('Podaj pierwszą liczbę: ');
+    var b = prompt('Podaj drugą liczbę: ');
+    document.write(`
+    Liczba a wynosi <b>${a}</b> <br>
+    Liczba b wynosi <b>${b}</b> <br>
+    Pierwiastek kwadratowy z liczby a wynosi <b>${Math.sqrt(a)}</b> <br>
+    Liczba a do potęgi b wynosi <b> ${Math.pow(a,b)} </b> <br>
+    Liczba a oraz b jest większa <b> ${Math.max(a,b)} </b> <br>
+    `)
+</script>
+
+<script>
+    // obiekt math
+    var x = prompt('Podaj pierwszą liczbę: ');
+    var y = prompt('Podaj drugą liczbę: ');
+    document.write(`
+    Liczba x=${x} <br> Liczba y=${y} <br>
+    Najmniejsza liczba : <b> ${Math.min(x,y)} </b> <br>
+    Liczba pseudolosowa : <b> ${Math.random(x,y)} </b> <br>
+    Logarytm naturalny z x : <b>${Math.log(x)}</b>
+    `)
+</script>
+```
+###### 11
+## Walidacja formularza
+```html
+<script>
+    function przetwarzaj_dane(formularz) {
+        if (formularz.imie.value == "") {
+            alert('Podaj swoje imie!');
+        } else {
+            alert(`Twoje imie to: ${formularz.imie.value}`);
+        }
+
+    }
+</script>
+
+<h2>Podaj swoje imie: </h2>
+<form name=formularz>
+    <input type="text" name=imie> <br><br>
+    <input type="button" value="Kliknij tutaj" onclick="przetwarzaj_dane(this.form)">
+</form>
+```
+###### 13
+## Tworzenie obiektu
+```html
+//przykład-1
+<script>
+    function komputer(procesor, zegar, cena) {
+        this.procesor = procesor;
+        this.zegar = zegar;
+        this.cena = cena;
+    }
+    moj_komputer = new komputer("Celeron", "800", "2500 zł");
+    document.write(`
+    Procesor: ${moj_komputer.procesor} <br>
+    Zegar: ${moj_komputer.zegar} <br>
+    Cena: ${moj_komputer.cena} <br>
+    `);
+</script>
+
+//przykład-2
+<script>
+    function Student(imie, nazwisko, wiek, stypendium, rok) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.wiek = wiek;
+        this.stypendium = stypendium;
+        this.rok = rok;
+    }
+    var imie = prompt('Podaj imie: ');
+    var nazwisko = prompt('Podaj nazwisko: ');
+    var wiek = prompt('Podaj wiek: ');
+    var stypendium = prompt('Podaj stypednium: ');
+    var rok = prompt('Podaj rok studiów: ');
+
+    osoba = new Student(imie, nazwisko, wiek, stypendium, rok);
+    document.write(`
+    Imię: ${osoba.imie.toUpperCase().fontcolor('green')} <br>
+    Nazwisko: ${osoba.nazwisko.toUpperCase().fontcolor('yellow')} <br>
+    Wiek: ${osoba.wiek.toUpperCase().fontcolor('blue')} <br>
+    Stypendium: ${osoba.stypendium.toUpperCase().fontcolor('orange')} <br>
+    Rok: ${osoba.rok.toUpperCase().fontcolor('gray')} <br>
+    `);
+</script>
+
+```
+###### 14
+## Tworzenie obiektu HTML
+
+Tworzenie obiektu html, atrybut href, klasa czerwony_odnosnik
+```html
+<script>
+    var odnosnik = document.createElement('a');
+    odnosnik.SetAttribute('href','http://masno.pl')
+    odnosnik.classList.add('czerwony_odnosnik');
+    odnosnik.body.appendChild(akapit)
+</script>
+
+Delta:
+// a=1,b=2,c=-3 - deleta dodatnia Δ=16, x₁=1, x₂=-3
+// a=1,b=2,c=1 - delta zerowa Δ=0, x₁=-1
+// a=4,b=4,c=4 - delta ujemna Δ=-48
+
 ```
