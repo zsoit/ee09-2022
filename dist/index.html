@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><title>ee-09</title><style>body {
+<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><title>phpMyAdmin</title><link rel="icon" href="/favicon.b13f945b.ico"><style>body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #010409;
     color: white;
@@ -210,6 +210,8 @@ a:hover {
 &lt;fieldset&gt;
     &lt;legend&gt;
 
+//video-html5 = MP4, Ogg, WebM
+
 </code></pre>
 <h2>FORMULARZE</h2>
 <h4>input type:</h4>
@@ -281,6 +283,8 @@ a:hover {
 <code>float: left/right;</code></p>
 <p>reset float np. dla stopki i banera<br>
 <code>clear: both;</code></p>
+<p>tło z obrazka (powtarzaj nie, powtarzaj obrazka gdy tło jest większe)<br>
+<code>background-image: url('rys.png') repeat/no-repeat;</code></p>
 <pre><code>width: 200px; //szerokość
 height: 1000px; //wysokość
 background-color: red; //kolor tła
@@ -295,8 +299,10 @@ font-size: 12px; //rozmiar czcionki
 <code>p:first-line {color: red;}</code></p>
 <p>pierwsza litera paragrafu<br>
 <code>p:first-letter {color: blue;}</code></p>
+<p>po kliknięciu myszą w celu zapisania w nim tekstu<br>
+<code>input:focus {color: blue;}</code></p>
 <h2>INNE</h2>
-<p>odstępy między literami<br>
+<p>odstępy między literami,  efekt rozstrzelenia liter<br>
 <code>letter-spacing: 5px;</code></p>
 <p>rozmiar wysokości wierszy<br>
 <code>line-height: 1.5;</code></p>
@@ -307,12 +313,18 @@ tekst napisany kapitalikami (capitalize)<br>
 <code>border-collapse: collapse|separate|initial|inherit</code></p>
 <p>paski przesuwania (scroll)<br>
 <code>overflow: scroll;</code></p>
-<p>lista punktowana kwadratem<br>
+<p>lista punktowana kwadratem[kołkiem, numerowana]<br>
 <code>list-style-type: square|circle|decimal;</code></p>
 <p>styl czcionki: prosty, kursywa, pochylony<br>
 <code>font-style: normal|italic|oblique;</code></p>
 <p>rodzaj pogrubienia czcionki<br>
 <code>font-weight: bold;</code></p>
+<p>przekreślony tekst <br>
+<code>text-decoration: line-through</code></p>
+<p>usuwanie podkreślenia z odnośnika a<br>
+<code>text-decoration: none;</code></p>
+<p>niestandardowe odstępy między wyrazami<br>
+<code>word-spacing: 12px</code></p>
 </div><div class="item hidden php"><h1>PHP</h1>
 <h2>POŁACZENIE Z BAZĄ DANYCH</h2>
 <h4>Nawiązanie połączenia i  wyświetlenie danych z tabeli</h4>
@@ -362,42 +374,96 @@ else
     echo &quot;&lt;b&gt;Dzień dobry strona używa ciasteczek&lt;/b&gt;&quot;;
 }
 ?&gt;
-
-
-</code></pre>
-<h2>SKRYPT 1 - FORMULARZ</h2>
-<h4>odbiera dane przesłane z formularza</h4>
-<p>-Jeśli pole edycyjne jest puste nie jest wykonywana żadna akcja
--Jeżeli wpisano dane skrypt wysyła do bazy danych zmodyfikowane zapytanie 2 tak, że w warunku
-id pozycji jest równe wartości z pola edycyjnego
--Wyświetla zwrócone zapytaniem dane: imiona i nazwiska w paragrafach, jako elementy listy
-punktowanej</p>
-<pre><code class="language-php">&lt;?php
-$pol = mysqli_connect('localhost','root','','baza');
-if(!$pol) exit('Nie połączono z bazą!');
-$sql = &quot;SELECT Imie,Nazwisko FROM baza&quot;;
-$zapytanie = mysqli_query($pol,$sql);
-while($wynik = mysqli_fetch_assoc($zapytanie) )
-{
-    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
-    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
-}
-mysqli_close($pol);
-?&gt;
 </code></pre>
 <h2>USUWANIE REKORDU</h2>
-<pre><code class="language-php">&lt;?php
-$pol = mysqli_connect('localhost','root','','baza');
-if(!$pol) exit('Nie połączono z bazą!');
-$sql = &quot;SELECT Imie,Nazwisko FROM baza&quot;;
+<pre><code class="language-php">//odnośnik do usunięcia
+//a href=&quot;?co=usun&amp;id={wynik['id']}&quot;
+&lt;?php
+$sql = &quot;SELECT id,Imie FROM baza&quot;;
 $zapytanie = mysqli_query($pol,$sql);
 while($wynik = mysqli_fetch_assoc($zapytanie) )
 {
-    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
-    echo &quot;&lt;p&gt;{$wynik['Imie']}&lt;/p&gt;&quot;;
+    echo &quot;&lt;p&gt;{$wynik['Imie']} {}&lt;/p&gt;&quot;;
+    echo &quot;&lt;a href='?co=usun&amp;id={$wynik['id']}'&gt;Usuń rekord&lt;/a&gt;&quot;;
 }
-mysqli_close($pol);
 ?&gt;
+
+//usunięcie rekordu
+&lt;?php
+if(isset($_GET['co']))
+{
+    if($_GET['co']==&quot;usun&quot;)
+    {
+        $zap=&quot;DELETE FROM zawody_wedkarskie WHERE id = {$_GET['id']}&quot;;
+        mysqli_query($pol,$zap) or die(&quot;BŁĄd w usuwaniu&quot;);
+        echo&quot;usunięto rekord&quot;;
+    }
+}
+?&gt;
+</code></pre>
+<h2>DODANIE REKORDU</h2>
+<h4>Przykład 1 - wędkarstwo</h4>
+<pre><code class="language-PHP">
+&lt;form method=&quot;POST&quot; action=&quot;zawody.php&quot;&gt;
+    Łowisko: &lt;input type=&quot;text&quot; name=&quot;lowisko&quot;&gt; &lt;br&gt;
+    Data: &lt;input type=&quot;text&quot; name=&quot;data&quot; &gt; &lt;br&gt;
+    Sędzia: &lt;input type=&quot;text&quot; name=&quot;sedzia&quot;&gt; &lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;dodaj&quot;&gt; &lt;br&gt;
+&lt;/form&gt;
+
+&lt;?php
+if(
+    isset($_POST['lowisko']) AND
+    isset($_POST['data']) and
+    isset($_POST['sedzia'])
+)
+{
+
+    $lowisko=$_POST['lowisko'];
+    $data=$_POST['data'];
+    $sedzia = $_POST['sedzia'];
+
+    $zap=&quot;INSERT INTO `zawody_wedkarskie`
+    (`id`,`Karty_wedkarskie_id`, `Lowisko_id`, `data_zawodow`, `sedzia`)
+    VALUES(NULL,0,'$lowisko','$data','$sedzia')
+    ;&quot;;
+    mysqli_query($pol,$zap) or die(mysqli_error($pol));
+    echo&quot;Dodano $lowisko, $data, $sedzia&quot;;
+?&gt;
+
+}
+</code></pre>
+<h4>Przykład 2 BMI</h4>
+<pre><code class="language-php">&lt;h2&gt;Podaj wagę i wzrost&lt;/h2&gt;
+&lt;form action=&quot;bmi.php&quot; method=&quot;POST&quot;&gt;
+    &lt;label for=&quot;waga&quot;&gt;Waga: &lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;waga&quot; min=&quot;1&quot;&gt; &lt;br&gt;
+    &lt;label for=&quot;wzrost&quot;&gt;Wzrost w cm: &lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;wzrost&quot; min=&quot;1&quot;&gt; &lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Oblicz i zapamiętaj wynik&quot;&gt;
+&lt;/form&gt;
+&lt;?php
+if( isset($_POST['waga']) &amp;&amp; isset($_POST['wzrost']) ){
+    $waga = $_POST['waga'];
+    $wzrost = $_POST['wzrost'];
+    $bmi = $waga/($wzrost*$wzrost);
+    $bmi = $bmi*10000;
+    echo &quot;Twoja waga: &quot; . $waga . &quot;, Twój wzrost: &quot; . $wzrost . &quot;&lt;br&gt; BMI wynosi: &quot; . $bmi;
+
+    if($bmi&gt;=0 &amp;&amp; $bmi&lt;=18)  $bmi_id=1;
+    if($bmi&gt;=19 &amp;&amp; $bmi&lt;=25)  $bmi_id=2;
+    if($bmi&gt;=26 &amp;&amp; $bmi&lt;=30)  $bmi_id=3;
+    if($bmi&gt;=31 &amp;&amp; $bmi&lt;=100)  $bmi_id=4;
+
+    $data_pomiaru = date('Y-m-d');
+    $wynik = $bmi;
+
+    $sql2 = &quot;INSERT INTO wynik VALUES('','$bmi_id','$data_pomiaru','$bmi')&quot;;
+
+    mysqli_query($polaczenie, $sql2);
+}
+
+
 </code></pre>
 </div><div class="item hidden js"><h1>JavaScript</h1>
 <ul>
@@ -736,10 +802,12 @@ function Oblicz()
   -&gt; ASC (ascending) rosnąco.
   -&gt; DESC (descending) malejąco
 
+• SELECT DISTINC ... [usuwanie duplikatów]
 • LIMIT [-- limit 10 ; na samym koncu]
 • LIKE = (nazwisko like '%a' or nazwisko like 'a%' );
 • IN(30,20);
 
+//agregacja danych
 • COUNT() - liczy wystapienia;
 • SUM() - sumuje;
 • MIN() - zwraca najsmiejsza wartosc;
@@ -792,7 +860,7 @@ CREATE user kasia@localhost IDENTIFIED by 'qwerty';
 SET password for katarzyna = 'qwerty2';
 
 //UPRAWNIENIA
-GRANT ALL PRIVILEGES on tabela.* to piotr@localhost;
+GRANT ALL PRIVILEGES on baza.* to piotr@localhost;
 GRANT CREATE, ALTER, SELECT ON egzamin.liga TO ' fryzjer'@'localhost'
 
 </code></pre>
@@ -857,6 +925,20 @@ GIMP:
         Kolejność-&gt; Przesuń na wierzch strony
 6 - Zaznacz wszystko -&gt; Grupuj obiekty (Ctrl+G)
 </code></pre>
+<h2>FUNKCJE, RYSOWANIE np. dom, zębatka, kształty :</h2>
+<h4>program: COREL</h4>
+<pre><code>//CZĘŚĆ WSPÓLNA(RYSOWANIE NP. DOMU)
+1 - WSKAŹNIKIEM (skrót: Ctrl+SPACJA) zaznaczamy kilka obiektów (Ctrl+SHIFT)
+2 - Pod paskiem menu, między Okno a Pomoc są ikonki dwóch nachodzącyhc na siebie kwadratów
+3 - Najeżdzamy na nie i szukamy trzeciej ikony: &quot;Część wspólna&quot;
+4 - Obiekty się połączą, przydatne przy rysowaniu domu, lub innych rzeczy, mające obrys
+
+//RYSOWANIE TRÓJKĄTA
+1 - wybierz narzędzie wielokąt (SKRÓT Y) z przybornika
+2 - Pod paskiem menu, między Okno a Pomoc jest ikona pięciokąta,
+zmieniamy domyślną liczbę 5 na 3
+3 - rysujemy trójkąt
+</code></pre>
 <h2>USUNIĘCIE BIAŁEGO TŁA:</h2>
 <h4>program: PHOTOSHOP/GIMP</h4>
 <pre><code>
@@ -898,58 +980,6 @@ Opóźnienie między klatakami: 400ms
 ***WYESKPORTUJ***
 
 </code></pre>
-<h2>TEORIA</h2>
-<pre><code>
-CMYK = turkus, purpura, żółty, czarny.
-CMY = turkus, purpura, żółty.
-HSV = stozek przestrzeni barw
-
-grafika rastrowa(bitmapowa) - jest to prezentacja obrazu za pomocą
-pionowo-poziomej siatki odpowiednio kolorowanych pikseli.
-BMP, JPG, PNG, GIF, TIFF
-
-grafika wektorowa(obiektowa) - obraz jest opisany za pośrednictwem
-figur geometrycznych umieszczonych w układzie współrzędnych
-SVG, CDR, SFW
-
-
-//POJĘCIA
-
-Desaturacja =  pozbycie się kolorów z rysunku tak,
-aby obraz był w odcieniach szarości.
-
-Histogram = rozkład ilościowy poszczególnych kolorów obrazu
-
-Rozdzielczość = rozmiar pliku graficznego
-
-Antyaliasing = filtr umożliwiający pozbyć się
-nienaturalnego odwzorowania ukośnych krawędzi linii
-w grafice rastrowej
-
-//KOLORY
-
-0-9 normalnie
-10-15 A-G
-
-Zamiana hex na dec: [xy] = x*16^1+y*16^0 = x*16+y
-Zamina dec na hex:
-x:16=y
-x-y*16=z
-yz
-
-Czerwony: rgb(255,0,0) | #ff0000
-Zielony: rgb (0,128,0) | #008000
-Niebieski: rgb(0,0,255) | #0000ff
-
-Żółty: rgb(255,255,0) | #ffff00
-Fioletowy: rgb(128,0,128) | #ff00ff
-Limonkowy: rgb(0,255,0) | #00ff00
-
-Czarny: rgb(0,0,0) | #000000
-Biały: rgb(255,255,255) | #ffffff
-Szary: rgb(128,128,128) | #808080
-
-</code></pre>
 </div><script>const nameArray = [
     'css',
     'html',
@@ -968,7 +998,6 @@ function ToggleClass(e) {
     resetActiveNow();
     document.querySelector(`.${e}`).classList.toggle('hidden');
     document.querySelector(`#${e}`).classList.toggle('active_nav');
-    document.title = `${e}`;
 }
 nameArray.forEach((e)=>{
     document.querySelector(`#${e}`).addEventListener('click', ()=>ToggleClass(e)

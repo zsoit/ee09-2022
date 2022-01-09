@@ -87,6 +87,7 @@ if(isset($_GET['co']))
 
 ## DODANIE REKORDU
 
+#### Przykład 1 - wędkarstwo
 ```PHP
 
 <form method="POST" action="zawody.php">

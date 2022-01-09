@@ -11,7 +11,6 @@ function ToggleClass(e) {
     resetActiveNow();
     document.querySelector(`.${e}`).classList.toggle('hidden')
     document.querySelector(`#${e}`).classList.toggle('active_nav')
-    document.title = `${e}`;
 }
 nameArray.forEach((e) => {
     document.querySelector(`#${e}`).addEventListener('click', () => ToggleClass(e));
