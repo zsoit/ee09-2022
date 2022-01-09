@@ -489,7 +489,7 @@ Tworzenie obiektu html, atrybut href, klasa czerwony_odnosnik
     var odnosnik = document.createElement('a');
     odnosnik.SetAttribute('href','http://masno.pl')
     odnosnik.classList.add('czerwony_odnosnik');
-    odnosnik.body.appendChild(odnosnik)
+    document.body.appendChild(odnosnik)
 </script>
 
 Delta:
