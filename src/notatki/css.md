@@ -29,7 +29,7 @@ tło z obrazka (powtarzaj nie, powtarzaj obrazka gdy tło jest większe)\
 ```
 width: 200px; //szerokość
 height: 1000px; //wysokość
-background-color: red; //kolor tła
+background-color: red; //kolor_tła
 color: red; //kolor czcionki
 font-family: Arial; //krój czcionki
 font-size: 12px; //rozmiar czcionki
@@ -60,7 +60,7 @@ tekst napisany kapitalikami (capitalize)\
 ``` text-transform: capitalize|uppercase|lowercase; ```
 
 obramowanie tabeli i komórki jest połączone\
-``` border-collapse: collapse|separate|initial|inherit ```
+``` border-collapse: collapse|separate|initial|inherit; ```
 
 paski przesuwania (scroll)\
 ``` overflow: scroll; ```
@@ -75,13 +75,13 @@ rodzaj pogrubienia czcionki\
 ``` font-weight: bold; ```
 
 przekreślony tekst \
-```text-decoration: line-through```
+```text-decoration: line-through;```
 
 usuwanie podkreślenia z odnośnika a\
 ```text-decoration: none;```
 
 niestandardowe odstępy między wyrazami\
-```  word-spacing: 12px ```
+```  word-spacing: 12px; ```
 
 ## ODWOŁANIE SIĘ Z HTML
 

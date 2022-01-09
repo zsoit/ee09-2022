@@ -14,8 +14,6 @@
 - [Tworzenie obiektu](#13)
 - [Tworzenie obiektu HTML](#14)
 
-
-
 ## TEORIA
 ###### xd
 #### ZMIENNE
@@ -379,7 +377,9 @@ function Oblicz()
     document.write
     (`
     <b>Rok</b>${czas.getFullYear()} <br>
-    <b>Aktualny czas </b> ${czas.getHours()} : ${czas.getMinutes()} : ${czas.getSeconds()} <br>
+    <b>Aktualny czas </b>
+    ${czas.getHours()} :${czas.getMinutes()} : ${czas.getSeconds()}
+    <br>
     <b>Aktualny data: </b> ${czas.getDate()} <br>
     <b>Miesiąc</b> ${czas.getMonth()} <br>
     <b>Rok</b> ${czas.getFullYear()} <br>

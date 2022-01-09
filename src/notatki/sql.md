@@ -18,8 +18,8 @@
 //AGREGACJA DANYCH
 • COUNT() - liczy wystapienia;
 • SUM() - sumuje;
-• MIN() - zwraca najsmiejsza wartosc;
-• MAX() - zwraca najwieksza wartosc;
+• MIN() - zwraca najmiejszą wartosc;
+• MAX() - zwraca najwiekszą wartosc;
 • AVG() - wylicza srednia;
 • timestampdiff(year, DataUrodzenia, Now());
 

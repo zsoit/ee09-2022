@@ -64,7 +64,7 @@ Cytat blokowy
 akronim(pod kursorem po najechaniu)
 ```<abbr> ```
 
-tesk, który został usunięty |  wstawiony
+tekst, który został usunięty |  wstawiony
 ``` <del> | <ins>```
 
 ## FORMULARZE
@@ -83,10 +83,9 @@ tesk, który został usunięty |  wstawiony
 - color - wybieranie koloru
 - range [min, max] - wskaznik, suwak wartosci
 
-
 ```html
 
-//LABEL - ETYKIETA DLA POLA
+<!-- LABEL - ETYKIETA DLA POLA -->
 <label for="imie">Imię:</label>
 <input type="text" name="imie" id="imie">
 

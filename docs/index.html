@@ -17,8 +17,8 @@
 &lt;/body&gt;
 &lt;/html&gt;
 
-</code></pre> <h2>ZNACZNIKI</h2> <p>nagłówki danego stopnia <code>&lt;h1&gt; - &lt;h6&gt;</code></p> <p>akapit (paragraf) <code>&lt;p&gt;</code></p> <p>przełamanie lini <code>&lt;b&gt;</code></p> <p>linia pozioma <code>&lt;hr&gt;</code></p> <p>odnośnik do strony <code>&lt;a href=&quot;strona.html&quot;&gt;Strona&lt;/a&gt;</code></p> <p>ordered list(lista numerowana) <code>&lt;ol&gt;</code></p> <p>unordered list(lista nienumerowana), lista punktowa (nieuporządkowana) <code>&lt;ul&gt;</code></p> <p>czcionka pochylona <code>&lt;i&gt; lub &lt;em&gt;</code></p> <p>czcionka pogrubiona <code>&lt;b&gt; lub &lt;strong&gt;</code></p> <p>indeks dolny <code>&lt;sup&gt;</code></p> <p>indeks górny <code>&lt;sub&gt;</code></p> <p>Cytat blokowy <code>&lt;blockquote&gt;</code></p> <p>akronim(pod kursorem po najechaniu) <code>&lt;abbr&gt;</code></p> <p>tesk, który został usunięty | wstawiony <code>&lt;del&gt; | &lt;ins&gt;</code></p> <h2>FORMULARZE</h2> <h4>input type:</h4> <ul> <li>text - pole tekstowe</li> <li>checkbox - pole zaznaczenia opcji (można zaznaczyć lub odznaczyć opcję)</li> <li>radio - pole wyboru (z grupy wybieramy tylko jedną)</li> <li>password - pole wprowadzania hasła (wprowadzane znaki nie są widoczne)</li> <li>file - możliwość dołączenia do formularza pliku, który zostanie przesłany na serwer</li> <li>submit - przycisk, uruchamiający wykonanie akcji zdefiniowanej w atrybucie &quot;action&quot;</li> <li>reset - przycisk, który usuwa wszystkie dane z formularza</li> <li>button - przycisk dowolnego przeznaczenia</li> <li>email, tel</li> <li>date - data w formacie dd-mm-rrrr</li> <li>color - wybieranie koloru</li> <li>range [min, max] - wskaznik, suwak wartosci</li> </ul> <pre><code class="language-html">
-//LABEL - ETYKIETA DLA POLA
+</code></pre> <h2>ZNACZNIKI</h2> <p>nagłówki danego stopnia <code>&lt;h1&gt; - &lt;h6&gt;</code></p> <p>akapit (paragraf) <code>&lt;p&gt;</code></p> <p>przełamanie lini <code>&lt;b&gt;</code></p> <p>linia pozioma <code>&lt;hr&gt;</code></p> <p>odnośnik do strony <code>&lt;a href=&quot;strona.html&quot;&gt;Strona&lt;/a&gt;</code></p> <p>ordered list(lista numerowana) <code>&lt;ol&gt;</code></p> <p>unordered list(lista nienumerowana), lista punktowa (nieuporządkowana) <code>&lt;ul&gt;</code></p> <p>czcionka pochylona <code>&lt;i&gt; lub &lt;em&gt;</code></p> <p>czcionka pogrubiona <code>&lt;b&gt; lub &lt;strong&gt;</code></p> <p>indeks dolny <code>&lt;sup&gt;</code></p> <p>indeks górny <code>&lt;sub&gt;</code></p> <p>Cytat blokowy <code>&lt;blockquote&gt;</code></p> <p>akronim(pod kursorem po najechaniu) <code>&lt;abbr&gt;</code></p> <p>tekst, który został usunięty | wstawiony <code>&lt;del&gt; | &lt;ins&gt;</code></p> <h2>FORMULARZE</h2> <h4>input type:</h4> <ul> <li>text - pole tekstowe</li> <li>checkbox - pole zaznaczenia opcji (można zaznaczyć lub odznaczyć opcję)</li> <li>radio - pole wyboru (z grupy wybieramy tylko jedną)</li> <li>password - pole wprowadzania hasła (wprowadzane znaki nie są widoczne)</li> <li>file - możliwość dołączenia do formularza pliku, który zostanie przesłany na serwer</li> <li>submit - przycisk, uruchamiający wykonanie akcji zdefiniowanej w atrybucie &quot;action&quot;</li> <li>reset - przycisk, który usuwa wszystkie dane z formularza</li> <li>button - przycisk dowolnego przeznaczenia</li> <li>email, tel</li> <li>date - data w formacie dd-mm-rrrr</li> <li>color - wybieranie koloru</li> <li>range [min, max] - wskaznik, suwak wartosci</li> </ul> <pre><code class="language-html">
+&lt;!-- LABEL - ETYKIETA DLA POLA --&gt;
 &lt;label for=&quot;imie&quot;&gt;Imię:&lt;/label&gt;
 &lt;input type=&quot;text&quot; name=&quot;imie&quot; id=&quot;imie&quot;&gt;
 
@@ -79,11 +79,11 @@
 
 </code></pre> </div><div class="css hidden item"><h1>CSS</h1> <h2>PODSTAWOWE</h2> <p>marginesy wewnętrzne 10px<br> <code>padding: 10px;</code></p> <p>marginesy zewnętrzne 10 px<br> <code>margin: 10px;</code></p> <p>wyrównanie tekstu<br> <code>text-align: center;</code></p> <p>zaokrąglenie rogów obramowania 10 px<br> <code>border-radius: 10px;</code></p> <p>obramowanie [-dotted /<em>kropkowana</em>/, -double /<em>podowjna</em>/ ]<br> <code>border: 2px solid red;</code></p> <p>pozycjonoanie<br> <code>float: left/right;</code></p> <p>reset float np. dla stopki i banera<br> <code>clear: both;</code></p> <p>tło z obrazka (powtarzaj nie, powtarzaj obrazka gdy tło jest większe)<br> <code>background-image: url('rys.png') repeat/no-repeat;</code></p> <pre><code>width: 200px; //szerokość
 height: 1000px; //wysokość
-background-color: red; //kolor tła
+background-color: red; //kolor_tła
 color: red; //kolor czcionki
 font-family: Arial; //krój czcionki
 font-size: 12px; //rozmiar czcionki
-</code></pre> <h2>PSEOUDOKLASY</h2> <p>po najechaniu myszką<br> <code>p:hover{color: red;}</code></p> <p>pierwsza linia paragrafu<br> <code>p:first-line {color: red;}</code></p> <p>pierwsza litera paragrafu<br> <code>p:first-letter {color: blue;}</code></p> <p>po kliknięciu myszą w celu zapisania w nim tekstu<br> <code>input:focus {color: blue;}</code></p> <h2>INNE</h2> <p>odstępy między literami, efekt rozstrzelenia liter<br> <code>letter-spacing: 5px;</code></p> <p>rozmiar wysokości wierszy<br> <code>line-height: 1.5;</code></p> <p>pierwsza litera zawsze wielka reszta normlanie tekst napisany kapitalikami (capitalize)<br> <code>text-transform: capitalize|uppercase|lowercase;</code></p> <p>obramowanie tabeli i komórki jest połączone<br> <code>border-collapse: collapse|separate|initial|inherit</code></p> <p>paski przesuwania (scroll)<br> <code>overflow: scroll;</code></p> <p>lista punktowana kwadratem[kołkiem, numerowana]<br> <code>list-style-type: square|circle|decimal;</code></p> <p>styl czcionki: prosty, kursywa, pochylony<br> <code>font-style: normal|italic|oblique;</code></p> <p>rodzaj pogrubienia czcionki<br> <code>font-weight: bold;</code></p> <p>przekreślony tekst <br> <code>text-decoration: line-through</code></p> <p>usuwanie podkreślenia z odnośnika a<br> <code>text-decoration: none;</code></p> <p>niestandardowe odstępy między wyrazami<br> <code>word-spacing: 12px</code></p> <h2>ODWOŁANIE SIĘ Z HTML</h2> <ul> <li><em><strong>#baner</strong></em> (hasztag) odwołanie do identyfikatora ID</li> <li><em><strong>.baner</strong></em> (kropka) odwołanie do klasy</li> <li><em><strong>p</strong></em> (bez niczego) - odwołanie się do selektora</li> </ul> <pre><code class="language-html">///Przykład, odwołanie się do elementu na trzy sposoby
+</code></pre> <h2>PSEOUDOKLASY</h2> <p>po najechaniu myszką<br> <code>p:hover{color: red;}</code></p> <p>pierwsza linia paragrafu<br> <code>p:first-line {color: red;}</code></p> <p>pierwsza litera paragrafu<br> <code>p:first-letter {color: blue;}</code></p> <p>po kliknięciu myszą w celu zapisania w nim tekstu<br> <code>input:focus {color: blue;}</code></p> <h2>INNE</h2> <p>odstępy między literami, efekt rozstrzelenia liter<br> <code>letter-spacing: 5px;</code></p> <p>rozmiar wysokości wierszy<br> <code>line-height: 1.5;</code></p> <p>pierwsza litera zawsze wielka reszta normlanie tekst napisany kapitalikami (capitalize)<br> <code>text-transform: capitalize|uppercase|lowercase;</code></p> <p>obramowanie tabeli i komórki jest połączone<br> <code>border-collapse: collapse|separate|initial|inherit;</code></p> <p>paski przesuwania (scroll)<br> <code>overflow: scroll;</code></p> <p>lista punktowana kwadratem[kołkiem, numerowana]<br> <code>list-style-type: square|circle|decimal;</code></p> <p>styl czcionki: prosty, kursywa, pochylony<br> <code>font-style: normal|italic|oblique;</code></p> <p>rodzaj pogrubienia czcionki<br> <code>font-weight: bold;</code></p> <p>przekreślony tekst <br> <code>text-decoration: line-through;</code></p> <p>usuwanie podkreślenia z odnośnika a<br> <code>text-decoration: none;</code></p> <p>niestandardowe odstępy między wyrazami<br> <code>word-spacing: 12px;</code></p> <h2>ODWOŁANIE SIĘ Z HTML</h2> <ul> <li><em><strong>#baner</strong></em> (hasztag) odwołanie do identyfikatora ID</li> <li><em><strong>.baner</strong></em> (kropka) odwołanie do klasy</li> <li><em><strong>p</strong></em> (bez niczego) - odwołanie się do selektora</li> </ul> <pre><code class="language-html">///Przykład, odwołanie się do elementu na trzy sposoby
 
 &lt;footer class=&quot;stopka&quot; id=&quot;stopka&quot;&gt;
     &lt;p&gt;STOPKA&lt;/p&gt;
@@ -585,7 +585,9 @@ function Oblicz()
     document.write
     (`
     &lt;b&gt;Rok&lt;/b&gt;${czas.getFullYear()} &lt;br&gt;
-    &lt;b&gt;Aktualny czas &lt;/b&gt; ${czas.getHours()} : ${czas.getMinutes()} : ${czas.getSeconds()} &lt;br&gt;
+    &lt;b&gt;Aktualny czas &lt;/b&gt;
+    ${czas.getHours()} :${czas.getMinutes()} : ${czas.getSeconds()}
+    &lt;br&gt;
     &lt;b&gt;Aktualny data: &lt;/b&gt; ${czas.getDate()} &lt;br&gt;
     &lt;b&gt;Miesiąc&lt;/b&gt; ${czas.getMonth()} &lt;br&gt;
     &lt;b&gt;Rok&lt;/b&gt; ${czas.getFullYear()} &lt;br&gt;
@@ -697,8 +699,8 @@ Delta:
 //AGREGACJA DANYCH
 • COUNT() - liczy wystapienia;
 • SUM() - sumuje;
-• MIN() - zwraca najsmiejsza wartosc;
-• MAX() - zwraca najwieksza wartosc;
+• MIN() - zwraca najmiejszą wartosc;
+• MAX() - zwraca najwiekszą wartosc;
 • AVG() - wylicza srednia;
 • timestampdiff(year, DataUrodzenia, Now());
 
