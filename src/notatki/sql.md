@@ -11,16 +11,16 @@
   -> DESC (descending) malejąco
 
 • SELECT DISTINCT ... [usuwanie duplikatów]
-• LIMIT [... limit 10 ; na samym koncu]
+• LIMIT [... limit 10 ; na samym końcu]
 • LIKE = (nazwisko like '%a' or nazwisko like 'a%');
 • IN(30,20);
 
 //AGREGACJA DANYCH
-• COUNT() - liczy wystapienia;
+• COUNT() - liczy wystąpienia;
 • SUM() - sumuje;
-• MIN() - zwraca najmiejszą wartosc;
-• MAX() - zwraca najwiekszą wartosc;
-• AVG() - wylicza srednia;
+• MIN() - zwraca najmiejszą wartość;
+• MAX() - zwraca najwiekszą wartość;
+• AVG() - wylicza średnią;
 • timestampdiff(year, DataUrodzenia, Now());
 
 
@@ -86,10 +86,9 @@ GRANT CREATE, ALTER, SELECT ON egzamin.liga TO ' fryzjer'@'localhost'
 ```
 
 #### EDYCJA STRUKTURY TABELI
-```SQL
-KOLUMNA=POLE=ATRYBUT
-
+• KOLUMNA=POLE=ATRYBUT\
 • OPERACJE W ISTNIEJĄCEJ TABELI!
+```SQL
 
 //DODAWANIE KOLUMNY
 ALTER TABLE pracownicy ADD rozmiar_buta VARCHAR(10);
@@ -106,6 +105,7 @@ ALTER TABLE pracownicy RENAME zatrudnieni;
 
 
 ```
+
 
 
 ## ZAPYTANIE

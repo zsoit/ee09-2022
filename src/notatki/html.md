@@ -32,7 +32,7 @@ akapit (paragraf)
 ```<p>```
 
 przełamanie lini
-```<b>```
+```<br>```
 
 linia pozioma
 ```<hr>```
@@ -90,7 +90,7 @@ tekst, który został usunięty |  wstawiony
 <input type="text" name="imie" id="imie">
 
 <label for="wiek">Wiek: </label>
-<input type="numer" name="wiek">
+<input type="numer" name="wiek" id="wiek">
 
 
 <!-- lista rozwijana-->
@@ -167,7 +167,7 @@ kontakt_info
 
 ```
 <fieldset> //obramowanie
-    <legend> //tekst_na_obrmowaniu
+    <legend> //tekst_na_obramowaniu
 
 //lista_definicji
 <dl>
@@ -195,5 +195,9 @@ kontakt_info
 </audio>
 
 //video-html5 = MP4, Ogg, WebM
+
+MP3	= audio/mpeg
+OGG = audio/ogg
+WAV = audio/wav
 
 ```

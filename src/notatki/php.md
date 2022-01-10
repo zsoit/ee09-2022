@@ -38,11 +38,9 @@ while($wynik = mysqli_fetch_row($zap)){
     ";
 }
 
-echo " <h1>Liczba zwróconych wierszy: "
-. mysqli_num_rows($zap) . "</h1>";
+echo " <h1>Liczba zwróconych wierszy: " . mysqli_num_rows($zap) . "</h1>";
 
-echo " <h1>Liczba zwróconych kolumn: "
-. mysqli_num_fileds($zap) . "</h1>";
+echo " <h1>Liczba zwróconych kolumn: " . mysqli_num_fileds($zap) . "</h1>";
 
 ```
 

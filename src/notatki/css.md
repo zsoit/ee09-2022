@@ -83,7 +83,7 @@ usuwanie podkreślenia z odnośnika a\
 niestandardowe odstępy między wyrazami\
 ```  word-spacing: 12px; ```
 
-## ODWOŁANIE SIĘ Z HTML
+## ODWOŁANIE SIĘ
 
 - ***#baner*** (hasztag) odwołanie do identyfikatora ID
 - ***.baner*** (kropka) odwołanie do klasy

@@ -179,7 +179,7 @@ a:hover {
 <p>akapit (paragraf)
 <code>&lt;p&gt;</code></p>
 <p>przełamanie lini
-<code>&lt;b&gt;</code></p>
+<code>&lt;br&gt;</code></p>
 <p>linia pozioma
 <code>&lt;hr&gt;</code></p>
 <p>odnośnik do strony
@@ -200,7 +200,7 @@ a:hover {
 <code>&lt;blockquote&gt;</code></p>
 <p>akronim(pod kursorem po najechaniu)
 <code>&lt;abbr&gt;</code></p>
-<p>tesk, który został usunięty |  wstawiony
+<p>tekst, który został usunięty |  wstawiony
 <code>&lt;del&gt; | &lt;ins&gt;</code></p>
 <h2>FORMULARZE</h2>
 <h4>input type:</h4>
@@ -219,12 +219,12 @@ a:hover {
 <li>range [min, max] - wskaznik, suwak wartosci</li>
 </ul>
 <pre><code class="language-html">
-//LABEL - ETYKIETA DLA POLA
+&lt;!-- LABEL - ETYKIETA DLA POLA --&gt;
 &lt;label for=&quot;imie&quot;&gt;Imię:&lt;/label&gt;
 &lt;input type=&quot;text&quot; name=&quot;imie&quot; id=&quot;imie&quot;&gt;
 
 &lt;label for=&quot;wiek&quot;&gt;Wiek: &lt;/label&gt;
-&lt;input type=&quot;numer&quot; name=&quot;wiek&quot;&gt;
+&lt;input type=&quot;numer&quot; name=&quot;wiek&quot; id=&quot;wiek&quot;&gt;
 
 
 &lt;!-- lista rozwijana--&gt;
@@ -286,7 +286,7 @@ a:hover {
 <p>kontakt_info
 <code>&lt;address&gt;</code></p>
 <pre><code>&lt;fieldset&gt; //obramowanie
-    &lt;legend&gt; //tekst_na_obrmowaniu
+    &lt;legend&gt; //tekst_na_obramowaniu
 
 //lista_definicji
 &lt;dl&gt;
@@ -314,6 +314,10 @@ a:hover {
 
 //video-html5 = MP4, Ogg, WebM
 
+MP3	= audio/mpeg
+OGG = audio/ogg
+WAV = audio/wav
+
 </code></pre>
 </div><div class="item hidden css"><h1>CSS</h1>
 <h2>PODSTAWOWE</h2>
@@ -335,7 +339,7 @@ a:hover {
 <code>background-image: url('rys.png') repeat/no-repeat;</code></p>
 <pre><code>width: 200px; //szerokość
 height: 1000px; //wysokość
-background-color: red; //kolor tła
+background-color: red; //kolor_tła
 color: red; //kolor czcionki
 font-family: Arial; //krój czcionki
 font-size: 12px; //rozmiar czcionki
@@ -358,7 +362,7 @@ font-size: 12px; //rozmiar czcionki
 tekst napisany kapitalikami (capitalize)<br>
 <code>text-transform: capitalize|uppercase|lowercase;</code></p>
 <p>obramowanie tabeli i komórki jest połączone<br>
-<code>border-collapse: collapse|separate|initial|inherit</code></p>
+<code>border-collapse: collapse|separate|initial|inherit;</code></p>
 <p>paski przesuwania (scroll)<br>
 <code>overflow: scroll;</code></p>
 <p>lista punktowana kwadratem[kołkiem, numerowana]<br>
@@ -368,12 +372,12 @@ tekst napisany kapitalikami (capitalize)<br>
 <p>rodzaj pogrubienia czcionki<br>
 <code>font-weight: bold;</code></p>
 <p>przekreślony tekst <br>
-<code>text-decoration: line-through</code></p>
+<code>text-decoration: line-through;</code></p>
 <p>usuwanie podkreślenia z odnośnika a<br>
 <code>text-decoration: none;</code></p>
 <p>niestandardowe odstępy między wyrazami<br>
-<code>word-spacing: 12px</code></p>
-<h2>ODWOŁANIE SIĘ Z HTML</h2>
+<code>word-spacing: 12px;</code></p>
+<h2>ODWOŁANIE SIĘ</h2>
 <ul>
 <li><em><strong>#baner</strong></em> (hasztag) odwołanie do identyfikatora ID</li>
 <li><em><strong>.baner</strong></em> (kropka) odwołanie do klasy</li>
@@ -437,11 +441,9 @@ while($wynik = mysqli_fetch_row($zap)){
     &quot;;
 }
 
-echo &quot; &lt;h1&gt;Liczba zwróconych wierszy: &quot;
-. mysqli_num_rows($zap) . &quot;&lt;/h1&gt;&quot;;
+echo &quot; &lt;h1&gt;Liczba zwróconych wierszy: &quot; . mysqli_num_rows($zap) . &quot;&lt;/h1&gt;&quot;;
 
-echo &quot; &lt;h1&gt;Liczba zwróconych kolumn: &quot;
-. mysqli_num_fileds($zap) . &quot;&lt;/h1&gt;&quot;;
+echo &quot; &lt;h1&gt;Liczba zwróconych kolumn: &quot; . mysqli_num_fileds($zap) . &quot;&lt;/h1&gt;&quot;;
 
 </code></pre>
 <h2>FUNKCJE PHP</h2>
@@ -969,7 +971,9 @@ function Oblicz()
     document.write
     (`
     &lt;b&gt;Rok&lt;/b&gt;${czas.getFullYear()} &lt;br&gt;
-    &lt;b&gt;Aktualny czas &lt;/b&gt; ${czas.getHours()} : ${czas.getMinutes()} : ${czas.getSeconds()} &lt;br&gt;
+    &lt;b&gt;Aktualny czas &lt;/b&gt;
+    ${czas.getHours()} :${czas.getMinutes()} : ${czas.getSeconds()}
+    &lt;br&gt;
     &lt;b&gt;Aktualny data: &lt;/b&gt; ${czas.getDate()} &lt;br&gt;
     &lt;b&gt;Miesiąc&lt;/b&gt; ${czas.getMonth()} &lt;br&gt;
     &lt;b&gt;Rok&lt;/b&gt; ${czas.getFullYear()} &lt;br&gt;
@@ -1074,7 +1078,7 @@ function Oblicz()
     var odnosnik = document.createElement('a');
     odnosnik.SetAttribute('href','http://masno.pl')
     odnosnik.classList.add('czerwony_odnosnik');
-    odnosnik.body.appendChild(akapit)
+    document.body.appendChild(odnosnik)
 &lt;/script&gt;
 
 Delta:
@@ -1092,16 +1096,16 @@ Delta:
   -&gt; DESC (descending) malejąco
 
 • SELECT DISTINCT ... [usuwanie duplikatów]
-• LIMIT [... limit 10 ; na samym koncu]
+• LIMIT [... limit 10 ; na samym końcu]
 • LIKE = (nazwisko like '%a' or nazwisko like 'a%');
 • IN(30,20);
 
 //AGREGACJA DANYCH
-• COUNT() - liczy wystapienia;
+• COUNT() - liczy wystąpienia;
 • SUM() - sumuje;
-• MIN() - zwraca najsmiejsza wartosc;
-• MAX() - zwraca najwieksza wartosc;
-• AVG() - wylicza srednia;
+• MIN() - zwraca najmiejszą wartość;
+• MAX() - zwraca najwiekszą wartość;
+• AVG() - wylicza średnią;
 • timestampdiff(year, DataUrodzenia, Now());
 
 
@@ -1154,10 +1158,9 @@ GRANT CREATE, ALTER, SELECT ON egzamin.liga TO ' fryzjer'@'localhost'
 
 </code></pre>
 <h4>EDYCJA STRUKTURY TABELI</h4>
-<pre><code class="language-SQL">KOLUMNA=POLE=ATRYBUT
-
-• OPERACJE W ISTNIEJĄCEJ TABELI!
-
+<p>• KOLUMNA=POLE=ATRYBUT<br>
+• OPERACJE W ISTNIEJĄCEJ TABELI!</p>
+<pre><code class="language-SQL">
 //DODAWANIE KOLUMNY
 ALTER TABLE pracownicy ADD rozmiar_buta VARCHAR(10);
 
