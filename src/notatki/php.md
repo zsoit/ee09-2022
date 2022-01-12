@@ -50,6 +50,7 @@ echo " <h1>Liczba zwróconych kolumn: " . mysqli_num_fileds($zap) . "</h1>";
 $_POST[] //niewidoczne
 $_GET[] //widoczne w paskku adresu ?strona=kontakt
 $_COOKIE[] //tablica ciasteczek
+$_SESSION[] //tablica zmiennych sesyjnych
 isset() //sprawdza czy zmienna ma ustawiona wartosc
 empty() //sprawdza czy zmienna jest pusta
 
@@ -107,6 +108,39 @@ else
     echo "<b>Dzień dobry strona używa ciasteczek</b>";
 }
 ?>
+```
+
+## SESJE
+#### Rozpoczęcie i zamknięcie sesji
+```PHP
+<?php
+session_start(); //rozpoczęcie_sesji
+echo "Identyfikator sesji: " . session_id();
+unset($_SESSION['zmienna_do_usuniecia']);
+session_destroy(); //zakończenie_sesji
+header('location: logowanie.php'); //
+?>
+```
+#### Zliczanie liczby odwiedzin na stronie
+```PHP
+<?php
+session_start();
+
+if(!isset($_SESSION['liczba']))
+{
+    $_SESSION['liczba']=0;
+}
+$_SESSION['liczba'] += 1;
+
+echo "<p>liczba odwiedzin na naszej stornie {$_SESSION['liczba'}</p>"
+
+?>
+```
+
+#### Mechanizm logowania
+
+## DATA I CZAS
+```PHP
 ```
 
 ## USUWANIE REKORDU

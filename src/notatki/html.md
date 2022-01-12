@@ -146,7 +146,7 @@ naglowek
 nawigacja
 ```<nav> ```
 
-glowna_czesc_storny
+glowna_czesc_strony
 ```<main>```
 
 sekcja
@@ -196,7 +196,7 @@ kontakt_info
 
 //video-html5 = MP4, Ogg, WebM
 
-MP3	= audio/mpeg
+MP3 = audio/mpeg
 OGG = audio/ogg
 WAV = audio/wav
 
