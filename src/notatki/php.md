@@ -55,7 +55,7 @@ isset() //sprawdza czy zmienna ma ustawiona wartosc
 empty() //sprawdza czy zmienna jest pusta
 
 array_key_exists($_POST['uzytkownik'],$hasla)
-//sprawdza czy podany klucz istnijej w tablicy
+//sprawdza czy podany klucz istnieje w tablicy
 
 str_replace(',','.',$zmienna) //zmienia znak
 settype($zmienna, 'double') //ustawia typ zmiennej
@@ -68,7 +68,6 @@ rand(1, 49) //zwraca losowa liczbe z przedzialu dwoch liczb
 sort($nazwa_tablicy) //sortowanie rosnące
 rsort($nazwa_tablicy //sortowanie malejące
 
-date('Y-m-d') //zwraca dane w podanym formacie
 
 ```
 
@@ -118,7 +117,7 @@ session_start(); //rozpoczęcie_sesji
 echo "Identyfikator sesji: " . session_id();
 unset($_SESSION['zmienna_do_usuniecia']);
 session_destroy(); //zakończenie_sesji
-header('location: logowanie.php'); //
+header('location: logowanie.php'); //przekierowanie_do_strony
 ?>
 ```
 #### Zliczanie liczby odwiedzin na stronie
@@ -137,11 +136,48 @@ echo "<p>liczba odwiedzin na naszej stornie {$_SESSION['liczba'}</p>"
 ?>
 ```
 
-#### Mechanizm logowania
+## DATA I CZAS - date()
 
-## DATA I CZAS
-```PHP
 ```
+ date('Y-m-d') //zwraca 2022-01-17
+ date('G:i') //zwraca godzinę: 18:11
+ ```
+
+#### DZIEŃ
+```
+• d - Dzień miesiąca (01-31)
+• D - Dzień miesiąca w j.ang (np. Mon)
+• l - Nazwa dnia tygodnia w j.ang (np. Sunday)
+• w - liczbowa forma dnia tygodnia (0-6, niedziela-sobota)
+• z - Dzień roku (0 do 365)
+
+```
+#### MIESIĄC
+```
+• F - nazwa miesiąca w j.ang (np.January)
+• m - liczbowa forma miesiąca (od 01 do 12)
+• M - Nazwa miesiąca w j.ang, trzy litery (np. Jan)
+• t - Liczba dni w danym miesiącu (28 do 31)
+```
+
+#### ROK
+```
+• L - czy rok jest przystępny (1 lub 0)
+• Y - Cztery cyfry, Rok w formacie rrrr (np. 2002)
+• y - Dwie cyfry, rok (np. 02)
+```
+#### CZAS
+```
+• a - przed południem, po południu (am lub pm)
+• A - przed południem, po południu (AM lub PM)
+• g - godzina, format 12 godzinny (od 1 do 12)
+• G - godzina, format 24 godzinny (od 0 do 23)
+• h - godzina, format 12 godzinny (od 01 do 12)
+• H - godzina, format 24 godzinny (od 00 do 23)
+• i - minuta (od 00 do 59)
+• s - sekunda (od 00 do 59)
+```
+
 
 ## USUWANIE REKORDU
 
@@ -202,9 +238,9 @@ if(
     ;";
     mysqli_query($pol,$zap) or die(mysqli_error($pol));
     echo"Dodano $lowisko, $data, $sedzia";
-?>
 
 }
+?>
 ```
 #### Przykład 2 BMI
 ```php
@@ -237,7 +273,7 @@ if( isset($_POST['waga']) && isset($_POST['wzrost']) ){
 
     mysqli_query($polaczenie, $sql2);
 }
-
+?>
 ```
 
 

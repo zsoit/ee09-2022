@@ -14,7 +14,7 @@ wyrównanie tekstu\
 zaokrąglenie rogów obramowania 10 px\
 ```border-radius: 10px;```
 
-obramowanie [-dotted /*kropkowana*/, -double /*podowjna*/ ]\
+obramowanie [-dotted /*kropkowana*/, -double /*podowjna*/ -dashed/*przerywana*/ ]\
 ```border: 2px solid red;```
 
 pozycjonoanie\

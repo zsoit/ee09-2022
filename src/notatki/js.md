@@ -28,7 +28,7 @@ var liczba = document.querySelector('.liczba') //klasa
 var tablica = ['Tomek','Jakub','Kamil'];
 var wynik = 'Imiona: ';
 for(var i=0; i < tablica.length; i++){
-    wynik += tablica[i] + ', '
+    wynik += tablica[i] + ', ';
 }
 document.write(wynik);
 ```

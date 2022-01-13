@@ -46,11 +46,17 @@ ordered list(lista numerowana)
 unordered list(lista nienumerowana), lista punktowa (nieuporządkowana)
 ```<ul> ```
 
+pojedynczy element takiej
+``` <li> ```
+
 czcionka pochylona
 ```<i> lub <em>```
 
 czcionka pogrubiona
 ```<b> lub <strong>```
+
+przekreślony tekst
+```<s>```
 
 indeks dolny
 ```<sup>```
@@ -103,6 +109,35 @@ tekst, który został usunięty |  wstawiony
 <textarea name="komentarz" rows="4" cols="20">Popisz sobie</textarea>
 
 
+
+```
+
+
+## LISTY
+
+```html
+ <ol>
+    <li>Królestwa Północy
+         <ul>
+           <li>Sigismund Dijkstra</li>
+           <li>Keira Metz</li>
+         </ul>
+    </li>
+    <li>Scoia'tael
+        <ul>
+           <li>Iorveth</li>
+           <li>Isengrim Faoiltiarna</li>
+        </ul>
+    </li>
+ </ol>
+
+<!-- REZULTAT -->
+1.Królestwa Północy
+    • Sigismund Dijkstra
+    • Keira Metz
+2.Scoia'tael
+    • Iorveth
+    • Isengrim Faoiltiarna
 
 ```
 

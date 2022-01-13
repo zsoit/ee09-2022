@@ -17,7 +17,7 @@
 &lt;/body&gt;
 &lt;/html&gt;
 
-</code></pre> <h2>ZNACZNIKI</h2> <p>nagłówki danego stopnia <code>&lt;h1&gt; - &lt;h6&gt;</code></p> <p>akapit (paragraf) <code>&lt;p&gt;</code></p> <p>przełamanie lini <code>&lt;br&gt;</code></p> <p>linia pozioma <code>&lt;hr&gt;</code></p> <p>odnośnik do strony <code>&lt;a href=&quot;strona.html&quot;&gt;Strona&lt;/a&gt;</code></p> <p>ordered list(lista numerowana) <code>&lt;ol&gt;</code></p> <p>unordered list(lista nienumerowana), lista punktowa (nieuporządkowana) <code>&lt;ul&gt;</code></p> <p>czcionka pochylona <code>&lt;i&gt; lub &lt;em&gt;</code></p> <p>czcionka pogrubiona <code>&lt;b&gt; lub &lt;strong&gt;</code></p> <p>indeks dolny <code>&lt;sup&gt;</code></p> <p>indeks górny <code>&lt;sub&gt;</code></p> <p>Cytat blokowy <code>&lt;blockquote&gt;</code></p> <p>akronim(pod kursorem po najechaniu) <code>&lt;abbr&gt;</code></p> <p>tekst, który został usunięty | wstawiony <code>&lt;del&gt; | &lt;ins&gt;</code></p> <h2>FORMULARZE</h2> <h4>input type:</h4> <ul> <li>text - pole tekstowe</li> <li>checkbox - pole zaznaczenia opcji (można zaznaczyć lub odznaczyć opcję)</li> <li>radio - pole wyboru (z grupy wybieramy tylko jedną)</li> <li>password - pole wprowadzania hasła (wprowadzane znaki nie są widoczne)</li> <li>file - możliwość dołączenia do formularza pliku, który zostanie przesłany na serwer</li> <li>submit - przycisk, uruchamiający wykonanie akcji zdefiniowanej w atrybucie &quot;action&quot;</li> <li>reset - przycisk, który usuwa wszystkie dane z formularza</li> <li>button - przycisk dowolnego przeznaczenia</li> <li>email, tel</li> <li>date - data w formacie dd-mm-rrrr</li> <li>color - wybieranie koloru</li> <li>range [min, max] - wskaznik, suwak wartosci</li> </ul> <pre><code class="language-html">
+</code></pre> <h2>ZNACZNIKI</h2> <p>nagłówki danego stopnia <code>&lt;h1&gt; - &lt;h6&gt;</code></p> <p>akapit (paragraf) <code>&lt;p&gt;</code></p> <p>przełamanie lini <code>&lt;br&gt;</code></p> <p>linia pozioma <code>&lt;hr&gt;</code></p> <p>odnośnik do strony <code>&lt;a href=&quot;strona.html&quot;&gt;Strona&lt;/a&gt;</code></p> <p>ordered list(lista numerowana) <code>&lt;ol&gt;</code></p> <p>unordered list(lista nienumerowana), lista punktowa (nieuporządkowana) <code>&lt;ul&gt;</code></p> <p>pojedynczy element takiej <code>&lt;li&gt;</code></p> <p>czcionka pochylona <code>&lt;i&gt; lub &lt;em&gt;</code></p> <p>czcionka pogrubiona <code>&lt;b&gt; lub &lt;strong&gt;</code></p> <p>przekreślony tekst <code>&lt;s&gt;</code></p> <p>indeks dolny <code>&lt;sup&gt;</code></p> <p>indeks górny <code>&lt;sub&gt;</code></p> <p>Cytat blokowy <code>&lt;blockquote&gt;</code></p> <p>akronim(pod kursorem po najechaniu) <code>&lt;abbr&gt;</code></p> <p>tekst, który został usunięty | wstawiony <code>&lt;del&gt; | &lt;ins&gt;</code></p> <h2>FORMULARZE</h2> <h4>input type:</h4> <ul> <li>text - pole tekstowe</li> <li>checkbox - pole zaznaczenia opcji (można zaznaczyć lub odznaczyć opcję)</li> <li>radio - pole wyboru (z grupy wybieramy tylko jedną)</li> <li>password - pole wprowadzania hasła (wprowadzane znaki nie są widoczne)</li> <li>file - możliwość dołączenia do formularza pliku, który zostanie przesłany na serwer</li> <li>submit - przycisk, uruchamiający wykonanie akcji zdefiniowanej w atrybucie &quot;action&quot;</li> <li>reset - przycisk, który usuwa wszystkie dane z formularza</li> <li>button - przycisk dowolnego przeznaczenia</li> <li>email, tel</li> <li>date - data w formacie dd-mm-rrrr</li> <li>color - wybieranie koloru</li> <li>range [min, max] - wskaznik, suwak wartosci</li> </ul> <pre><code class="language-html">
 &lt;!-- LABEL - ETYKIETA DLA POLA --&gt;
 &lt;label for=&quot;imie&quot;&gt;Imię:&lt;/label&gt;
 &lt;input type=&quot;text&quot; name=&quot;imie&quot; id=&quot;imie&quot;&gt;
@@ -36,6 +36,29 @@
 &lt;textarea name=&quot;komentarz&quot; rows=&quot;4&quot; cols=&quot;20&quot;&gt;Popisz sobie&lt;/textarea&gt;
 
 
+
+</code></pre> <h2>LISTY</h2> <pre><code class="language-html"> &lt;ol&gt;
+    &lt;li&gt;Królestwa Północy
+         &lt;ul&gt;
+           &lt;li&gt;Sigismund Dijkstra&lt;/li&gt;
+           &lt;li&gt;Keira Metz&lt;/li&gt;
+         &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Scoia'tael
+        &lt;ul&gt;
+           &lt;li&gt;Iorveth&lt;/li&gt;
+           &lt;li&gt;Isengrim Faoiltiarna&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+ &lt;/ol&gt;
+
+&lt;!-- REZULTAT --&gt;
+1.Królestwa Północy
+    • Sigismund Dijkstra
+    • Keira Metz
+2.Scoia'tael
+    • Iorveth
+    • Isengrim Faoiltiarna
 
 </code></pre> <h2>TABELKI</h2> <h4>colspan - rozszerza w poziomie</h4> <h4>rowspan - rozszerza w pionie</h4> <h4>th- nagłówek</h4> <h4>tr- wiersz</h4> <h4>td- komórka</h4> <pre><code class="language-html">
     &lt;table border=&quot;1&quot;&gt;
@@ -81,7 +104,7 @@ MP3 = audio/mpeg
 OGG = audio/ogg
 WAV = audio/wav
 
-</code></pre> </div><div class="css hidden item"><h1>CSS</h1> <h2>PODSTAWOWE</h2> <p>marginesy wewnętrzne 10px<br> <code>padding: 10px;</code></p> <p>marginesy zewnętrzne 10 px<br> <code>margin: 10px;</code></p> <p>wyrównanie tekstu<br> <code>text-align: center;</code></p> <p>zaokrąglenie rogów obramowania 10 px<br> <code>border-radius: 10px;</code></p> <p>obramowanie [-dotted /<em>kropkowana</em>/, -double /<em>podowjna</em>/ ]<br> <code>border: 2px solid red;</code></p> <p>pozycjonoanie<br> <code>float: left/right;</code></p> <p>reset float np. dla stopki i banera<br> <code>clear: both;</code></p> <p>tło z obrazka (powtarzaj nie, powtarzaj obrazka gdy tło jest większe)<br> <code>background-image: url('rys.png') repeat/no-repeat;</code></p> <pre><code>width: 200px; //szerokość
+</code></pre> </div><div class="css hidden item"><h1>CSS</h1> <h2>PODSTAWOWE</h2> <p>marginesy wewnętrzne 10px<br> <code>padding: 10px;</code></p> <p>marginesy zewnętrzne 10 px<br> <code>margin: 10px;</code></p> <p>wyrównanie tekstu<br> <code>text-align: center;</code></p> <p>zaokrąglenie rogów obramowania 10 px<br> <code>border-radius: 10px;</code></p> <p>obramowanie [-dotted /<em>kropkowana</em>/, -double /<em>podowjna</em>/ -dashed/<em>przerywana</em>/ ]<br> <code>border: 2px solid red;</code></p> <p>pozycjonoanie<br> <code>float: left/right;</code></p> <p>reset float np. dla stopki i banera<br> <code>clear: both;</code></p> <p>tło z obrazka (powtarzaj nie, powtarzaj obrazka gdy tło jest większe)<br> <code>background-image: url('rys.png') repeat/no-repeat;</code></p> <pre><code>width: 200px; //szerokość
 height: 1000px; //wysokość
 background-color: red; //kolor_tła
 color: red; //kolor czcionki
@@ -150,7 +173,7 @@ isset() //sprawdza czy zmienna ma ustawiona wartosc
 empty() //sprawdza czy zmienna jest pusta
 
 array_key_exists($_POST['uzytkownik'],$hasla)
-//sprawdza czy podany klucz istnijej w tablicy
+//sprawdza czy podany klucz istnieje w tablicy
 
 str_replace(',','.',$zmienna) //zmienia znak
 settype($zmienna, 'double') //ustawia typ zmiennej
@@ -163,7 +186,6 @@ rand(1, 49) //zwraca losowa liczbe z przedzialu dwoch liczb
 sort($nazwa_tablicy) //sortowanie rosnące
 rsort($nazwa_tablicy //sortowanie malejące
 
-date('Y-m-d') //zwraca dane w podanym formacie
 
 </code></pre> <h2>TWORZENIE CIASTECZEK</h2> <h4>setcookie($nazwa,$wartosc,$czas)</h4> <p>Przykład 1</p> <pre><code class="language-php">&lt;?php
 $nazwa = &quot;komunikat&quot;;
@@ -198,7 +220,7 @@ session_start(); //rozpoczęcie_sesji
 echo &quot;Identyfikator sesji: &quot; . session_id();
 unset($_SESSION['zmienna_do_usuniecia']);
 session_destroy(); //zakończenie_sesji
-header('location: logowanie.php'); //
+header('location: logowanie.php'); //przekierowanie_do_strony
 ?&gt;
 </code></pre> <h4>Zliczanie liczby odwiedzin na stronie</h4> <pre><code class="language-PHP">&lt;?php
 session_start();
@@ -212,7 +234,30 @@ $_SESSION['liczba'] += 1;
 echo &quot;&lt;p&gt;liczba odwiedzin na naszej stornie {$_SESSION['liczba'}&lt;/p&gt;&quot;
 
 ?&gt;
-</code></pre> <h4>Mechanizm logowania</h4> <h2>DATA I CZAS</h2> <pre><code class="language-PHP"></code></pre> <h2>USUWANIE REKORDU</h2> <pre><code class="language-php">//odnośnik do usunięcia
+</code></pre> <h2>DATA I CZAS - date()</h2> <pre><code> date('Y-m-d') //zwraca 2022-01-17
+ date('G:i') //zwraca godzinę: 18:11
+</code></pre> <h4>DZIEŃ</h4> <pre><code>• d - Dzień miesiąca (01-31)
+• D - Dzień miesiąca w j.ang (np. Mon)
+• l - Nazwa dnia tygodnia w j.ang (np. Sunday)
+• w - liczbowa forma dnia tygodnia (0-6, niedziela-sobota)
+• z - Dzień roku (0 do 365)
+
+</code></pre> <h4>MIESIĄC</h4> <pre><code>• F - nazwa miesiąca w j.ang (np.January)
+• m - liczbowa forma miesiąca (od 01 do 12)
+• M - Nazwa miesiąca w j.ang, trzy litery (np. Jan)
+• t - Liczba dni w danym miesiącu (28 do 31)
+</code></pre> <h4>ROK</h4> <pre><code>• L - czy rok jest przystępny (1 lub 0)
+• Y - Cztery cyfry, Rok w formacie rrrr (np. 2002)
+• y - Dwie cyfry, rok (np. 02)
+</code></pre> <h4>CZAS</h4> <pre><code>• a - przed południem, po południu (am lub pm)
+• A - przed południem, po południu (AM lub PM)
+• g - godzina, format 12 godzinny (od 1 do 12)
+• G - godzina, format 24 godzinny (od 0 do 23)
+• h - godzina, format 12 godzinny (od 01 do 12)
+• H - godzina, format 24 godzinny (od 00 do 23)
+• i - minuta (od 00 do 59)
+• s - sekunda (od 00 do 59)
+</code></pre> <h2>USUWANIE REKORDU</h2> <pre><code class="language-php">//odnośnik do usunięcia
 //a href=&quot;?co=usun&amp;id={wynik['id']}&quot;
 &lt;?php
 $sql = &quot;SELECT id,Imie FROM baza&quot;;
@@ -262,9 +307,9 @@ if(
     ;&quot;;
     mysqli_query($pol,$zap) or die(mysqli_error($pol));
     echo&quot;Dodano $lowisko, $data, $sedzia&quot;;
-?&gt;
 
 }
+?&gt;
 </code></pre> <h4>Przykład 2 BMI</h4> <pre><code class="language-php">&lt;h2&gt;Podaj wagę i wzrost&lt;/h2&gt;
 &lt;form action=&quot;bmi.php&quot; method=&quot;POST&quot;&gt;
     &lt;label for=&quot;waga&quot;&gt;Waga: &lt;/label&gt;
@@ -294,7 +339,7 @@ if( isset($_POST['waga']) &amp;&amp; isset($_POST['wzrost']) ){
 
     mysqli_query($polaczenie, $sql2);
 }
-
+?&gt;
 </code></pre> <h2>Wyświetlanie po ID</h2> <pre><code class="language-php">&lt;p&gt;Podaj pozycje zawodników (1-bramkarze, 2-obrońcy, 3-pomocnicy, 4-napastnicy):&lt;/p&gt;
 &lt;form action=&quot;futbol.php&quot; method=&quot;POST&quot;&gt;
     &lt;input type=&quot;number&quot; name=&quot;id&quot;&gt;
@@ -335,7 +380,7 @@ var liczba = document.querySelector('.liczba') //klasa
 var tablica = ['Tomek','Jakub','Kamil'];
 var wynik = 'Imiona: ';
 for(var i=0; i &lt; tablica.length; i++){
-    wynik += tablica[i] + ', '
+    wynik += tablica[i] + ', ';
 }
 document.write(wynik);
 </code></pre> <h4>ZDARZENIA</h4> <pre><code class="language-JS">onclick //klikniecie
@@ -717,9 +762,7 @@ Delta:
 • LIMIT [... limit 10 ; na samym końcu]
 • LIKE = (nazwisko like '%a' or nazwisko like 'a%');
 • IN(30,20);
-
-//AGREGACJA_DANYCH
-• COUNT() - liczy wystąpienia;
+</code></pre> <h4>FUNKCJE AGREGUJĄCE</h4> <pre><code>• COUNT() - liczy wystąpienia;
 • SUM() - sumuje;
 • MIN() - zwraca najmiejszą wartość;
 • MAX() - zwraca najwiekszą wartość;
@@ -782,7 +825,9 @@ ALTER TABLE pracownicy DROP rozmiar_buta;
 //ZMIANA_NAZWY_KOLUMNY
 ALTER TABLE pracownicy RENAME zatrudnieni;
 
-</code></pre> <h2>ZAPYTANIE</h2> <pre><code class="language-sql">
+</code></pre> <h2>Grupowanie</h2> <pre><code class="language-sql">[...] GROUP BY Gmina HAVING Gmina like 'a%';
+Having takie where, ale dla elementu po którym grupujemy
+
 //poszę policzyć ile jest powiatów w każdym województwie
 select
 	w.nazwa,

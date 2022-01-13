@@ -14,8 +14,9 @@
 • LIMIT [... limit 10 ; na samym końcu]
 • LIKE = (nazwisko like '%a' or nazwisko like 'a%');
 • IN(30,20);
-
-//AGREGACJA_DANYCH
+```
+#### FUNKCJE AGREGUJĄCE
+```
 • COUNT() - liczy wystąpienia;
 • SUM() - sumuje;
 • MIN() - zwraca najmiejszą wartość;
@@ -116,11 +117,10 @@ ALTER TABLE pracownicy RENAME zatrudnieni;
 
 ```
 
-
-
-## ZAPYTANIE
-
+## Grupowanie
 ```sql
+[...] GROUP BY Gmina HAVING Gmina like 'a%';
+Having takie where, ale dla elementu po którym grupujemy
 
 //poszę policzyć ile jest powiatów w każdym województwie
 select
